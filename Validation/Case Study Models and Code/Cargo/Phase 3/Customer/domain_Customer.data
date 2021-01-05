@@ -1,0 +1,37 @@
+context Customer {
+	structure CustomerRepository <repository> {
+		ListCustomer customer,
+	
+		// D2: Assign concrete names to parameters
+		//		string unnamed --> string nameSelector
+		function ListCustomer findbyname(string nameSelector),
+		
+		// D2: Assign concrete names to parameters
+		//		string unnamed --> string customerIDSelector
+		function ListCustomer findbyCustomerID(string customerIDSelector)
+	}
+
+	structure Customer <entity> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified name --> string name		
+		string name,
+		
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified customerID --> long customerID
+		long customerID <identifier>
+	}
+
+	list ListCustomer {
+		Customer customer
+	}
+
+	structure CustomerShared <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified customerID --> long customerID
+		long customerID
+	}
+
+	list ListCustomerShared {
+		CustomerShared customerShared
+	}
+}

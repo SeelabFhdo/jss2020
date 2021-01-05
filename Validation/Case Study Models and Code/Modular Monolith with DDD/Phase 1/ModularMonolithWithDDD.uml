@@ -1,0 +1,1944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RootElement="institute.idial.ddmmprofile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="institute.idial.ddmmprofile ddmm.profile.uml#_DNtqYCLFEeusa6UCuSH0nw">
+  <uml:Model xmi:id="_a2pIwB0NEeurX9zouDAhfA" name="ModularMonolithWithDDD">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_a9TKYB0NEeurX9zouDAhfA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_iHSr4B0NEeurX9zouDAhfA" name="UserAccess">
+      <packagedElement xmi:type="uml:Class" xmi:id="_qJnjkB0NEeurX9zouDAhfA" name="Permission"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fLMRsB0OEeurX9zouDAhfA" name="UserRole">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_KkYUoB9REeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/UserAccess/Domain/Users/UserRole.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_6UO7kB0OEeurX9zouDAhfA" name="User">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uQfLwB9REeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/UserAccess/Domain/Users/User.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_OGQ7oB0PEeurX9zouDAhfA" name="User Registration">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_E7IXsB9SEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/UserAccess/Domain/UserRegistrations/UserRegistration.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_iNXMwB0PEeurX9zouDAhfA" name="User Registration Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NHmC0B9SEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/UserAccess/Domain/UserRegistrations/UserRegistrationStatus.cs</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_leuP0B0PEeurX9zouDAhfA" name="WaitingForConfirmation"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qX6MUB0PEeurX9zouDAhfA" name="Confirmed"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sfSIgB0PEeurX9zouDAhfA" name="Expired"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eL4dwCX2EeuNW7ZR1n2KZQ" name="NewUserRegisteredDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iVmFICX2EeuNW7ZR1n2KZQ" name="login">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lnTGcCX2EeuNW7ZR1n2KZQ" name="email">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nOUHkCX2EeuNW7ZR1n2KZQ" name="firstName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pB_rsCX2EeuNW7ZR1n2KZQ" name="lastName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rBca8CX2EeuNW7ZR1n2KZQ" name="registerDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_teMxQCX2EeuNW7ZR1n2KZQ" name="confirmLink">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_0wAK8CX2EeuNW7ZR1n2KZQ" name="UserRegistrationId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3AeYwCX2EeuNW7ZR1n2KZQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_LnFQYCX3EeuNW7ZR1n2KZQ" name="UserRegistrationConfirmedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_YolX0CX3EeuNW7ZR1n2KZQ" name="UserRegistrationExpiredDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_1XZssCX3EeuNW7ZR1n2KZQ" name="UserId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5evVgCX3EeuNW7ZR1n2KZQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_9GwlECX3EeuNW7ZR1n2KZQ" name="UserCreatedDomainEvent"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_lDrvEB0OEeurX9zouDAhfA" name="has>" memberEnd="_lDzq4B0OEeurX9zouDAhfA _lD05AR0OEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lDwnkB0OEeurX9zouDAhfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lDxOoB0OEeurX9zouDAhfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_lD05AR0OEeurX9zouDAhfA" name="userrole" type="_fLMRsB0OEeurX9zouDAhfA" association="_lDrvEB0OEeurX9zouDAhfA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o2JUEB0OEeurX9zouDAhfA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_lDzq4B0OEeurX9zouDAhfA" name="permission" type="_qJnjkB0NEeurX9zouDAhfA" association="_lDrvEB0OEeurX9zouDAhfA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lD05AB0OEeurX9zouDAhfA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="__byrQB0OEeurX9zouDAhfA" name="&lt;has" visibility="protected" memberEnd="__b1HgB0OEeurX9zouDAhfA __b_fkB0OEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__bz5YB0OEeurX9zouDAhfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__b0gcB0OEeurX9zouDAhfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="__b1HgB0OEeurX9zouDAhfA" name="userrole" type="_fLMRsB0OEeurX9zouDAhfA" association="__byrQB0OEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ETmHsB0PEeurX9zouDAhfA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ETqZIB0PEeurX9zouDAhfA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="__b_fkB0OEeurX9zouDAhfA" name="user" type="_6UO7kB0OEeurX9zouDAhfA" association="__byrQB0OEeurX9zouDAhfA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RnBsoB0PEeurX9zouDAhfA" name="created for>" memberEnd="_RnCTsh0PEeurX9zouDAhfA _RnC6wB0PEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RnCTsB0PEeurX9zouDAhfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RnCTsR0PEeurX9zouDAhfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RnCTsh0PEeurX9zouDAhfA" name="userregistration" type="_OGQ7oB0PEeurX9zouDAhfA" association="_RnBsoB0PEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_td8sAB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RnC6wB0PEeurX9zouDAhfA" name="user" type="_6UO7kB0OEeurX9zouDAhfA" association="_RnBsoB0PEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t46JsB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_yW9tkB0PEeurX9zouDAhfA" name="&lt;is in" memberEnd="_yW_iwB0PEeurX9zouDAhfA _yXAw4B0PEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yW-7sB0PEeurX9zouDAhfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yW-7sR0PEeurX9zouDAhfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_yW_iwB0PEeurX9zouDAhfA" name="user registration status" type="_iNXMwB0PEeurX9zouDAhfA" association="_yW9tkB0PEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0tRZcB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_yXAw4B0PEeurX9zouDAhfA" name="userregistration" type="_OGQ7oB0PEeurX9zouDAhfA" association="_yW9tkB0PEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Oqx4B-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_QDyQ4B0SEeurX9zouDAhfA" name="Administration">
+      <packagedElement xmi:type="uml:Class" xmi:id="_UwYi4B0SEeurX9zouDAhfA" name="Administrator"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_xuIroB0SEeurX9zouDAhfA" name="Meeting Group Proposal Decision">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6Er9IB9SEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Administration/Domain/MeetingGroupProposals/MeetingGroupProposalDecision.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_z6Qk8B0SEeurX9zouDAhfA" name="Accept"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_0nxLMB0SEeurX9zouDAhfA" name="Reject"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_E-t2EB50EeuXBLDrLiAGXg" name="Meeting Group Proposal Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ADcakB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Administration/Domain/MeetingGroupProposals/MeetingGroupProposalStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KMYNwB50EeuXBLDrLiAGXg" name="Accepted"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_K5KbQB50EeuXBLDrLiAGXg" name="InVerification"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_MnMqYB50EeuXBLDrLiAGXg" name="Rejected"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QXpdMB50EeuXBLDrLiAGXg" name="Meeting Group Proposal" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_3hJCUB9SEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Administration/Domain/MeetingGroupProposals/MeetingGroupProposal.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5ZlskCXzEeuNW7ZR1n2KZQ" name="MeetingGroupProposalAcceptedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_DMS8wCX0EeuNW7ZR1n2KZQ" name="MeetingGroupProposalId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GH4kICX0EeuNW7ZR1n2KZQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_RLATUCX0EeuNW7ZR1n2KZQ" name="MeetingGroupProposalRejectedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_dSMuoCX0EeuNW7ZR1n2KZQ" name="MeetingGroupProposalVerificationRequestedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_v4c4ECX0EeuNW7ZR1n2KZQ" name="MemberCreatedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2HQjsCX0EeuNW7ZR1n2KZQ" name="MemberId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7GTQkCX0EeuNW7ZR1n2KZQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_toW2ACX6EeuNW7ZR1n2KZQ" name="Member">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9aFCUCX6EeuNW7ZR1n2KZQ" name="_firstName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9aFCUSX6EeuNW7ZR1n2KZQ" name="_lastName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9aFCUiX6EeuNW7ZR1n2KZQ" name="_name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9aFpYCX6EeuNW7ZR1n2KZQ" name="_login">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9aFpYSX6EeuNW7ZR1n2KZQ" name="_email">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CgHIACX7EeuNW7ZR1n2KZQ" name="_createDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Pe89ACX7EeuNW7ZR1n2KZQ" name="Member" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XLqxECX7EeuNW7ZR1n2KZQ" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dbNcgCX7EeuNW7ZR1n2KZQ" name="login">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_eur2kCX7EeuNW7ZR1n2KZQ" name="email">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gje1ACX7EeuNW7ZR1n2KZQ" name="firstName">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_h5TYcCX7EeuNW7ZR1n2KZQ" name="lastName">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNF7kCX7EeuNW7ZR1n2KZQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_p5h-YCX7EeuNW7ZR1n2KZQ" name="create" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-YSX7EeuNW7ZR1n2KZQ" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-YiX7EeuNW7ZR1n2KZQ" name="login">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-YyX7EeuNW7ZR1n2KZQ" name="email">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-ZCX7EeuNW7ZR1n2KZQ" name="firstName">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-ZSX7EeuNW7ZR1n2KZQ" name="lastName">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_p5h-ZiX7EeuNW7ZR1n2KZQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_u9AfUCX7EeuNW7ZR1n2KZQ" type="_toW2ACX6EeuNW7ZR1n2KZQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_2-t0cB0SEeurX9zouDAhfA" name="is making >" memberEnd="_2-ubgh0SEeurX9zouDAhfA _2-vCkB0SEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2-ubgB0SEeurX9zouDAhfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2-ubgR0SEeurX9zouDAhfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2-ubgh0SEeurX9zouDAhfA" name="meeting group proposal decision" type="_xuIroB0SEeurX9zouDAhfA" association="_2-t0cB0SEeurX9zouDAhfA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rhSpcB3DEeugMZpZTGn_-g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rhW64B3DEeugMZpZTGn_-g" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2-vCkB0SEeurX9zouDAhfA" name="administrator" type="_UwYi4B0SEeurX9zouDAhfA" association="_2-t0cB0SEeurX9zouDAhfA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xFW7cB5yEeuXBLDrLiAGXg" name="&lt; is a" memberEnd="_xFgFYB5yEeuXBLDrLiAGXg _xFihoB5yEeuXBLDrLiAGXg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xFe3QB5yEeuXBLDrLiAGXg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xFfeUB5yEeuXBLDrLiAGXg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xFgFYB5yEeuXBLDrLiAGXg" name="user" type="_6UO7kB0OEeurX9zouDAhfA" association="_xFW7cB5yEeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_52fWAB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xFihoB5yEeuXBLDrLiAGXg" name="administrator" type="_UwYi4B0SEeurX9zouDAhfA" association="_xFW7cB5yEeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5khcQB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_VBYBYB50EeuXBLDrLiAGXg" name="for >" memberEnd="_VBadoB50EeuXBLDrLiAGXg _VBc54B50EeuXBLDrLiAGXg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VBZPgB50EeuXBLDrLiAGXg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VBZ2kB50EeuXBLDrLiAGXg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_VBadoB50EeuXBLDrLiAGXg" name="meeting group proposal" type="_QXpdMB50EeuXBLDrLiAGXg" association="_VBYBYB50EeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9u_RkB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_VBc54B50EeuXBLDrLiAGXg" name="meeting group proposal decision" type="_xuIroB0SEeurX9zouDAhfA" association="_VBYBYB50EeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8m_HsB-HEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_W14r8B50EeuXBLDrLiAGXg" name="&lt; is in" memberEnd="_W15TAh50EeuXBLDrLiAGXg _W156EB50EeuXBLDrLiAGXg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_W15TAB50EeuXBLDrLiAGXg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_W15TAR50EeuXBLDrLiAGXg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_W15TAh50EeuXBLDrLiAGXg" name="meeting group proposal status" type="_E-t2EB50EeuXBLDrLiAGXg" association="_W14r8B50EeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EcBxUB-IEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_W156EB50EeuXBLDrLiAGXg" name="meeting group proposal" type="_QXpdMB50EeuXBLDrLiAGXg" association="_W14r8B50EeuXBLDrLiAGXg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EGpXMB-IEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_osLYEB50EeuXBLDrLiAGXg" name="Meetings">
+      <packagedElement xmi:type="uml:Class" xmi:id="_yCQWoB50EeuXBLDrLiAGXg" name="Member">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m87zsB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Members/Member.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="__PPLUB7iEeuYOqd83ubZVQ" name="Meeting Group Proposal">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_G-gIMB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/MeetingGroupProposals/MeetingGroupProposal.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_Rnk0kB7jEeuYOqd83ubZVQ" name="Meeting Group Proposal Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ygNpoB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/MeetingGroupProposals/MeetingGroupProposalStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YJ1AoB7jEeuYOqd83ubZVQ" name="Accepted"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_auhyAB7jEeuYOqd83ubZVQ" name="InVerification"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_b42QEB7jEeuYOqd83ubZVQ" name="Rejected"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hBZo0B7kEeuYOqd83ubZVQ" name="Meeting Attendee">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_maRWEB9UEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Meetings/MeetingAttendee.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_E6XQMB7lEeuYOqd83ubZVQ" name="Meeting Not Attendee">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qSngoB9UEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Meetings/MeetingNotAttendee.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_SOk4QB7lEeuYOqd83ubZVQ" name="Meeting Waitlist Member">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tKfssB9UEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Meetings/MeetingWaitlistMember.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_aTqwEB7lEeuYOqd83ubZVQ" name="Meeting">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_5q4gkB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Meetings/Meeting.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KkrSMB7mEeuYOqd83ubZVQ" name="Meeting Group">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_1NrVcB9TEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/MeetingGroups/MeetingGroup.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_leRK0B7mEeuYOqd83ubZVQ" name="Meeting Location">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_g2CRcB9UEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Meetings/MeetingLocation.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_1ZyzYB7mEeuYOqd83ubZVQ" name="Member Subscription">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_11wzsB9UEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/Domain/Members/MemberSubscriptions/MemberSubscription.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_i1_McCQ1EeuvLIb44-hM_Q" name="MeetingCommentingConfigurationCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vrMkUCQ1EeuvLIb44-hM_Q" name="isEnabled">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2kYpsCQ1EeuvLIb44-hM_Q" name="MeetingId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5_EA0CQ1EeuvLIb44-hM_Q" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rLwnwCQ5EeuA0MTklED0Eg" name="MeetingCommentingDisabledDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_7TPosCQ5EeuA0MTklED0Eg" name="MeetingCommentingEnabledDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WvHRgCRGEeuA0MTklED0Eg" name="MeetingCommentId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cr_foCRGEeuA0MTklED0Eg" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_i1hCoCRGEeuA0MTklED0Eg" name="MeetingCommentAddedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zbad4CRGEeuA0MTklED0Eg" name="comment">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-xrLgCRGEeuA0MTklED0Eg" name="MeetingCommentEditedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HgUWoCRHEeuA0MTklED0Eg" name="editedComment">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KNiK0CRHEeuA0MTklED0Eg" name="MeetingCommentRemovedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_i3VLECRHEeuA0MTklED0Eg" name="ReplyToMeetingCommentAddedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pIXrUCRHEeuA0MTklED0Eg" name="reply">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_p9hhgCTSEeuSHYD9L9m2uw" name="MeetingGroupProposalId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3cDjMCTSEeuSHYD9L9m2uw" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_8kk8MCTSEeuSHYD9L9m2uw" name="MeetingGroupProposalAcceptedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NhzSUCTTEeuSHYD9L9m2uw" name="MeetingGroupProposedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WM8dgCTTEeuSHYD9L9m2uw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZKfzwCTTEeuSHYD9L9m2uw" name="description">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kFfhsCTTEeuSHYD9L9m2uw" name="locationCity">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_l_ABACTTEeuSHYD9L9m2uw" name="locationCountryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pMNj4CTTEeuSHYD9L9m2uw" name="proposalDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zmlRACTTEeuSHYD9L9m2uw" name="MemberId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_2DweECTTEeuSHYD9L9m2uw" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_p6fhACTlEeuUMtIKQzCWTA" name="MeetingAttendeeChangedDecisionDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Vlb28CTmEeuUMtIKQzCWTA" name="MeetingGroupCreatedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bwo08CTmEeuUMtIKQzCWTA" name="MeetingGroupId">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dOZMYCTmEeuUMtIKQzCWTA" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Ok7r0CTqEeuUMtIKQzCWTA" name="MeetingGroupLocation">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TG-6sCTqEeuUMtIKQzCWTA" name="city">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XQbcUCTqEeuUMtIKQzCWTA" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_buYRgCTuEeuUMtIKQzCWTA" name="createNew">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kyUXMCTuEeuUMtIKQzCWTA" name="city">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mr2EoCTuEeuUMtIKQzCWTA" name="countryCode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_qtW80CTvEeuUMtIKQzCWTA" type="_Ok7r0CTqEeuUMtIKQzCWTA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fdBqUCTqEeuUMtIKQzCWTA" name="MeetingGroupGeneralAttributesEditedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jP8iUCTqEeuUMtIKQzCWTA" name="newName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k8De0CTqEeuUMtIKQzCWTA" name="newDescription">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5Ro34CTqEeuUMtIKQzCWTA" name="MeetingGroupMemberLeftGroupDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZoTLQCTtEeuUMtIKQzCWTA" name="MeetingGroupPaymentInfoUpdatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9u7bMCTtEeuUMtIKQzCWTA" name="paymentDateTo">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZHsbwCTxEeuUMtIKQzCWTA" name="MeetingNotAttendeeChangedDecisionDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_r1YYACTzEeuUMtIKQzCWTA" name="NewMeetingGroupMemberJoinedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UyWEwCT0EeuUMtIKQzCWTA" name="MeetingGroupMemberRole">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_F9Lx4CT1EeuUMtIKQzCWTA" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_aZiWwCT0EeuUMtIKQzCWTA" name="Organizer">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rpYG4CT0EeuUMtIKQzCWTA" type="_UyWEwCT0EeuUMtIKQzCWTA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7sT_ACT0EeuUMtIKQzCWTA" name="Member">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_C2Do4CT1EeuUMtIKQzCWTA" type="_UyWEwCT0EeuUMtIKQzCWTA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gX9nkCT1EeuUMtIKQzCWTA" name="of">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_j3MukCT1EeuUMtIKQzCWTA" name="roleCode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_lmjzYCT1EeuUMtIKQzCWTA" type="_UyWEwCT0EeuUMtIKQzCWTA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-cx5sCUvEeuUMtIKQzCWTA" name="MeetingAttendeeAddedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_O7vmgCUwEeuUMtIKQzCWTA" name="rsvpDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RT8M8CUwEeuUMtIKQzCWTA" name="role">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_T5ZMQCUwEeuUMtIKQzCWTA" name="guestsNumber">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_amL0YCUwEeuUMtIKQzCWTA" name="feeValue">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_dIZScCUwEeuUMtIKQzCWTA" name="feeCurrency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rVMvYCUwEeuUMtIKQzCWTA" name="MeetingAttendeeFeePaidDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_N-0OwCUxEeuUMtIKQzCWTA" name="MeetingAttendeeRemovedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SS5TECUxEeuUMtIKQzCWTA" name="reason">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_maZz4CUxEeuUMtIKQzCWTA" name="MeetingCanceledDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qS-n8CUxEeuUMtIKQzCWTA" name="cancelDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_9QA5sCUxEeuUMtIKQzCWTA" name="MeetingCreatedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_TWRmMCUyEeuUMtIKQzCWTA" name="MeetingEditedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Wnp3YCUyEeuUMtIKQzCWTA" name="meetingId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fOXOgCUyEeuUMtIKQzCWTA" name="MeetingMainAttributesChangedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-w_u0CUyEeuUMtIKQzCWTA" name="MeetingNotAttendeeAddedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_RQXNICUzEeuUMtIKQzCWTA" name="MeetingWaitlistMemberAddedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_sbbQQCUzEeuUMtIKQzCWTA" name="MemberSetAsAttendeeDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_BzKp4CU0EeuUMtIKQzCWTA" name="MemberSignedOffFromMeetingWaitlistDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_RI1MUCU0EeuUMtIKQzCWTA" name="NewMeetingHostSetDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_h-h-ICU0EeuUMtIKQzCWTA" name="MemberCreatedDomainEvent"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5dRggCU0EeuUMtIKQzCWTA" name="MemberSubscriptionExpirationDateChangedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9nTQ8CU0EeuUMtIKQzCWTA" name="expirationDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_g9yLcCU3EeuUMtIKQzCWTA" name="MemberCreatedIntegrationEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mPy3oCU3EeuUMtIKQzCWTA" name="memberId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ruNoICU3EeuUMtIKQzCWTA" name="id">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uHRxQCU3EeuUMtIKQzCWTA" name="occurredOn">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FwB-0B7jEeuYOqd83ubZVQ" name="proposes >" memberEnd="_FwFCIB7jEeuYOqd83ubZVQ _FwG3UB7jEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FwD0AB7jEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FwEbEB7jEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FwFCIB7jEeuYOqd83ubZVQ" name="meeting group proposal" type="__PPLUB7iEeuYOqd83ubZVQ" association="_FwB-0B7jEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FkIW8B-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FwG3UB7jEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_FwB-0B7jEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_eXuGQB7jEeuYOqd83ubZVQ" name="is in>" memberEnd="_eXwigB7jEeuYOqd83ubZVQ _eXy-wB7jEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eXv7cB7jEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eXv7cR7jEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_eXwigB7jEeuYOqd83ubZVQ" name="meeting group proposal status" type="_Rnk0kB7jEeuYOqd83ubZVQ" association="_eXuGQB7jEeuYOqd83ubZVQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_eXy-wB7jEeuYOqd83ubZVQ" name="meeting group proposal" type="__PPLUB7iEeuYOqd83ubZVQ" association="_eXuGQB7jEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uBPjYB7kEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uBnW0B7kEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_tdgZoB7jEeuYOqd83ubZVQ" name="&lt; is a" memberEnd="_tdhnwB7jEeuYOqd83ubZVQ _tdhnwR7jEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tdhAsB7jEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tdhAsR7jEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_tdhnwB7jEeuYOqd83ubZVQ" name="user" type="_6UO7kB0OEeurX9zouDAhfA" association="_tdgZoB7jEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X6RAwB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_tdhnwR7jEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_tdgZoB7jEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YUyZkB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kitMYB7kEeuYOqd83ubZVQ" name="is >" memberEnd="_kitzch7kEeuYOqd83ubZVQ _kiuagB7kEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kitzcB7kEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kitzcR7kEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kitzch7kEeuYOqd83ubZVQ" name="meeting attendee" type="_hBZo0B7kEeuYOqd83ubZVQ" association="_kitMYB7kEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wCykYB7kEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wC4D8B7kEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kiuagB7kEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_kitMYB7kEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_JHy58B7lEeuYOqd83ubZVQ" name="is >" memberEnd="_JH0IEh7lEeuYOqd83ubZVQ _JH0vIB7lEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JH0IEB7lEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JH0IER7lEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_JH0IEh7lEeuYOqd83ubZVQ" name="meeting not attendee" type="_E6XQMB7lEeuYOqd83ubZVQ" association="_JHy58B7lEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ONfocB7lEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ONqAgB7lEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_JH0vIB7lEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_JHy58B7lEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_WX76UB7lEeuYOqd83ubZVQ" name="is >" memberEnd="_WX9vgR7lEeuYOqd83ubZVQ _WYALwB7lEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WX9IcB7lEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WX9vgB7lEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WX9vgR7lEeuYOqd83ubZVQ" name="meeting waitlist member" type="_SOk4QB7lEeuYOqd83ubZVQ" association="_WX76UB7lEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y4r_0B7lEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y4wRQB7lEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WYALwB7lEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_WX76UB7lEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_bn1GoB7lEeuYOqd83ubZVQ" name="&lt;attendees" memberEnd="_bn270R7lEeuYOqd83ubZVQ _bn3i4B7lEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bn2UwB7lEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bn270B7lEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bn270R7lEeuYOqd83ubZVQ" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_bn1GoB7lEeuYOqd83ubZVQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bn3i4B7lEeuYOqd83ubZVQ" name="meeting attendee" type="_hBZo0B7kEeuYOqd83ubZVQ" association="_bn1GoB7lEeuYOqd83ubZVQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dYRwkB7lEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kZ6AQB7lEeuYOqd83ubZVQ" name="&lt; not attendees" memberEnd="_kZ71cR7lEeuYOqd83ubZVQ _kZ9DkB7lEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kZ7OYB7lEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kZ71cB7lEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kZ71cR7lEeuYOqd83ubZVQ" name="meeting not attendee" type="_E6XQMB7lEeuYOqd83ubZVQ" association="_kZ6AQB7lEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p1vW0B7lEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p15H0B7lEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kZ9DkB7lEeuYOqd83ubZVQ" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_kZ6AQB7lEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_rLb-cB7lEeuYOqd83ubZVQ" name="waits for place for>" memberEnd="_rLdzoB7lEeuYOqd83ubZVQ _rLfBwB7lEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rLdMkB7lEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rLdMkR7lEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_rLdzoB7lEeuYOqd83ubZVQ" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_rLb-cB7lEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6aUJ4B-JEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_rLfBwB7lEeuYOqd83ubZVQ" name="meeting waitlist member" type="_SOk4QB7lEeuYOqd83ubZVQ" association="_rLb-cB7lEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M00l4B9UEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M03CIB9UEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NGUvkB7mEeuYOqd83ubZVQ" name="&lt; created after acceptance of" memberEnd="_NGWkwR7mEeuYOqd83ubZVQ _NGYZ8B7mEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NGV9sB7mEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NGWkwB7mEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_NGWkwR7mEeuYOqd83ubZVQ" name="meeting group proposal" type="__PPLUB7iEeuYOqd83ubZVQ" association="_NGUvkB7mEeuYOqd83ubZVQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_NGYZ8B7mEeuYOqd83ubZVQ" name="meeting group" type="_KkrSMB7mEeuYOqd83ubZVQ" association="_NGUvkB7mEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T5NYoB7mEeuYOqd83ubZVQ"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aglVQB7mEeuYOqd83ubZVQ" name="&lt; organize" memberEnd="_agmjYR7mEeuYOqd83ubZVQ _agnxgB7mEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agl8UB7mEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_agmjYB7mEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_agmjYR7mEeuYOqd83ubZVQ" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_aglVQB7mEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eZqfoB7mEeuYOqd83ubZVQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eZuxEB7mEeuYOqd83ubZVQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_agnxgB7mEeuYOqd83ubZVQ" name="meeting group" type="_KkrSMB7mEeuYOqd83ubZVQ" association="_aglVQB7mEeuYOqd83ubZVQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_udK_gB7mEeuYOqd83ubZVQ" name="has >" memberEnd="_udM0sB7mEeuYOqd83ubZVQ _udOC0B7mEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_udMNoB7mEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_udMNoR7mEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_udM0sB7mEeuYOqd83ubZVQ" name="meeting location" type="_leRK0B7mEeuYOqd83ubZVQ" association="_udK_gB7mEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iIMp0B-JEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_udOC0B7mEeuYOqd83ubZVQ" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_udK_gB7mEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hCbUkB-JEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_It7WgB7nEeuYOqd83ubZVQ" name="has >" memberEnd="_It9LsR7nEeuYOqd83ubZVQ _It-Z0B7nEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_It8koB7nEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_It9LsB7nEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_It9LsR7nEeuYOqd83ubZVQ" name="member subscription" type="_1ZyzYB7mEeuYOqd83ubZVQ" association="_It7WgB7nEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SWXTUB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_It-Z0B7nEeuYOqd83ubZVQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_It7WgB7nEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SwdOUB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_TFtpsB7nEeuYOqd83ubZVQ" name="covers >" memberEnd="_TFu30B7nEeuYOqd83ubZVQ _TFu30R7nEeuYOqd83ubZVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TFuQwB7nEeuYOqd83ubZVQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TFuQwR7nEeuYOqd83ubZVQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TFu30B7nEeuYOqd83ubZVQ" name="meeting group" type="_KkrSMB7mEeuYOqd83ubZVQ" association="_TFtpsB7nEeuYOqd83ubZVQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TFu30R7nEeuYOqd83ubZVQ" name="member subscription" type="_1ZyzYB7mEeuYOqd83ubZVQ" association="_TFtpsB7nEeuYOqd83ubZVQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nSkc8B-JEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="___MmAB9NEeu6voIcOeLARA" name="Payments">
+      <packagedElement xmi:type="uml:Class" xmi:id="_x4WKoB9OEeu6voIcOeLARA" name="Payer">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cq-JwB9VEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/Payers/Payer.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZLTMoB9PEeu6voIcOeLARA" name="Meeting Fee">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gnN84B9VEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/MeetingFees/MeetingFee.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5yorMB9PEeu6voIcOeLARA" name="Meeting Fee Payment">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_phVYMB9VEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/MeetingFeePayments/MeetingFeePayment.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_KEWmMB9QEeu6voIcOeLARA" name="Meeting Fee Payment Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HoW2IB9WEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/MeetingFeePayments/MeetingFeePaymentStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TP1eUB9QEeu6voIcOeLARA" name="WaitingForPayment"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_UzBvYB9QEeu6voIcOeLARA" name="Paid"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VlRrsB9QEeu6voIcOeLARA" name="Expired"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_l4OVwB9QEeu6voIcOeLARA" name="Subscription">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_n4x-oB9YEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/Subscriptions/Subscription.cs</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0rt_QB9QEeu6voIcOeLARA" name="Expiration Date"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_vGuMAB9YEeu6voIcOeLARA" name="Subscription Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_O_QD0B9ZEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/Subscriptions/SubscriptionStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_xBsD4B9YEeu6voIcOeLARA" name="Active"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x2Bq4B9YEeu6voIcOeLARA" name="Expired"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_TFECoB9ZEeu6voIcOeLARA" name="Subscription Renewal Payment">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_d4-RIB9ZEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/SubscriptionRenewalPayments/SubscriptionRenewalPaymentId.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_ooOpIB9ZEeu6voIcOeLARA" name="Subscription Renewal Payment Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_C9tvIB9aEeu6voIcOeLARA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/SubscriptionRenewalPayments/SubscriptionRenewalPaymentStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_vSFSAB9ZEeu6voIcOeLARA" name="WaitingForPayment"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_w2ec8B9ZEeu6voIcOeLARA" name="Paid"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_xf7CkB9ZEeu6voIcOeLARA" name="Expired"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_JcaCUB-FEeuUA-JmX2-drA" name="Subscription Payment">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_P7C5sB-FEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/SubscriptionPayments/SubscriptionPayment.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_TtLukB-FEeuUA-JmX2-drA" name="Subscription Payment Status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_QY9S0B-HEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/SubscriptionPayments/SubscriptionPaymentStatus.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Y8d24B-FEeuUA-JmX2-drA" name="WaitingForPayment"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_aP3YcB-FEeuUA-JmX2-drA" name="Paid"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_a5wqAB-FEeuUA-JmX2-drA" name="Expired"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_EcogMB-GEeuUA-JmX2-drA" name="Subscription Period">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NRoVgB-HEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/Subscriptions/SubscriptionPeriod.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Gu2acB-GEeuUA-JmX2-drA" name="Month"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_HfM5UB-GEeuUA-JmX2-drA" name="HalfYear"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Z072UB-NEeuUA-JmX2-drA" name="Price List Item">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_sJsAEB-NEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/PriceListItems/PriceListItem.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_t7eGwB-NEeuUA-JmX2-drA" name="Price List">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4aecQB-NEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/PriceListItems/PriceList.cs</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-NdukB-NEeuUA-JmX2-drA" name="Country"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_Sh8UYB-OEeuUA-JmX2-drA" name="Price List Item Category">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_leznAB-OEeuUA-JmX2-drA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/PriceListItems/PriceListItemCategory.cs</body>
+        </ownedComment>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_UyBgoB-OEeuUA-JmX2-drA" name="New"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VkWVcB-OEeuUA-JmX2-drA" name="Renewal"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_kHfFQCOgEeuFjZZVYSPDsA" name="MeetingFeePaymentCreatedDomainEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_htgZUCOkEeuFjZZVYSPDsA">
+          <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Payments/Domain/MeetingFeePayments/Events/MeetingFeePaymentCreatedDomainEvent.cs</body>
+        </ownedComment>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nMu-8COgEeuFjZZVYSPDsA" name="meetingFeePaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_NkC4ECOhEeuFjZZVYSPDsA" name="meetingFeeId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PcC7gCOhEeuFjZZVYSPDsA" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_92My0CQnEeu0Rb5aGSBBtQ" name="MeetingFeeCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GWYEICQoEeu0Rb5aGSBBtQ" name="meetingFeeId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HoyHMCQoEeu0Rb5aGSBBtQ" name="feeValue">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IeK3ECQoEeu0Rb5aGSBBtQ" name="feeCurrency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MP1x4CQoEeu0Rb5aGSBBtQ" name="meetingId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Nt2A8CQoEeu0Rb5aGSBBtQ" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ROW6UCQoEeu0Rb5aGSBBtQ" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_iZPcgCQpEeuvLIb44-hM_Q" name="MeetingFeeCanceledDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nOkzwCQpEeuvLIb44-hM_Q" name="meetingFeeId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pmK9QCQpEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_SDdEYCQqEeuvLIb44-hM_Q" name="MeetingFeePaymentExpiredDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ev7-ECQqEeuvLIb44-hM_Q" name="meetingFeePaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fHErsCQqEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_nTZM4CQqEeuvLIb44-hM_Q" name="MeetingFeePaymentPaidDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_reTHECQqEeuvLIb44-hM_Q" name="meetingFeePaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_reTuICQqEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_8sG24CQqEeuvLIb44-hM_Q" name="MeetingFeeExpiredDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__mPswCQqEeuvLIb44-hM_Q" name="meetingFeeId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__mSJACQqEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QGRwkCQrEeuvLIb44-hM_Q" name="MeetingFeePaidDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_T0Mz0CQrEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_T0Mz0SQrEeuvLIb44-hM_Q" name="meetingFeeId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Y63ysCQrEeuvLIb44-hM_Q" name="PayerCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c8E-UCQrEeuvLIb44-hM_Q" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_hkNAACQrEeuvLIb44-hM_Q" name="login">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kaJ5cCQrEeuvLIb44-hM_Q" name="firstName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kwadUCQrEeuvLIb44-hM_Q" name="lastName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k6g0gCQrEeuvLIb44-hM_Q" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lC4tYCQrEeuvLIb44-hM_Q" name="email">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_vlQf8CQrEeuvLIb44-hM_Q" name="PriceListItemActivatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zv8-wCQrEeuvLIb44-hM_Q" name="priceListItemId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_72OiUCQrEeuvLIb44-hM_Q" name="PriceListItemAttributesChangedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__czAYCQrEeuvLIb44-hM_Q" name="priceListItemId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DD8GMCQsEeuvLIb44-hM_Q" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DJgisCQsEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DO2VsCQsEeuvLIb44-hM_Q" name="categoryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DaQUcCQsEeuvLIb44-hM_Q" name="currency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IaTt8CQsEeuvLIb44-hM_Q" name="price">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WEjQYCQsEeuvLIb44-hM_Q" name="PriceListItemCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-zFsCQsEeuvLIb44-hM_Q" name="price">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-zswCQsEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-0T0CQsEeuvLIb44-hM_Q" name="currency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-064CQsEeuvLIb44-hM_Q" name="categoryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-064SQsEeuvLIb44-hM_Q" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c-1h8CQsEeuvLIb44-hM_Q" name="priceListItemId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jlLj0CQsEeuvLIb44-hM_Q" name="isActive">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_m8NKACQsEeuvLIb44-hM_Q" name="PriceListItemDeactivatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_p7ciUCQsEeuvLIb44-hM_Q" name="priceListItemId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xBDTECQsEeuvLIb44-hM_Q" name="SubscriptionPaymentCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1tChECQsEeuvLIb44-hM_Q" name="subscriptionPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7nTgECQsEeuvLIb44-hM_Q" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__vVFYCQsEeuvLIb44-hM_Q" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__vYIsCQsEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AH4vUCQtEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DXrFECQtEeuvLIb44-hM_Q" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Fkyc4CQtEeuvLIb44-hM_Q" name="currency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QhTNwCQtEeuvLIb44-hM_Q" name="SubscriptionPaymentExpiredDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UD6Y4CQtEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UD6Y4SQtEeuvLIb44-hM_Q" name="subscriptionPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WtC-UCQtEeuvLIb44-hM_Q" name="SubscriptionPaymentPaidDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bbu7ACQtEeuvLIb44-hM_Q" name="subscriptionPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_b23-4CQtEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_gFkM4CQtEeuvLIb44-hM_Q" name="SubscriptionRenewalPaymentCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kU4tACQtEeuvLIb44-hM_Q" name="subscriptionRenewalPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_m7CP4CQtEeuvLIb44-hM_Q" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_n7ZgsCQtEeuvLIb44-hM_Q" name="subscriptionId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zwPAsCQtEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zwQO0CQtEeuvLIb44-hM_Q" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1ihdsCQtEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1ilvICQtEeuvLIb44-hM_Q" name="currency">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1ipZgCQtEeuvLIb44-hM_Q" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_6WEsQCQtEeuvLIb44-hM_Q" name="SubscriptionRenewalPaymentPaidDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__MVQkCQtEeuvLIb44-hM_Q" name="subscriptionId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__MWesCQtEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__MXFwCQtEeuvLIb44-hM_Q" name="subscriptionRenewalPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_LuxdcCQuEeuvLIb44-hM_Q" name="SubscriptionCreatedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PYA1ACQuEeuvLIb44-hM_Q" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_PYA1ASQuEeuvLIb44-hM_Q" name="subscriptionPaymentId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QL03kCQuEeuvLIb44-hM_Q" name="subscriptionId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZDwhkCQuEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZD0L8CQuEeuvLIb44-hM_Q" name="countryCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bWn8ECQuEeuvLIb44-hM_Q" name="expirationDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ekj3sCQuEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_knJFMCQuEeuvLIb44-hM_Q" name="SubscriptionExpiredDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mmUusCQuEeuvLIb44-hM_Q" name="subscriptionId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nMunYCQuEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tIgpUCQuEeuvLIb44-hM_Q" name="SubscriptionRenewedDomainEvent">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uS3joCQuEeuvLIb44-hM_Q" name="subscriptionId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vEoXwCQuEeuvLIb44-hM_Q" name="expirationDate">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_v9t74CQuEeuvLIb44-hM_Q" name="payerId">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_y0QrMCQuEeuvLIb44-hM_Q" name="status">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_y0QrMSQuEeuvLIb44-hM_Q" name="subscriptionPeriodCode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_17w8wB9OEeu6voIcOeLARA" memberEnd="_170AEB9OEeu6voIcOeLARA _171OMB9OEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_17yx8B9OEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_17yx8R9OEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_170AEB9OEeu6voIcOeLARA" name="user" type="_6UO7kB0OEeurX9zouDAhfA" association="_17w8wB9OEeu6voIcOeLARA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_171OMB9OEeu6voIcOeLARA" name="payer" type="_x4WKoB9OEeu6voIcOeLARA" association="_17w8wB9OEeu6voIcOeLARA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8B1jIB9OEeu6voIcOeLARA" name="&lt; is" memberEnd="_8B2KMh9OEeu6voIcOeLARA _8B2xQB9OEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8B2KMB9OEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8B2KMR9OEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8B2KMh9OEeu6voIcOeLARA" name="payer" type="_x4WKoB9OEeu6voIcOeLARA" association="_8B1jIB9OEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dQGdAB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8B2xQB9OEeu6voIcOeLARA" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_8B1jIB9OEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c3yDoB-KEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_cXCI0B9PEeu6voIcOeLARA" name="pays for >" memberEnd="_cXCv4h9PEeu6voIcOeLARA _cXDW8B9PEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cXCv4B9PEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cXCv4R9PEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cXCv4h9PEeu6voIcOeLARA" name="meeting fee" type="_ZLTMoB9PEeu6voIcOeLARA" association="_cXCI0B9PEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h3PCAB9PEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h3T6gB9PEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cXDW8B9PEeu6voIcOeLARA" name="payer" type="_x4WKoB9OEeu6voIcOeLARA" association="_cXCI0B9PEeu6voIcOeLARA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_AK84IB9QEeu6voIcOeLARA" name="&lt; for" memberEnd="_AK-GQh9QEeu6voIcOeLARA _AK-tUB9QEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AK-GQB9QEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AK-GQR9QEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_AK-GQh9QEeu6voIcOeLARA" name="meeting fee" type="_ZLTMoB9PEeu6voIcOeLARA" association="_AK84IB9QEeu6voIcOeLARA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_AK-tUB9QEeu6voIcOeLARA" name="meeting fee payment" type="_5yorMB9PEeu6voIcOeLARA" association="_AK84IB9QEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H7qbYB9QEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H7sQkB9QEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XfA0gB9QEeu6voIcOeLARA" name="&lt; in" memberEnd="_XfCCoh9QEeu6voIcOeLARA _XfDQwB9QEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XfCCoB9QEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XfCCoR9QEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XfCCoh9QEeu6voIcOeLARA" name="meeting fee payment status" type="_KEWmMB9QEeu6voIcOeLARA" association="_XfA0gB9QEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FLv2sB-LEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XfDQwB9QEeu6voIcOeLARA" name="meeting fee payment" type="_5yorMB9PEeu6voIcOeLARA" association="_XfA0gB9QEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E9OSgB-LEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LQWQgB9WEeu6voIcOeLARA" name="buys >" memberEnd="_LQXeoR9WEeu6voIcOeLARA _LQYswB9WEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LQW3kB9WEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LQXeoB9WEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_LQXeoR9WEeu6voIcOeLARA" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_LQWQgB9WEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P9MaIB9WEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P9OPUB9WEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_LQYswB9WEeu6voIcOeLARA" name="payer" type="_x4WKoB9OEeu6voIcOeLARA" association="_LQWQgB9WEeu6voIcOeLARA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1qjFYB9YEeu6voIcOeLARA" name="&lt; is n" memberEnd="_1qjsch9YEeu6voIcOeLARA _1qkTgB9YEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1qjscB9YEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1qjscR9YEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1qjsch9YEeu6voIcOeLARA" name="subscription status" type="_vGuMAB9YEeu6voIcOeLARA" association="_1qjFYB9YEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_awCpIB-MEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1qkTgB9YEeu6voIcOeLARA" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_1qjFYB9YEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bBhasB-MEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_cGPvQB9ZEeu6voIcOeLARA" name="&lt; extended by" memberEnd="_cGQ9YB9ZEeu6voIcOeLARA _cGQ9YR9ZEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cGQWUB9ZEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cGQWUR9ZEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cGQ9YB9ZEeu6voIcOeLARA" name="subscription renewal payment" type="_TFECoB9ZEeu6voIcOeLARA" association="_cGPvQB9ZEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_todo0B9ZEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_torrQB9ZEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cGQ9YR9ZEeu6voIcOeLARA" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_cGPvQB9ZEeu6voIcOeLARA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ynJwYB9ZEeu6voIcOeLARA" name="&lt; in" memberEnd="_ynKXch9ZEeu6voIcOeLARA _ynLlkB9ZEeu6voIcOeLARA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ynKXcB9ZEeu6voIcOeLARA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ynKXcR9ZEeu6voIcOeLARA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ynKXch9ZEeu6voIcOeLARA" name="subscription renewal payment status" type="_ooOpIB9ZEeu6voIcOeLARA" association="_ynJwYB9ZEeu6voIcOeLARA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ynLlkB9ZEeu6voIcOeLARA" name="subscription renewal payment" type="_TFECoB9ZEeu6voIcOeLARA" association="_ynJwYB9ZEeu6voIcOeLARA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8wbGcB9ZEeu6voIcOeLARA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8wkQYB9ZEeu6voIcOeLARA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_cYSdgB-FEeuUA-JmX2-drA" name="&lt; in" memberEnd="_cYWH4B-FEeuUA-JmX2-drA _cYX9EB-FEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cYU5wB-FEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cYVg0B-FEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cYWH4B-FEeuUA-JmX2-drA" name="subscription payment status" type="_TtLukB-FEeuUA-JmX2-drA" association="_cYSdgB-FEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cYX9EB-FEeuUA-JmX2-drA" name="subscription payment" type="_JcaCUB-FEeuUA-JmX2-drA" association="_cYSdgB-FEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_re7sgB-FEeuUA-JmX2-drA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hBjHoB-FEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_zgXMUB-FEeuUA-JmX2-drA" name="for >" memberEnd="_zgZBgR-FEeuUA-JmX2-drA _zga2sB-FEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zgYacB-FEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zgZBgB-FEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zgZBgR-FEeuUA-JmX2-drA" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_zgXMUB-FEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zga2sB-FEeuUA-JmX2-drA" name="subscription payment" type="_JcaCUB-FEeuUA-JmX2-drA" association="_zgXMUB-FEeuUA-JmX2-drA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3fvL8B-FEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_wgZl0B-GEeuUA-JmX2-drA" name="&lt; for" memberEnd="_wgcCER-GEeuUA-JmX2-drA _wgd3QB-GEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wgbbAB-GEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wgcCEB-GEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wgcCER-GEeuUA-JmX2-drA" name="subscription period" type="_EcogMB-GEeuUA-JmX2-drA" association="_wgZl0B-GEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wgd3QB-GEeuUA-JmX2-drA" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_wgZl0B-GEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ou-D8B-MEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_6czkkB-GEeuUA-JmX2-drA" name="for >" memberEnd="_6c0Loh-GEeuUA-JmX2-drA _6c0ysB-GEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6c0LoB-GEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6c0LoR-GEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_6c0Loh-GEeuUA-JmX2-drA" name="subscription period" type="_EcogMB-GEeuUA-JmX2-drA" association="_6czkkB-GEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_6c0ysB-GEeuUA-JmX2-drA" name="subscription payment" type="_JcaCUB-FEeuUA-JmX2-drA" association="_6czkkB-GEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AdvMQB-HEeuUA-JmX2-drA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AdxogB-HEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_WTxEYB-HEeuUA-JmX2-drA" name="&lt; for" memberEnd="_WTxrch-HEeuUA-JmX2-drA _WTySgB-HEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WTxrcB-HEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WTxrcR-HEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WTxrch-HEeuUA-JmX2-drA" name="subscription period" type="_EcogMB-GEeuUA-JmX2-drA" association="_WTxEYB-HEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WTySgB-HEeuUA-JmX2-drA" name="subscription renewal payment" type="_TFECoB9ZEeu6voIcOeLARA" association="_WTxEYB-HEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fonT4B-HEeuUA-JmX2-drA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_foq-QB-HEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_joqaMB-NEeuUA-JmX2-drA" name="for >" memberEnd="_joroUh-NEeuUA-JmX2-drA _josPYB-NEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_joroUB-NEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_joroUR-NEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_joroUh-NEeuUA-JmX2-drA" name="subscription period" type="_EcogMB-GEeuUA-JmX2-drA" association="_joqaMB-NEeuUA-JmX2-drA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mBpDwB-NEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_josPYB-NEeuUA-JmX2-drA" name="price list item" type="_Z072UB-NEeuUA-JmX2-drA" association="_joqaMB-NEeuUA-JmX2-drA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mWjj0B-NEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_vPlaAB-NEeuUA-JmX2-drA" name="contains >" memberEnd="_vPmBEh-NEeuUA-JmX2-drA _vPmoIB-NEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vPmBEB-NEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vPmBER-NEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vPmBEh-NEeuUA-JmX2-drA" name="price list item" type="_Z072UB-NEeuUA-JmX2-drA" association="_vPlaAB-NEeuUA-JmX2-drA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zI2KkB-NEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vPmoIB-NEeuUA-JmX2-drA" name="price list" type="_t7eGwB-NEeuUA-JmX2-drA" association="_vPlaAB-NEeuUA-JmX2-drA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CaGuIB-OEeuUA-JmX2-drA" name="&lt;for" memberEnd="_CaIjUB-OEeuUA-JmX2-drA _CaJxcB-OEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CaH8QB-OEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CaH8QR-OEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CaIjUB-OEeuUA-JmX2-drA" name="country" type="_-NdukB-NEeuUA-JmX2-drA" association="_CaGuIB-OEeuUA-JmX2-drA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CaJxcB-OEeuUA-JmX2-drA" name="price list item" type="_Z072UB-NEeuUA-JmX2-drA" association="_CaGuIB-OEeuUA-JmX2-drA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GjIZAB-OEeuUA-JmX2-drA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XsuXMB-OEeuUA-JmX2-drA" name="&lt;for" memberEnd="_XsvlUh-OEeuUA-JmX2-drA _XsxagB-OEeuUA-JmX2-drA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XsvlUB-OEeuUA-JmX2-drA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XsvlUR-OEeuUA-JmX2-drA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XsxagB-OEeuUA-JmX2-drA" name="price list item" type="_Z072UB-NEeuUA-JmX2-drA" association="_XsuXMB-OEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bRkW8B-OEeuUA-JmX2-drA"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XsvlUh-OEeuUA-JmX2-drA" name="price list item category" type="_Sh8UYB-OEeuUA-JmX2-drA" association="_XsuXMB-OEeuUA-JmX2-drA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bAX5QB-OEeuUA-JmX2-drA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_Y9UPsCOcEeuqYuRdoObHgw" name="MeetingAttendeeAddedIntegrationEvent" memberEnd="_Y9XTACOcEeuqYuRdoObHgw _Y9YhICOcEeuqYuRdoObHgw" navigableOwnedEnd="_Y9XTACOcEeuqYuRdoObHgw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Y9Wr8COcEeuqYuRdoObHgw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Y9Wr8SOcEeuqYuRdoObHgw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_WQA_ICOgEeuFjZZVYSPDsA">
+        <body>https://github.com/kgrzybek/modular-monolith-with-ddd/blob/master/src/Modules/Meetings/IntegrationEvents/MeetingAttendeeAddedIntegrationEvent.cs</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_lmVlsCOcEeuqYuRdoObHgw" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qFiU4COcEeuqYuRdoObHgw" name="occuredOn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0eDA0COcEeuqYuRdoObHgw" name="meetingId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3HST8COcEeuqYuRdoObHgw" name="attendeeId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5wyFwCOcEeuqYuRdoObHgw" name="feeValue">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8Gy64COcEeuqYuRdoObHgw" name="feeCurrency">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Y9XTACOcEeuqYuRdoObHgw" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_Y9UPsCOcEeuqYuRdoObHgw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Y9YhICOcEeuqYuRdoObHgw" name="meeting fee" type="_ZLTMoB9PEeu6voIcOeLARA" association="_Y9UPsCOcEeuqYuRdoObHgw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_C8TlcCQyEeuvLIb44-hM_Q" name="MeetingFeePaidIntegrationEvent" memberEnd="_C8X24CQyEeuvLIb44-hM_Q _C8ZFACQyEeuvLIb44-hM_Q" navigableOwnedEnd="_C8X24CQyEeuvLIb44-hM_Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C8WowCQyEeuvLIb44-hM_Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_C8WowSQyEeuvLIb44-hM_Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WlfykCQyEeuvLIb44-hM_Q" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XOu80CQyEeuvLIb44-hM_Q" name="occuredOn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZdUUQCQyEeuvLIb44-hM_Q" name="payerId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_aP-gQCQyEeuvLIb44-hM_Q" name="meetingId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_C8X24CQyEeuvLIb44-hM_Q" name="meeting fee" type="_ZLTMoB9PEeu6voIcOeLARA" association="_C8TlcCQyEeuvLIb44-hM_Q"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_C8ZFACQyEeuvLIb44-hM_Q" name="meeting" type="_aTqwEB7lEeuYOqd83ubZVQ" association="_C8TlcCQyEeuvLIb44-hM_Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_hi3poCQzEeuvLIb44-hM_Q" name="SubscriptionExpirationDateChangedIntegrationEvent" memberEnd="_hi6s8SQzEeuvLIb44-hM_Q _hi8iICQzEeuvLIb44-hM_Q" navigableOwnedEnd="_hi8iICQzEeuvLIb44-hM_Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hi6F4CQzEeuvLIb44-hM_Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hi6s8CQzEeuvLIb44-hM_Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2FIMwCQzEeuvLIb44-hM_Q" name="occuredOn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2FIMwSQzEeuvLIb44-hM_Q" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2h6PYCQzEeuvLIb44-hM_Q" name="payerId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4-BFcCQzEeuvLIb44-hM_Q" name="expirationDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hi6s8SQzEeuvLIb44-hM_Q" name="member subscription" type="_1ZyzYB7mEeuYOqd83ubZVQ" association="_hi3poCQzEeuvLIb44-hM_Q"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hi8iICQzEeuvLIb44-hM_Q" name="subscription" type="_l4OVwB9QEeu6voIcOeLARA" association="_hi3poCQzEeuvLIb44-hM_Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HJTNgCQ2EeuvLIb44-hM_Q" visibility="public" memberEnd="_HJWQ0CQ2EeuvLIb44-hM_Q _HJYtECQ2EeuvLIb44-hM_Q" navigableOwnedEnd="_HJWQ0CQ2EeuvLIb44-hM_Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HJVpwCQ2EeuvLIb44-hM_Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HJVpwSQ2EeuvLIb44-hM_Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HJYtECQ2EeuvLIb44-hM_Q" name="meetingcommentingconfigurationcreateddomainevent" type="_i1_McCQ1EeuvLIb44-hM_Q" association="_HJTNgCQ2EeuvLIb44-hM_Q"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HJWQ0CQ2EeuvLIb44-hM_Q" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_HJTNgCQ2EeuvLIb44-hM_Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_vsMGACQ5EeuA0MTklED0Eg" memberEnd="_vsSMoCQ5EeuA0MTklED0Eg _vsb9oCQ5EeuA0MTklED0Eg" navigableOwnedEnd="_vsSMoCQ5EeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vsQ-gCQ5EeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vsQ-gSQ5EeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vsb9oCQ5EeuA0MTklED0Eg" name="meetingcommentingdisableddomainevent" type="_rLwnwCQ5EeuA0MTklED0Eg" association="_vsMGACQ5EeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vsSMoCQ5EeuA0MTklED0Eg" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_vsMGACQ5EeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_wiOgsCQ6EeuA0MTklED0Eg" memberEnd="_wiQ88SQ6EeuA0MTklED0Eg _wibVACQ6EeuA0MTklED0Eg" navigableOwnedEnd="_wiQ88SQ6EeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wiQV4CQ6EeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wiQ88CQ6EeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wibVACQ6EeuA0MTklED0Eg" name="meetingcommentingenableddomainevent" type="_7TPosCQ5EeuA0MTklED0Eg" association="_wiOgsCQ6EeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wiQ88SQ6EeuA0MTklED0Eg" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_wiOgsCQ6EeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_l5iNQCRGEeuA0MTklED0Eg" memberEnd="_l5i0UiRGEeuA0MTklED0Eg _l5mesCRGEeuA0MTklED0Eg" navigableOwnedEnd="_l5i0UiRGEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l5i0UCRGEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l5i0USRGEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_l5mesCRGEeuA0MTklED0Eg" name="meetingcommentaddeddomainevent" type="_i1hCoCRGEeuA0MTklED0Eg" association="_l5iNQCRGEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_l5i0UiRGEeuA0MTklED0Eg" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_l5iNQCRGEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_t3_4oCRGEeuA0MTklED0Eg" memberEnd="_t4BGwSRGEeuA0MTklED0Eg _t4C78CRGEeuA0MTklED0Eg" navigableOwnedEnd="_t4BGwSRGEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t4AfsCRGEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t4BGwCRGEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_t4C78CRGEeuA0MTklED0Eg" name="meetingcommentaddeddomainevent" type="_i1hCoCRGEeuA0MTklED0Eg" association="_t3_4oCRGEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_t4BGwSRGEeuA0MTklED0Eg" name="meetingcommentid" type="_WvHRgCRGEeuA0MTklED0Eg" association="_t3_4oCRGEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CvkkcCRHEeuA0MTklED0Eg" memberEnd="_CvmZoCRHEeuA0MTklED0Eg _Cvz1ACRHEeuA0MTklED0Eg" navigableOwnedEnd="_CvmZoCRHEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CvlykCRHEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CvlykSRHEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Cvz1ACRHEeuA0MTklED0Eg" name="meetingcommentediteddomainevent" type="_-xrLgCRGEeuA0MTklED0Eg" association="_CvkkcCRHEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CvmZoCRHEeuA0MTklED0Eg" name="meetingcommentid" type="_WvHRgCRGEeuA0MTklED0Eg" association="_CvkkcCRHEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_TFzzECRHEeuA0MTklED0Eg" memberEnd="_TF0aIiRHEeuA0MTklED0Eg _TF1BMSRHEeuA0MTklED0Eg" navigableOwnedEnd="_TF0aIiRHEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TF0aICRHEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TF0aISRHEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TF1BMSRHEeuA0MTklED0Eg" name="meetingcommentremoveddomainevent" type="_KNiK0CRHEeuA0MTklED0Eg" association="_TFzzECRHEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TF0aIiRHEeuA0MTklED0Eg" name="meetingcommentid" type="_WvHRgCRGEeuA0MTklED0Eg" association="_TFzzECRHEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_snlkMCRHEeuA0MTklED0Eg" memberEnd="_snmLQCRHEeuA0MTklED0Eg _snqcsCRHEeuA0MTklED0Eg" navigableOwnedEnd="_snmLQCRHEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_snlkMSRHEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_snlkMiRHEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_snqcsCRHEeuA0MTklED0Eg" name="replytomeetingcommentaddeddomainevent" type="_i3VLECRHEeuA0MTklED0Eg" association="_snlkMCRHEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_snmLQCRHEeuA0MTklED0Eg" name="meetingcommentid" type="_WvHRgCRGEeuA0MTklED0Eg" association="_snlkMCRHEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_0diMwCRHEeuA0MTklED0Eg" memberEnd="_0diz0iRHEeuA0MTklED0Eg _0dja4iRHEeuA0MTklED0Eg" navigableOwnedEnd="_0diz0iRHEeuA0MTklED0Eg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0diz0CRHEeuA0MTklED0Eg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0diz0SRHEeuA0MTklED0Eg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_0dja4iRHEeuA0MTklED0Eg" name="replytomeetingcommentaddeddomainevent" type="_i3VLECRHEeuA0MTklED0Eg" association="_0diMwCRHEeuA0MTklED0Eg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_0diz0iRHEeuA0MTklED0Eg" name="inReplyToCommentId" type="_WvHRgCRGEeuA0MTklED0Eg" association="_0diMwCRHEeuA0MTklED0Eg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ChcjQCTTEeuSHYD9L9m2uw" memberEnd="_Chg0sCTTEeuSHYD9L9m2uw _ChqlsCTTEeuSHYD9L9m2uw" navigableOwnedEnd="_Chg0sCTTEeuSHYD9L9m2uw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ChfmkCTTEeuSHYD9L9m2uw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ChfmkSTTEeuSHYD9L9m2uw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ChqlsCTTEeuSHYD9L9m2uw" name="meetinggroupproposalaccepteddomainevent" type="_8kk8MCTSEeuSHYD9L9m2uw" association="_ChcjQCTTEeuSHYD9L9m2uw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Chg0sCTTEeuSHYD9L9m2uw" name="meetinggroupproposalid" type="_p9hhgCTSEeuSHYD9L9m2uw" association="_ChcjQCTTEeuSHYD9L9m2uw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RwqfcCTTEeuSHYD9L9m2uw" memberEnd="_RwrtkSTTEeuSHYD9L9m2uw _Rw2ssCTTEeuSHYD9L9m2uw" navigableOwnedEnd="_RwrtkSTTEeuSHYD9L9m2uw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RwrGgCTTEeuSHYD9L9m2uw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RwrtkCTTEeuSHYD9L9m2uw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Rw2ssCTTEeuSHYD9L9m2uw" name="meetinggroupproposeddomainevent" type="_NhzSUCTTEeuSHYD9L9m2uw" association="_RwqfcCTTEeuSHYD9L9m2uw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RwrtkSTTEeuSHYD9L9m2uw" name="meetinggroupproposalid" type="_p9hhgCTSEeuSHYD9L9m2uw" association="_RwqfcCTTEeuSHYD9L9m2uw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_4XjssCTTEeuSHYD9L9m2uw" memberEnd="_4XkTwiTTEeuSHYD9L9m2uw _4Xk60iTTEeuSHYD9L9m2uw" navigableOwnedEnd="_4XkTwiTTEeuSHYD9L9m2uw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4XkTwCTTEeuSHYD9L9m2uw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4XkTwSTTEeuSHYD9L9m2uw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4Xk60iTTEeuSHYD9L9m2uw" name="meetinggroupproposeddomainevent" type="_NhzSUCTTEeuSHYD9L9m2uw" association="_4XjssCTTEeuSHYD9L9m2uw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4XkTwiTTEeuSHYD9L9m2uw" name="proposalUserId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_4XjssCTTEeuSHYD9L9m2uw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_uFW-8CTlEeuUMtIKQzCWTA" memberEnd="_uFilICTlEeuUMtIKQzCWTA _uFs9MCTlEeuUMtIKQzCWTA" navigableOwnedEnd="_uFilICTlEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uFfh0CTlEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uFgI4CTlEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_uFs9MCTlEeuUMtIKQzCWTA" name="meetingattendeechangeddecisiondomainevent" type="_p6fhACTlEeuUMtIKQzCWTA" association="_uFW-8CTlEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_uFilICTlEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_uFW-8CTlEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8ZE8MCTlEeuUMtIKQzCWTA" memberEnd="_8ZFjQiTlEeuUMtIKQzCWTA _8ZKbwCTlEeuUMtIKQzCWTA" navigableOwnedEnd="_8ZFjQiTlEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8ZFjQCTlEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8ZFjQSTlEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8ZKbwCTlEeuUMtIKQzCWTA" name="meetingattendeechangeddecisiondomainevent" type="_p6fhACTlEeuUMtIKQzCWTA" association="_8ZE8MCTlEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8ZFjQiTlEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_8ZE8MCTlEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_gWzHwCTmEeuUMtIKQzCWTA" memberEnd="_gW088STmEeuUMtIKQzCWTA _gW2yICTmEeuUMtIKQzCWTA" navigableOwnedEnd="_gW088STmEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gW0V4CTmEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gW088CTmEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_gW2yICTmEeuUMtIKQzCWTA" name="meetinggroupcreateddomainevent" type="_Vlb28CTmEeuUMtIKQzCWTA" association="_gWzHwCTmEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_gW088STmEeuUMtIKQzCWTA" name="meetinggroupid" type="_bwo08CTmEeuUMtIKQzCWTA" association="_gWzHwCTmEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kPBWgCTmEeuUMtIKQzCWTA" memberEnd="_kPDLsCTmEeuUMtIKQzCWTA _kPEZ0CTmEeuUMtIKQzCWTA" navigableOwnedEnd="_kPDLsCTmEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kPCkoCTmEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kPCkoSTmEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kPEZ0CTmEeuUMtIKQzCWTA" name="meetinggroupcreateddomainevent" type="_Vlb28CTmEeuUMtIKQzCWTA" association="_kPBWgCTmEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kPDLsCTmEeuUMtIKQzCWTA" name="creatorId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_kPBWgCTmEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_orwDsCTqEeuUMtIKQzCWTA" memberEnd="_orx44CTqEeuUMtIKQzCWTA _oryf8iTqEeuUMtIKQzCWTA" navigableOwnedEnd="_orx44CTqEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_orxR0CTqEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_orxR0STqEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_oryf8iTqEeuUMtIKQzCWTA" name="meetinggroupgeneralattributesediteddomainevent" type="_fdBqUCTqEeuUMtIKQzCWTA" association="_orwDsCTqEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_orx44CTqEeuUMtIKQzCWTA" name="newLocation" type="_Ok7r0CTqEeuUMtIKQzCWTA" association="_orwDsCTqEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_MeXygCTrEeuUMtIKQzCWTA" memberEnd="_MeZnsiTrEeuUMtIKQzCWTA _MeaOwiTrEeuUMtIKQzCWTA" navigableOwnedEnd="_MeZnsiTrEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MeZnsCTrEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MeZnsSTrEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MeaOwiTrEeuUMtIKQzCWTA" name="meetinggroupmemberleftgroupdomainevent" type="_5Ro34CTqEeuUMtIKQzCWTA" association="_MeXygCTrEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MeZnsiTrEeuUMtIKQzCWTA" name="meetinggroupid" type="_bwo08CTmEeuUMtIKQzCWTA" association="_MeXygCTrEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QVwTwCTrEeuUMtIKQzCWTA" memberEnd="_QVxh4iTrEeuUMtIKQzCWTA _QVyI8iTrEeuUMtIKQzCWTA" navigableOwnedEnd="_QVxh4iTrEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QVxh4CTrEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QVxh4STrEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QVyI8iTrEeuUMtIKQzCWTA" name="meetinggroupmemberleftgroupdomainevent" type="_5Ro34CTqEeuUMtIKQzCWTA" association="_QVwTwCTrEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QVxh4iTrEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_QVwTwCTrEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_4dsyICTtEeuUMtIKQzCWTA" memberEnd="_4duAQiTtEeuUMtIKQzCWTA _4d2jICTtEeuUMtIKQzCWTA" navigableOwnedEnd="_4duAQiTtEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4duAQCTtEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4duAQSTtEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4d2jICTtEeuUMtIKQzCWTA" name="meetinggrouppaymentinfoupdateddomainevent" type="_ZoTLQCTtEeuUMtIKQzCWTA" association="_4dsyICTtEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4duAQiTtEeuUMtIKQzCWTA" name="meetinggroupid" type="_bwo08CTmEeuUMtIKQzCWTA" association="_4dsyICTtEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_iIZx0CTyEeuUMtIKQzCWTA" memberEnd="_iIbnACTyEeuUMtIKQzCWTA _iIcOEiTyEeuUMtIKQzCWTA" navigableOwnedEnd="_iIbnACTyEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iIa_8CTyEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iIa_8STyEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iIcOEiTyEeuUMtIKQzCWTA" name="meetingnotattendeechangeddecisiondomainevent" type="_ZHsbwCTxEeuUMtIKQzCWTA" association="_iIZx0CTyEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iIbnACTyEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_iIZx0CTyEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_lzs-4CTyEeuUMtIKQzCWTA" memberEnd="_lztl8iTyEeuUMtIKQzCWTA _lzuNASTyEeuUMtIKQzCWTA" navigableOwnedEnd="_lztl8iTyEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lztl8CTyEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lztl8STyEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_lzuNASTyEeuUMtIKQzCWTA" name="meetingnotattendeechangeddecisiondomainevent" type="_ZHsbwCTxEeuUMtIKQzCWTA" association="_lzs-4CTyEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_lztl8iTyEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_lzs-4CTyEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xmpMACTzEeuUMtIKQzCWTA" memberEnd="_xmpzEiTzEeuUMtIKQzCWTA _xmurkCTzEeuUMtIKQzCWTA" navigableOwnedEnd="_xmpzEiTzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xmpzECTzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xmpzESTzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xmurkCTzEeuUMtIKQzCWTA" name="newmeetinggroupmemberjoineddomainevent" type="_r1YYACTzEeuUMtIKQzCWTA" association="_xmpMACTzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xmpzEiTzEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_xmpMACTzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1AAUgCTzEeuUMtIKQzCWTA" memberEnd="_1AA7kiTzEeuUMtIKQzCWTA _1AA7lSTzEeuUMtIKQzCWTA" navigableOwnedEnd="_1AA7kiTzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1AA7kCTzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1AA7kSTzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1AA7lSTzEeuUMtIKQzCWTA" name="newmeetinggroupmemberjoineddomainevent" type="_r1YYACTzEeuUMtIKQzCWTA" association="_1AAUgCTzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1AA7kiTzEeuUMtIKQzCWTA" name="meetinggroupid" type="_bwo08CTmEeuUMtIKQzCWTA" association="_1AAUgCTzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pkdMUCT1EeuUMtIKQzCWTA" memberEnd="_pkdzYiT1EeuUMtIKQzCWTA _pkeacCT1EeuUMtIKQzCWTA" navigableOwnedEnd="_pkdzYiT1EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pkdzYCT1EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pkdzYST1EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_pkeacCT1EeuUMtIKQzCWTA" name="newmeetinggroupmemberjoineddomainevent" type="_r1YYACTzEeuUMtIKQzCWTA" association="_pkdMUCT1EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_pkdzYiT1EeuUMtIKQzCWTA" name="role" type="_UyWEwCT0EeuUMtIKQzCWTA" association="_pkdMUCT1EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CTtH8CUwEeuUMtIKQzCWTA" memberEnd="_CTu9IiUwEeuUMtIKQzCWTA _CT5VMCUwEeuUMtIKQzCWTA" navigableOwnedEnd="_CTu9IiUwEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CTu9ICUwEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CTu9ISUwEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CT5VMCUwEeuUMtIKQzCWTA" name="meetingattendeeaddeddomainevent" type="_-cx5sCUvEeuUMtIKQzCWTA" association="_CTtH8CUwEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CTu9IiUwEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_CTtH8CUwEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_IN840CUwEeuUMtIKQzCWTA" memberEnd="_IN-G8iUwEeuUMtIKQzCWTA _IN_VESUwEeuUMtIKQzCWTA" navigableOwnedEnd="_IN-G8iUwEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IN-G8CUwEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IN-G8SUwEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IN_VESUwEeuUMtIKQzCWTA" name="meetingattendeeaddeddomainevent" type="_-cx5sCUvEeuUMtIKQzCWTA" association="_IN840CUwEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IN-G8iUwEeuUMtIKQzCWTA" name="attendeeId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_IN840CUwEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8ciDwCUwEeuUMtIKQzCWTA" memberEnd="_8cj48SUwEeuUMtIKQzCWTA _8clHECUwEeuUMtIKQzCWTA" navigableOwnedEnd="_8cj48SUwEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8cjR4CUwEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8cj48CUwEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8clHECUwEeuUMtIKQzCWTA" name="meetingattendeefeepaiddomainevent" type="_rVMvYCUwEeuUMtIKQzCWTA" association="_8ciDwCUwEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8cj48SUwEeuUMtIKQzCWTA" name="attendeeId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_8ciDwCUwEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_AGJ10CUxEeuUMtIKQzCWTA" memberEnd="_AGLD8SUxEeuUMtIKQzCWTA _AGLrAiUxEeuUMtIKQzCWTA" navigableOwnedEnd="_AGLD8SUxEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AGKc4CUxEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AGLD8CUxEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_AGLrAiUxEeuUMtIKQzCWTA" name="meetingattendeefeepaiddomainevent" type="_rVMvYCUwEeuUMtIKQzCWTA" association="_AGJ10CUxEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_AGLD8SUxEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_AGJ10CUxEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_V8774CUxEeuUMtIKQzCWTA" memberEnd="_V89KASUxEeuUMtIKQzCWTA _V9IwMCUxEeuUMtIKQzCWTA" navigableOwnedEnd="_V89KASUxEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_V88i8CUxEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_V89KACUxEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_V9IwMCUxEeuUMtIKQzCWTA" name="meetingattendeeremoveddomainevent" type="_N-0OwCUxEeuUMtIKQzCWTA" association="_V8774CUxEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_V89KASUxEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_V8774CUxEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_bIsPECUxEeuUMtIKQzCWTA" memberEnd="_bIuEQSUxEeuUMtIKQzCWTA _bIvSYSUxEeuUMtIKQzCWTA" navigableOwnedEnd="_bIuEQSUxEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bItdMCUxEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bIuEQCUxEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bIvSYSUxEeuUMtIKQzCWTA" name="meetingattendeeremoveddomainevent" type="_N-0OwCUxEeuUMtIKQzCWTA" association="_bIsPECUxEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bIuEQSUxEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_bIsPECUxEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_uXCTQCUxEeuUMtIKQzCWTA" memberEnd="_uXEIcCUxEeuUMtIKQzCWTA _uXEvgiUxEeuUMtIKQzCWTA" navigableOwnedEnd="_uXEIcCUxEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uXDhYCUxEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uXDhYSUxEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_uXEvgiUxEeuUMtIKQzCWTA" name="meetingcanceleddomainevent" type="_maZz4CUxEeuUMtIKQzCWTA" association="_uXCTQCUxEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_uXEIcCUxEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_uXCTQCUxEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xznH0CUxEeuUMtIKQzCWTA" memberEnd="_xzo9ASUxEeuUMtIKQzCWTA _xzqLICUxEeuUMtIKQzCWTA" navigableOwnedEnd="_xzo9ASUxEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xzoV8CUxEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xzo9ACUxEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xzqLICUxEeuUMtIKQzCWTA" name="meetingcanceleddomainevent" type="_maZz4CUxEeuUMtIKQzCWTA" association="_xznH0CUxEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xzo9ASUxEeuUMtIKQzCWTA" name="cancelMemberId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_xznH0CUxEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CYnyQCUyEeuUMtIKQzCWTA" memberEnd="_CYpncCUyEeuUMtIKQzCWTA _CYqOgiUyEeuUMtIKQzCWTA" navigableOwnedEnd="_CYpncCUyEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CYpAYCUyEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CYpAYSUyEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CYqOgiUyEeuUMtIKQzCWTA" name="meetingcreateddomainevent" type="_9QA5sCUxEeuUMtIKQzCWTA" association="_CYnyQCUyEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CYpncCUyEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_CYnyQCUyEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_koIIgCUyEeuUMtIKQzCWTA" memberEnd="_koJ9sSUyEeuUMtIKQzCWTA _koLL0iUyEeuUMtIKQzCWTA" navigableOwnedEnd="_koJ9sSUyEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_koJWoCUyEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_koJ9sCUyEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_koLL0iUyEeuUMtIKQzCWTA" name="meetingmainattributeschangeddomainevent" type="_fOXOgCUyEeuUMtIKQzCWTA" association="_koIIgCUyEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_koJ9sSUyEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_koIIgCUyEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_IDzW8CUzEeuUMtIKQzCWTA" memberEnd="_IDz-ACUzEeuUMtIKQzCWTA _ID0lESUzEeuUMtIKQzCWTA" navigableOwnedEnd="_IDz-ACUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IDzW8SUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IDzW8iUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ID0lESUzEeuUMtIKQzCWTA" name="meetingnotattendeeaddeddomainevent" type="_-w_u0CUyEeuUMtIKQzCWTA" association="_IDzW8CUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IDz-ACUzEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_IDzW8CUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LsiYMCUzEeuUMtIKQzCWTA" memberEnd="_Lsk0cSUzEeuUMtIKQzCWTA _LsmpoSUzEeuUMtIKQzCWTA" navigableOwnedEnd="_Lsk0cSUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LskNYCUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Lsk0cCUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_LsmpoSUzEeuUMtIKQzCWTA" name="meetingnotattendeeaddeddomainevent" type="_-w_u0CUyEeuUMtIKQzCWTA" association="_LsiYMCUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Lsk0cSUzEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_LsiYMCUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_gswpsCUzEeuUMtIKQzCWTA" memberEnd="_gsye4CUzEeuUMtIKQzCWTA _gs828CUzEeuUMtIKQzCWTA" navigableOwnedEnd="_gsye4CUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gsx30CUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gsx30SUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_gs828CUzEeuUMtIKQzCWTA" name="meetingwaitlistmemberaddeddomainevent" type="_RQXNICUzEeuUMtIKQzCWTA" association="_gswpsCUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_gsye4CUzEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_gswpsCUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_jMSAICUzEeuUMtIKQzCWTA" memberEnd="_jMSnMiUzEeuUMtIKQzCWTA _jMTOQCUzEeuUMtIKQzCWTA" navigableOwnedEnd="_jMSnMiUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jMSnMCUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jMSnMSUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_jMTOQCUzEeuUMtIKQzCWTA" name="meetingwaitlistmemberaddeddomainevent" type="_RQXNICUzEeuUMtIKQzCWTA" association="_jMSAICUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_jMSnMiUzEeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_jMSAICUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_zfbegCUzEeuUMtIKQzCWTA" memberEnd="_zfdTsSUzEeuUMtIKQzCWTA _zfpg8CUzEeuUMtIKQzCWTA" navigableOwnedEnd="_zfdTsSUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zfcsoCUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zfdTsCUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zfpg8CUzEeuUMtIKQzCWTA" name="membersetasattendeedomainevent" type="_sbbQQCUzEeuUMtIKQzCWTA" association="_zfbegCUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zfdTsSUzEeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_zfbegCUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_2DYB8CUzEeuUMtIKQzCWTA" memberEnd="_2DZ3ICUzEeuUMtIKQzCWTA _2DaeMiUzEeuUMtIKQzCWTA" navigableOwnedEnd="_2DZ3ICUzEeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2DZQECUzEeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2DZQESUzEeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2DaeMiUzEeuUMtIKQzCWTA" name="membersetasattendeedomainevent" type="_sbbQQCUzEeuUMtIKQzCWTA" association="_2DYB8CUzEeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2DZ3ICUzEeuUMtIKQzCWTA" name="hostId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_2DYB8CUzEeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HP5_YCU0EeuUMtIKQzCWTA" memberEnd="_HP6mciU0EeuUMtIKQzCWTA _HQAtECU0EeuUMtIKQzCWTA" navigableOwnedEnd="_HP6mciU0EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HP6mcCU0EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HP6mcSU0EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HQAtECU0EeuUMtIKQzCWTA" name="membersignedofffrommeetingwaitlistdomainevent" type="_BzKp4CU0EeuUMtIKQzCWTA" association="_HP5_YCU0EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HP6mciU0EeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_HP5_YCU0EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_J-KVYCU0EeuUMtIKQzCWTA" memberEnd="_J-LjgiU0EeuUMtIKQzCWTA _J-MxoiU0EeuUMtIKQzCWTA" navigableOwnedEnd="_J-LjgiU0EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J-LjgCU0EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J-LjgSU0EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_J-MxoiU0EeuUMtIKQzCWTA" name="membersignedofffrommeetingwaitlistdomainevent" type="_BzKp4CU0EeuUMtIKQzCWTA" association="_J-KVYCU0EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_J-LjgiU0EeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_J-KVYCU0EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XEkK8CU0EeuUMtIKQzCWTA" memberEnd="_XEmAIiU0EeuUMtIKQzCWTA _XEnOQiU0EeuUMtIKQzCWTA" navigableOwnedEnd="_XEmAIiU0EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XEmAICU0EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XEmAISU0EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XEnOQiU0EeuUMtIKQzCWTA" name="newmeetinghostsetdomainevent" type="_RI1MUCU0EeuUMtIKQzCWTA" association="_XEkK8CU0EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XEmAIiU0EeuUMtIKQzCWTA" name="meetingid" type="_2kYpsCQ1EeuvLIb44-hM_Q" association="_XEkK8CU0EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Z6hrcCU0EeuUMtIKQzCWTA" memberEnd="_Z6iSgSU0EeuUMtIKQzCWTA _Z6iShCU0EeuUMtIKQzCWTA" navigableOwnedEnd="_Z6iSgSU0EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z6hrcSU0EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z6iSgCU0EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Z6iShCU0EeuUMtIKQzCWTA" name="newmeetinghostsetdomainevent" type="_RI1MUCU0EeuUMtIKQzCWTA" association="_Z6hrcCU0EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Z6iSgSU0EeuUMtIKQzCWTA" name="hostId" type="_zmlRACTTEeuSHYD9L9m2uw" association="_Z6hrcCU0EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_mmQ-QCU0EeuUMtIKQzCWTA" memberEnd="_mmRlUiU0EeuUMtIKQzCWTA _mmSMYiU0EeuUMtIKQzCWTA" navigableOwnedEnd="_mmRlUiU0EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mmRlUCU0EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mmRlUSU0EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mmSMYiU0EeuUMtIKQzCWTA" name="membercreateddomainevent" type="_h-h-ICU0EeuUMtIKQzCWTA" association="_mmQ-QCU0EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mmRlUiU0EeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_mmQ-QCU0EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FPjbwCU1EeuUMtIKQzCWTA" memberEnd="_FPkp4CU1EeuUMtIKQzCWTA _FPlQ8SU1EeuUMtIKQzCWTA" navigableOwnedEnd="_FPkp4CU1EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FPkC0CU1EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FPkC0SU1EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FPlQ8SU1EeuUMtIKQzCWTA" name="membersubscriptionexpirationdatechangeddomainevent" type="_5dRggCU0EeuUMtIKQzCWTA" association="_FPjbwCU1EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FPkp4CU1EeuUMtIKQzCWTA" name="memberid" type="_zmlRACTTEeuSHYD9L9m2uw" association="_FPjbwCU1EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_dDzeoCU2EeuUMtIKQzCWTA" name="MeetingGroupProposedIntegrationEvent" memberEnd="_dD164CU2EeuUMtIKQzCWTA _dD3wECU2EeuUMtIKQzCWTA" navigableOwnedEnd="_dD3wECU2EeuUMtIKQzCWTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dD1T0CU2EeuUMtIKQzCWTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dD1T0SU2EeuUMtIKQzCWTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qYKQoCU2EeuUMtIKQzCWTA" name="meetingGroupProposalId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_y2lOcCU2EeuUMtIKQzCWTA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_1A3UsCU2EeuUMtIKQzCWTA" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3N7CICU2EeuUMtIKQzCWTA" name="locationCity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5ZwAgCU2EeuUMtIKQzCWTA" name="locationCountryCode">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7VSgICU2EeuUMtIKQzCWTA" name="proposalUserId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9zZhUCU2EeuUMtIKQzCWTA" name="ProposalDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_dD164CU2EeuUMtIKQzCWTA" name="meeting group proposal" type="_QXpdMB50EeuXBLDrLiAGXg" association="_dDzeoCU2EeuUMtIKQzCWTA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_dD3wECU2EeuUMtIKQzCWTA" name="meeting group proposal" type="__PPLUB7iEeuYOqd83ubZVQ" association="_dDzeoCU2EeuUMtIKQzCWTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_2J1IcCWlEeuNW7ZR1n2KZQ" name="MeetingGroupProposalAcceptedIntegrationEvent" memberEnd="_2J29oiWlEeuNW7ZR1n2KZQ _2J4LwCWlEeuNW7ZR1n2KZQ" navigableOwnedEnd="_2J29oiWlEeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2J29oCWlEeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2J29oSWlEeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kubzICWmEeuNW7ZR1n2KZQ" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mywbUCWmEeuNW7ZR1n2KZQ" name="occurredOn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_o5340CWmEeuNW7ZR1n2KZQ" name="meetingGroupProposalId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2J29oiWlEeuNW7ZR1n2KZQ" name="meeting group proposal" type="_QXpdMB50EeuXBLDrLiAGXg" association="_2J1IcCWlEeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_2J4LwCWlEeuNW7ZR1n2KZQ" name="meeting group proposal" type="__PPLUB7iEeuYOqd83ubZVQ" association="_2J1IcCWlEeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_J77dgCX0EeuNW7ZR1n2KZQ" memberEnd="_J78roCX0EeuNW7ZR1n2KZQ _J78royX0EeuNW7ZR1n2KZQ" navigableOwnedEnd="_J78roCX0EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J78EkCX0EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J78EkSX0EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_J78royX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalaccepteddomainevent" type="_5ZlskCXzEeuNW7ZR1n2KZQ" association="_J77dgCX0EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_J78roCX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalid" type="_DMS8wCX0EeuNW7ZR1n2KZQ" association="_J77dgCX0EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_YFnVACX0EeuNW7ZR1n2KZQ" memberEnd="_YFpKMCX0EeuNW7ZR1n2KZQ _YFqYUCX0EeuNW7ZR1n2KZQ" navigableOwnedEnd="_YFpKMCX0EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YFojICX0EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YFojISX0EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_YFqYUCX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalrejecteddomainevent" type="_RLATUCX0EeuNW7ZR1n2KZQ" association="_YFnVACX0EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_YFpKMCX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalid" type="_DMS8wCX0EeuNW7ZR1n2KZQ" association="_YFnVACX0EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_iAGBICX0EeuNW7ZR1n2KZQ" memberEnd="_iAH2UCX0EeuNW7ZR1n2KZQ _iAIdYSX0EeuNW7ZR1n2KZQ" navigableOwnedEnd="_iAH2UCX0EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iAHPQCX0EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iAHPQSX0EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iAIdYSX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalverificationrequesteddomainevent" type="_dSMuoCX0EeuNW7ZR1n2KZQ" association="_iAGBICX0EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iAH2UCX0EeuNW7ZR1n2KZQ" name="meetinggroupproposalid" type="_DMS8wCX0EeuNW7ZR1n2KZQ" association="_iAGBICX0EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_-21i8CX0EeuNW7ZR1n2KZQ" memberEnd="_-22xEiX0EeuNW7ZR1n2KZQ _-23_MSX0EeuNW7ZR1n2KZQ" navigableOwnedEnd="_-22xEiX0EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-22xECX0EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-22xESX0EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_-23_MSX0EeuNW7ZR1n2KZQ" name="membercreateddomainevent" type="_v4c4ECX0EeuNW7ZR1n2KZQ" association="_-21i8CX0EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_-22xEiX0EeuNW7ZR1n2KZQ" name="memberid" type="_2HQjsCX0EeuNW7ZR1n2KZQ" association="_-21i8CX0EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_E-oVsCX3EeuNW7ZR1n2KZQ" memberEnd="_E-o8wiX3EeuNW7ZR1n2KZQ _E-pj0iX3EeuNW7ZR1n2KZQ" navigableOwnedEnd="_E-o8wiX3EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_E-o8wCX3EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_E-o8wSX3EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_E-pj0iX3EeuNW7ZR1n2KZQ" name="newuserregistereddomainevent" type="_eL4dwCX2EeuNW7ZR1n2KZQ" association="_E-oVsCX3EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_E-o8wiX3EeuNW7ZR1n2KZQ" name="userregistrationid" type="_0wAK8CX2EeuNW7ZR1n2KZQ" association="_E-oVsCX3EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QZa-ACX3EeuNW7ZR1n2KZQ" memberEnd="_QZblEiX3EeuNW7ZR1n2KZQ _QZcMICX3EeuNW7ZR1n2KZQ" navigableOwnedEnd="_QZblEiX3EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QZblECX3EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QZblESX3EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QZcMICX3EeuNW7ZR1n2KZQ" name="userregistrationconfirmeddomainevent" type="_LnFQYCX3EeuNW7ZR1n2KZQ" association="_QZa-ACX3EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QZblEiX3EeuNW7ZR1n2KZQ" name="userregistrationid" type="_0wAK8CX2EeuNW7ZR1n2KZQ" association="_QZa-ACX3EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ndRUICX3EeuNW7ZR1n2KZQ" memberEnd="_ndTwYCX3EeuNW7ZR1n2KZQ _ndU-gCX3EeuNW7ZR1n2KZQ" navigableOwnedEnd="_ndTwYCX3EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ndTJUCX3EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ndTJUSX3EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ndU-gCX3EeuNW7ZR1n2KZQ" name="userregistrationexpireddomainevent" type="_YolX0CX3EeuNW7ZR1n2KZQ" association="_ndRUICX3EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ndTwYCX3EeuNW7ZR1n2KZQ" name="userregistrationid" type="_0wAK8CX2EeuNW7ZR1n2KZQ" association="_ndRUICX3EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_C1m-QCX4EeuNW7ZR1n2KZQ" memberEnd="_C1ozcCX4EeuNW7ZR1n2KZQ _C1pagiX4EeuNW7ZR1n2KZQ" navigableOwnedEnd="_C1ozcCX4EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C1oMYCX4EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_C1oMYSX4EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_C1pagiX4EeuNW7ZR1n2KZQ" name="usercreateddomainevent" type="_9GwlECX3EeuNW7ZR1n2KZQ" association="_C1m-QCX4EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_C1ozcCX4EeuNW7ZR1n2KZQ" name="userid" type="_1XZssCX3EeuNW7ZR1n2KZQ" association="_C1m-QCX4EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_rLDYACX4EeuNW7ZR1n2KZQ" name="NewUserRegisteredIntegrationEvent" memberEnd="_rLFNMCX4EeuNW7ZR1n2KZQ _rLGbUCX4EeuNW7ZR1n2KZQ" navigableOwnedEnd="_rLFNMCX4EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rLEmICX4EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rLEmISX4EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T4hQMCX5EeuNW7ZR1n2KZQ" name="userId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UXj8oCX5EeuNW7ZR1n2KZQ" name="login">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VziLYCX5EeuNW7ZR1n2KZQ" name="email">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WTfd0CX5EeuNW7ZR1n2KZQ" name="firstName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Wve2QCX5EeuNW7ZR1n2KZQ" name="lastName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_yZ5u4CX5EeuNW7ZR1n2KZQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_rLFNMCX4EeuNW7ZR1n2KZQ" name="user" type="_OGQ7oB0PEeurX9zouDAhfA" association="_rLDYACX4EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_rLGbUCX4EeuNW7ZR1n2KZQ" name="member" type="_yCQWoB50EeuXBLDrLiAGXg" association="_rLDYACX4EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_10IkoCX6EeuNW7ZR1n2KZQ" memberEnd="_10JywiX6EeuNW7ZR1n2KZQ _10KZ0iX6EeuNW7ZR1n2KZQ" navigableOwnedEnd="_10JywiX6EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_10JywCX6EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_10JywSX6EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_10KZ0iX6EeuNW7ZR1n2KZQ" name="member" type="_toW2ACX6EeuNW7ZR1n2KZQ" association="_10IkoCX6EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_10JywiX6EeuNW7ZR1n2KZQ" name="memberid" type="_2HQjsCX0EeuNW7ZR1n2KZQ" association="_10IkoCX6EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_MTeqECX8EeuNW7ZR1n2KZQ" name="NewUserRegisteredIntegrationEvent" memberEnd="_MTfRIiX8EeuNW7ZR1n2KZQ _MTiUcCX8EeuNW7ZR1n2KZQ" navigableOwnedEnd="_MTfRIiX8EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MTfRICX8EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MTfRISX8EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jcplECX8EeuNW7ZR1n2KZQ" name="email">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jcqzMCX8EeuNW7ZR1n2KZQ" name="firstName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jcraQCX8EeuNW7ZR1n2KZQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jcsBUCX8EeuNW7ZR1n2KZQ" name="login">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jcsoYCX8EeuNW7ZR1n2KZQ" name="lastName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jctPcCX8EeuNW7ZR1n2KZQ" name="userId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MTfRIiX8EeuNW7ZR1n2KZQ" name="user registration" type="_OGQ7oB0PEeurX9zouDAhfA" association="_MTeqECX8EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MTiUcCX8EeuNW7ZR1n2KZQ" name="member" type="_toW2ACX6EeuNW7ZR1n2KZQ" association="_MTeqECX8EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_-Dm1kCX8EeuNW7ZR1n2KZQ" name="NewUserRegisteredIntegrationEvent" memberEnd="_-DncoiX8EeuNW7ZR1n2KZQ _-DoDsCX8EeuNW7ZR1n2KZQ" navigableOwnedEnd="_-DncoiX8EeuNW7ZR1n2KZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-DncoCX8EeuNW7ZR1n2KZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-DncoSX8EeuNW7ZR1n2KZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KCkh8CX9EeuNW7ZR1n2KZQ" name="firstName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KClwECX9EeuNW7ZR1n2KZQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KCmXICX9EeuNW7ZR1n2KZQ" name="login">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KCm-MCX9EeuNW7ZR1n2KZQ" name="lastName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KCnlQCX9EeuNW7ZR1n2KZQ" name="userId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KCoMUCX9EeuNW7ZR1n2KZQ" name="email">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_-DncoiX8EeuNW7ZR1n2KZQ" name="user registration" type="_OGQ7oB0PEeurX9zouDAhfA" association="_-Dm1kCX8EeuNW7ZR1n2KZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_-DoDsCX8EeuNW7ZR1n2KZQ" name="payer" type="_x4WKoB9OEeu6voIcOeLARA" association="_-Dm1kCX8EeuNW7ZR1n2KZQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_a8kxoB0NEeurX9zouDAhfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FE8RwCLFEeusa6UCuSH0nw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FE8RwSLFEeusa6UCuSH0nw" key="Version" value="0.0.75"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FE8RwiLFEeusa6UCuSH0nw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FE8RwyLFEeusa6UCuSH0nw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FE8RxCLFEeusa6UCuSH0nw" key="Date" value="2020-11-09"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FE8RxSLFEeusa6UCuSH0nw" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a8mm0B0NEeurX9zouDAhfA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="/Modular Monolith with DDD/Phase 1/ddmm.profile.uml#_DNtqYCLFEeusa6UCuSH0nw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="/Modular Monolith with DDD/Phase 1/ddmm.profile.uml#_ETKvoCg9Eee2seFFPJ1mEg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hZj98CLFEeusa6UCuSH0nw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hZklACLFEeusa6UCuSH0nw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+  </uml:Model>
+  <RootElement:BoundedContext xmi:id="_nYYyEB0NEeurX9zouDAhfA" base_Package="_iHSr4B0NEeurX9zouDAhfA"/>
+  <RootElement:ValueObject xmi:id="_g6oPAB0OEeurX9zouDAhfA" base_Class="_fLMRsB0OEeurX9zouDAhfA"/>
+  <RootElement:Entity xmi:id="_pb0FkB0REeurX9zouDAhfA" base_Class="_6UO7kB0OEeurX9zouDAhfA"/>
+  <RootElement:AggregateRoot xmi:id="_pdYy4B0REeurX9zouDAhfA" base_Class="_6UO7kB0OEeurX9zouDAhfA"/>
+  <RootElement:Entity xmi:id="_wkk4AB0REeurX9zouDAhfA" base_Class="_OGQ7oB0PEeurX9zouDAhfA"/>
+  <RootElement:AggregateRoot xmi:id="_wmY14B0REeurX9zouDAhfA" base_Class="_OGQ7oB0PEeurX9zouDAhfA"/>
+  <RootElement:ValueObject xmi:id="_0pjJUB0REeurX9zouDAhfA" base_Class="_iNXMwB0PEeurX9zouDAhfA"/>
+  <RootElement:BoundedContext xmi:id="_3tCOkB24EeugMZpZTGn_-g" base_Package="_QDyQ4B0SEeurX9zouDAhfA"/>
+  <RootElement:BoundedContext xmi:id="_ro7dEB50EeuXBLDrLiAGXg" base_Package="_osLYEB50EeuXBLDrLiAGXg"/>
+  <RootElement:AggregateRoot xmi:id="_-igLIB50EeuXBLDrLiAGXg" base_Class="_yCQWoB50EeuXBLDrLiAGXg"/>
+  <RootElement:Entity xmi:id="_-kknsB50EeuXBLDrLiAGXg" base_Class="_yCQWoB50EeuXBLDrLiAGXg"/>
+  <RootElement:AggregatePart xmi:id="_XztwsB51EeuXBLDrLiAGXg" base_Class="_fLMRsB0OEeurX9zouDAhfA" aggregateRoot="_6UO7kB0OEeurX9zouDAhfA"/>
+  <RootElement:Entity xmi:id="_TjB_MB7kEeuYOqd83ubZVQ" base_Class="_QXpdMB50EeuXBLDrLiAGXg"/>
+  <RootElement:AggregateRoot xmi:id="_Tl1bkB7kEeuYOqd83ubZVQ" base_Class="_QXpdMB50EeuXBLDrLiAGXg"/>
+  <RootElement:Entity xmi:id="_Wzg4gB7kEeuYOqd83ubZVQ" base_Class="__PPLUB7iEeuYOqd83ubZVQ"/>
+  <RootElement:AggregateRoot xmi:id="_W19vkB7kEeuYOqd83ubZVQ" base_Class="__PPLUB7iEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_yzhxMB7lEeuYOqd83ubZVQ" base_Class="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:AggregateRoot xmi:id="_y1694B7lEeuYOqd83ubZVQ" base_Class="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_7LtkIB7lEeuYOqd83ubZVQ" base_Class="_hBZo0B7kEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_7r3D0B7lEeuYOqd83ubZVQ" base_Class="_E6XQMB7lEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_8LQVkB7lEeuYOqd83ubZVQ" base_Class="_SOk4QB7lEeuYOqd83ubZVQ"/>
+  <RootElement:AggregatePart xmi:id="_CmKjgB7mEeuYOqd83ubZVQ" base_Class="_hBZo0B7kEeuYOqd83ubZVQ" aggregateRoot="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:AggregatePart xmi:id="_Ff4ioB7mEeuYOqd83ubZVQ" base_Class="_E6XQMB7lEeuYOqd83ubZVQ" aggregateRoot="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:AggregatePart xmi:id="_HlY2kB7mEeuYOqd83ubZVQ" base_Class="_SOk4QB7lEeuYOqd83ubZVQ" aggregateRoot="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_YA7b8B7mEeuYOqd83ubZVQ" base_Class="_KkrSMB7mEeuYOqd83ubZVQ"/>
+  <RootElement:AggregateRoot xmi:id="_YDQXMB7mEeuYOqd83ubZVQ" base_Class="_KkrSMB7mEeuYOqd83ubZVQ"/>
+  <RootElement:ValueObject xmi:id="_rXoK4B7mEeuYOqd83ubZVQ" base_Class="_leRK0B7mEeuYOqd83ubZVQ"/>
+  <RootElement:AggregatePart xmi:id="_wfbyMB7mEeuYOqd83ubZVQ" base_Class="_leRK0B7mEeuYOqd83ubZVQ" aggregateRoot="_aTqwEB7lEeuYOqd83ubZVQ"/>
+  <RootElement:Entity xmi:id="_Gq_1cB7nEeuYOqd83ubZVQ" base_Class="_1ZyzYB7mEeuYOqd83ubZVQ"/>
+  <RootElement:AggregateRoot xmi:id="_GtvncB7nEeuYOqd83ubZVQ" base_Class="_1ZyzYB7mEeuYOqd83ubZVQ"/>
+  <RootElement:BoundedContext xmi:id="_IORgQB9OEeu6voIcOeLARA" base_Package="___MmAB9NEeu6voIcOeLARA"/>
+  <RootElement:AggregateRoot xmi:id="_Tt2FcB9PEeu6voIcOeLARA" base_Class="_x4WKoB9OEeu6voIcOeLARA"/>
+  <RootElement:AggregateRoot xmi:id="_nnRuAB9PEeu6voIcOeLARA" base_Class="_ZLTMoB9PEeu6voIcOeLARA"/>
+  <RootElement:AggregateRoot xmi:id="__DgH4B9PEeu6voIcOeLARA" base_Class="_5yorMB9PEeu6voIcOeLARA"/>
+  <RootElement:AggregateRoot xmi:id="_6jBw4B9QEeu6voIcOeLARA" base_Class="_l4OVwB9QEeu6voIcOeLARA"/>
+  <RootElement:AggregatePart xmi:id="_9RKVoB9REeu6voIcOeLARA" base_Class="_iNXMwB0PEeurX9zouDAhfA" aggregateRoot="_OGQ7oB0PEeurX9zouDAhfA"/>
+  <RootElement:AggregateRoot xmi:id="_NlIyQB-FEeuUA-JmX2-drA" base_Class="_JcaCUB-FEeuUA-JmX2-drA"/>
+  <RootElement:AggregateRoot xmi:id="_evtHMB-NEeuUA-JmX2-drA" base_Class="_Z072UB-NEeuUA-JmX2-drA"/>
+  <RootElement:ValueObject xmi:id="_3dXTwB-NEeuUA-JmX2-drA" base_Class="_t7eGwB-NEeuUA-JmX2-drA"/>
+  <RootElement:AggregateRoot xmi:id="__Cy7ACJ1Eeusa6UCuSH0nw" base_Class="_TFECoB9ZEeu6voIcOeLARA"/>
+  <RootElement:DomainEvent xmi:id="_jr__8COcEeuqYuRdoObHgw" base_Class="_Y9UPsCOcEeuqYuRdoObHgw" base_AssociationClass="_Y9UPsCOcEeuqYuRdoObHgw"/>
+  <RootElement:ValueObject xmi:id="_bpnocCOdEeuqYuRdoObHgw" base_Class="_Y9UPsCOcEeuqYuRdoObHgw"/>
+  <RootElement:DomainEvent xmi:id="_RganACOhEeuFjZZVYSPDsA" base_Class="_kHfFQCOgEeuFjZZVYSPDsA"/>
+  <RootElement:ValueObject xmi:id="_RjfwMCOhEeuFjZZVYSPDsA" base_Class="_kHfFQCOgEeuFjZZVYSPDsA"/>
+  <RootElement:DomainEvent xmi:id="_D9jyoCQoEeu0Rb5aGSBBtQ" base_Class="_92My0CQnEeu0Rb5aGSBBtQ"/>
+  <RootElement:ValueObject xmi:id="_EBGO0CQoEeu0Rb5aGSBBtQ" base_Class="_92My0CQnEeu0Rb5aGSBBtQ"/>
+  <RootElement:DomainEvent xmi:id="_ljvpoCQpEeuvLIb44-hM_Q" base_Class="_iZPcgCQpEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_lnPpkCQpEeuvLIb44-hM_Q" base_Class="_iZPcgCQpEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_VLWpcCQqEeuvLIb44-hM_Q" base_Class="_SDdEYCQqEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_VPRgICQqEeuvLIb44-hM_Q" base_Class="_SDdEYCQqEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_p2NH4CQqEeuvLIb44-hM_Q" base_Class="_nTZM4CQqEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_p5Qb4CQqEeuvLIb44-hM_Q" base_Class="_nTZM4CQqEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_AwwYECQrEeuvLIb44-hM_Q" base_Class="_8sG24CQqEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_Az2IUCQrEeuvLIb44-hM_Q" base_Class="_8sG24CQqEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_S87NkCQrEeuvLIb44-hM_Q" base_Class="_QGRwkCQrEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_S_sNsCQrEeuvLIb44-hM_Q" base_Class="_QGRwkCQrEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_aMwRUCQrEeuvLIb44-hM_Q" base_Class="_Y63ysCQrEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_aPifkCQrEeuvLIb44-hM_Q" base_Class="_Y63ysCQrEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_w4NVkCQrEeuvLIb44-hM_Q" base_Class="_vlQf8CQrEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_w7yOACQrEeuvLIb44-hM_Q" base_Class="_vlQf8CQrEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_9v-SMCQrEeuvLIb44-hM_Q" base_Class="_72OiUCQrEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_9y1Y8CQrEeuvLIb44-hM_Q" base_Class="_72OiUCQrEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_XwSZcCQsEeuvLIb44-hM_Q" base_Class="_WEjQYCQsEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_Xy5BgCQsEeuvLIb44-hM_Q" base_Class="_WEjQYCQsEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_oOPZoCQsEeuvLIb44-hM_Q" base_Class="_m8NKACQsEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_oQ-kkCQsEeuvLIb44-hM_Q" base_Class="_m8NKACQsEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_zhMUkCQsEeuvLIb44-hM_Q" base_Class="_xBDTECQsEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_zkFQgCQsEeuvLIb44-hM_Q" base_Class="_xBDTECQsEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_R2AW4CQtEeuvLIb44-hM_Q" base_Class="_QhTNwCQtEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_R4-yYCQtEeuvLIb44-hM_Q" base_Class="_QhTNwCQtEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_aIejYCQtEeuvLIb44-hM_Q" base_Class="_WtC-UCQtEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_aLOVYCQtEeuvLIb44-hM_Q" base_Class="_WtC-UCQtEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_AvS4ICQuEeuvLIb44-hM_Q" base_Class="_gFkM4CQtEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_AygkMCQuEeuvLIb44-hM_Q" base_Class="_gFkM4CQtEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_B6RdgCQuEeuvLIb44-hM_Q" base_Class="_6WEsQCQtEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_B9ZqACQuEeuvLIb44-hM_Q" base_Class="_6WEsQCQtEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_NsegQCQuEeuvLIb44-hM_Q" base_Class="_LuxdcCQuEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_NxN2UCQuEeuvLIb44-hM_Q" base_Class="_LuxdcCQuEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_o2fagCQuEeuvLIb44-hM_Q" base_Class="_knJFMCQuEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_o5edECQuEeuvLIb44-hM_Q" base_Class="_knJFMCQuEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_xmOKwCQuEeuvLIb44-hM_Q" base_Class="_tIgpUCQuEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_xpe6ICQuEeuvLIb44-hM_Q" base_Class="_tIgpUCQuEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_O3rLQCQyEeuvLIb44-hM_Q" base_Class="_C8TlcCQyEeuvLIb44-hM_Q" base_AssociationClass="_C8TlcCQyEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_O8Vo0CQyEeuvLIb44-hM_Q" base_Class="_C8TlcCQyEeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_srVy4CQzEeuvLIb44-hM_Q" base_Class="_hi3poCQzEeuvLIb44-hM_Q" base_AssociationClass="_hi3poCQzEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_suyvgCQzEeuvLIb44-hM_Q" base_Class="_hi3poCQzEeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_4H0yYCQ1EeuvLIb44-hM_Q" base_Class="_2kYpsCQ1EeuvLIb44-hM_Q"/>
+  <RootElement:ValueObject xmi:id="_deIhgCQ2EeuvLIb44-hM_Q" base_Class="_i1_McCQ1EeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_djOc4CQ2EeuvLIb44-hM_Q" base_Class="_i1_McCQ1EeuvLIb44-hM_Q"/>
+  <RootElement:DomainEvent xmi:id="_tlIS4CQ5EeuA0MTklED0Eg" base_Class="_rLwnwCQ5EeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_tqWxICQ5EeuA0MTklED0Eg" base_Class="_rLwnwCQ5EeuA0MTklED0Eg"/>
+  <RootElement:DomainEvent xmi:id="_vSORYCQ6EeuA0MTklED0Eg" base_Class="_7TPosCQ5EeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_vWlM8CQ6EeuA0MTklED0Eg" base_Class="_7TPosCQ5EeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_fl4d4CRGEeuA0MTklED0Eg" base_Class="_WvHRgCRGEeuA0MTklED0Eg"/>
+  <RootElement:DomainEvent xmi:id="_q-_EICRGEeuA0MTklED0Eg" base_Class="_i1hCoCRGEeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_rCENUCRGEeuA0MTklED0Eg" base_Class="_i1hCoCRGEeuA0MTklED0Eg"/>
+  <RootElement:DomainEvent xmi:id="_A2HvgCRHEeuA0MTklED0Eg" base_Class="_-xrLgCRGEeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_A5LDgCRHEeuA0MTklED0Eg" base_Class="_-xrLgCRGEeuA0MTklED0Eg"/>
+  <RootElement:DomainEvent xmi:id="_LuqmYCRHEeuA0MTklED0Eg" base_Class="_KNiK0CRHEeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_Lx0BACRHEeuA0MTklED0Eg" base_Class="_KNiK0CRHEeuA0MTklED0Eg"/>
+  <RootElement:DomainEvent xmi:id="_nGLKECRHEeuA0MTklED0Eg" base_Class="_i3VLECRHEeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_nJKzsCRHEeuA0MTklED0Eg" base_Class="_i3VLECRHEeuA0MTklED0Eg"/>
+  <RootElement:ValueObject xmi:id="_tABCICTSEeuSHYD9L9m2uw" base_Class="_p9hhgCTSEeuSHYD9L9m2uw"/>
+  <RootElement:ValueObject xmi:id="_Bm8C0CTTEeuSHYD9L9m2uw" base_Class="_8kk8MCTSEeuSHYD9L9m2uw"/>
+  <RootElement:DomainEvent xmi:id="_BvEEECTTEeuSHYD9L9m2uw" base_Class="_8kk8MCTSEeuSHYD9L9m2uw"/>
+  <RootElement:DomainEvent xmi:id="_QuxkoCTTEeuSHYD9L9m2uw" base_Class="_NhzSUCTTEeuSHYD9L9m2uw"/>
+  <RootElement:ValueObject xmi:id="_Q1f3sCTTEeuSHYD9L9m2uw" base_Class="_NhzSUCTTEeuSHYD9L9m2uw"/>
+  <RootElement:ValueObject xmi:id="_1idu4CTTEeuSHYD9L9m2uw" base_Class="_zmlRACTTEeuSHYD9L9m2uw"/>
+  <RootElement:DomainEvent xmi:id="_rzWgECTlEeuUMtIKQzCWTA" base_Class="_p6fhACTlEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_r6C98CTlEeuUMtIKQzCWTA" base_Class="_p6fhACTlEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_XlJE4CTmEeuUMtIKQzCWTA" base_Class="_Vlb28CTmEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_XqiiQCTmEeuUMtIKQzCWTA" base_Class="_Vlb28CTmEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_eJgJwCTmEeuUMtIKQzCWTA" base_Class="_bwo08CTmEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_SZ39ECTqEeuUMtIKQzCWTA" base_Class="_Ok7r0CTqEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_hh0zoCTqEeuUMtIKQzCWTA" base_Class="_fdBqUCTqEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_hpbQcCTqEeuUMtIKQzCWTA" base_Class="_fdBqUCTqEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_7qIZQCTqEeuUMtIKQzCWTA" base_Class="_5Ro34CTqEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_7wnbwCTqEeuUMtIKQzCWTA" base_Class="_5Ro34CTqEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_w6hUkCTtEeuUMtIKQzCWTA" base_Class="_ZoTLQCTtEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_xDEMkCTtEeuUMtIKQzCWTA" base_Class="_ZoTLQCTtEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_SxM-UCTyEeuUMtIKQzCWTA" base_Class="_ZHsbwCTxEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_S3dXUCTyEeuUMtIKQzCWTA" base_Class="_ZHsbwCTxEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_uhIzoCTzEeuUMtIKQzCWTA" base_Class="_r1YYACTzEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_unbo4CTzEeuUMtIKQzCWTA" base_Class="_r1YYACTzEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_YB5xACT0EeuUMtIKQzCWTA" base_Class="_UyWEwCT0EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_AWTnICUwEeuUMtIKQzCWTA" base_Class="_-cx5sCUvEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_AcZoECUwEeuUMtIKQzCWTA" base_Class="_-cx5sCUvEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_tjUz0CUwEeuUMtIKQzCWTA" base_Class="_rVMvYCUwEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_toeZkCUwEeuUMtIKQzCWTA" base_Class="_rVMvYCUwEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_QNCZ0CUxEeuUMtIKQzCWTA" base_Class="_N-0OwCUxEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_QSW-sCUxEeuUMtIKQzCWTA" base_Class="_N-0OwCUxEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_oFxJgCUxEeuUMtIKQzCWTA" base_Class="_maZz4CUxEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_oLFHUCUxEeuUMtIKQzCWTA" base_Class="_maZz4CUxEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="__d01ECUxEeuUMtIKQzCWTA" base_Class="_9QA5sCUxEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="__jOScCUxEeuUMtIKQzCWTA" base_Class="_9QA5sCUxEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_hD6a4CUyEeuUMtIKQzCWTA" base_Class="_fOXOgCUyEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_hJSDECUyEeuUMtIKQzCWTA" base_Class="_fOXOgCUyEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_AyN_sCUzEeuUMtIKQzCWTA" base_Class="_-w_u0CUyEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_A3kZwCUzEeuUMtIKQzCWTA" base_Class="_-w_u0CUyEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_fpLFwCUzEeuUMtIKQzCWTA" base_Class="_RQXNICUzEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_fuqpwCUzEeuUMtIKQzCWTA" base_Class="_RQXNICUzEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_wZclACUzEeuUMtIKQzCWTA" base_Class="_sbbQQCUzEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_we00QCUzEeuUMtIKQzCWTA" base_Class="_sbbQQCUzEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_DS4wMCU0EeuUMtIKQzCWTA" base_Class="_BzKp4CU0EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_DYdMsCU0EeuUMtIKQzCWTA" base_Class="_BzKp4CU0EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_TBA18CU0EeuUMtIKQzCWTA" base_Class="_RI1MUCU0EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_THsswCU0EeuUMtIKQzCWTA" base_Class="_RI1MUCU0EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_jO-5YCU0EeuUMtIKQzCWTA" base_Class="_h-h-ICU0EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_jU5UICU0EeuUMtIKQzCWTA" base_Class="_h-h-ICU0EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_75Ie8CU0EeuUMtIKQzCWTA" base_Class="_5dRggCU0EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_7_V0oCU0EeuUMtIKQzCWTA" base_Class="_5dRggCU0EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_m4cBcCU2EeuUMtIKQzCWTA" base_Class="_dDzeoCU2EeuUMtIKQzCWTA" base_AssociationClass="_dDzeoCU2EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_m-Sx0CU2EeuUMtIKQzCWTA" base_Class="_dDzeoCU2EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_ikEz0CU3EeuUMtIKQzCWTA" base_Class="_g9yLcCU3EeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_iqqkACU3EeuUMtIKQzCWTA" base_Class="_g9yLcCU3EeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_1qsnUCWjEeuNW7ZR1n2KZQ" base_Class="_TWRmMCUyEeuUMtIKQzCWTA"/>
+  <RootElement:ValueObject xmi:id="_10HpECWjEeuNW7ZR1n2KZQ" base_Class="_TWRmMCUyEeuUMtIKQzCWTA"/>
+  <RootElement:DomainEvent xmi:id="_jyPQoCWmEeuNW7ZR1n2KZQ" base_Class="_2J1IcCWlEeuNW7ZR1n2KZQ" base_AssociationClass="_2J1IcCWlEeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_j43dECWmEeuNW7ZR1n2KZQ" base_Class="_2J1IcCWlEeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_7XgKwCXzEeuNW7ZR1n2KZQ" base_Class="_5ZlskCXzEeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_7dfeACXzEeuNW7ZR1n2KZQ" base_Class="_5ZlskCXzEeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_FQ7uACX0EeuNW7ZR1n2KZQ" base_Class="_DMS8wCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_TQ4asCX0EeuNW7ZR1n2KZQ" base_Class="_RLATUCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_TW6KMCX0EeuNW7ZR1n2KZQ" base_Class="_RLATUCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_g0-44CX0EeuNW7ZR1n2KZQ" base_Class="_dSMuoCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_g7Oq0CX0EeuNW7ZR1n2KZQ" base_Class="_dSMuoCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_ykluMCX0EeuNW7ZR1n2KZQ" base_Class="_v4c4ECX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_yq0SACX0EeuNW7ZR1n2KZQ" base_Class="_v4c4ECX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_4GdbUCX0EeuNW7ZR1n2KZQ" base_Class="_2HQjsCX0EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_gJeL0CX2EeuNW7ZR1n2KZQ" base_Class="_eL4dwCX2EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_gP15kCX2EeuNW7ZR1n2KZQ" base_Class="_eL4dwCX2EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_48jq8CX2EeuNW7ZR1n2KZQ" base_Class="_0wAK8CX2EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_NtKzICX3EeuNW7ZR1n2KZQ" base_Class="_LnFQYCX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_NzRbICX3EeuNW7ZR1n2KZQ" base_Class="_LnFQYCX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_aXnsgCX3EeuNW7ZR1n2KZQ" base_Class="_YolX0CX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_epa44CX3EeuNW7ZR1n2KZQ" base_Class="_YolX0CX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_39BrICX3EeuNW7ZR1n2KZQ" base_Class="_1XZssCX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_-61KwCX3EeuNW7ZR1n2KZQ" base_Class="_9GwlECX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="__BelUCX3EeuNW7ZR1n2KZQ" base_Class="_9GwlECX3EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_G8FO8CX5EeuNW7ZR1n2KZQ" base_Class="_rLDYACX4EeuNW7ZR1n2KZQ" base_AssociationClass="_rLDYACX4EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_HCk4gCX5EeuNW7ZR1n2KZQ" base_Class="_rLDYACX4EeuNW7ZR1n2KZQ"/>
+  <RootElement:Entity xmi:id="_x_P9wCX6EeuNW7ZR1n2KZQ" base_Class="_toW2ACX6EeuNW7ZR1n2KZQ"/>
+  <RootElement:AggregateRoot xmi:id="_yE1BUCX6EeuNW7ZR1n2KZQ" base_Class="_toW2ACX6EeuNW7ZR1n2KZQ"/>
+  <RootElement:AggregatePart xmi:id="_zC5MECX6EeuNW7ZR1n2KZQ" base_Class="_2HQjsCX0EeuNW7ZR1n2KZQ" aggregateRoot="_toW2ACX6EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_cIpzACX8EeuNW7ZR1n2KZQ" base_Class="_MTeqECX8EeuNW7ZR1n2KZQ" base_AssociationClass="_MTeqECX8EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_cOLzQCX8EeuNW7ZR1n2KZQ" base_Class="_MTeqECX8EeuNW7ZR1n2KZQ"/>
+  <RootElement:DomainEvent xmi:id="_IJs70CX9EeuNW7ZR1n2KZQ" base_Class="_-Dm1kCX8EeuNW7ZR1n2KZQ" base_AssociationClass="_-Dm1kCX8EeuNW7ZR1n2KZQ"/>
+  <RootElement:ValueObject xmi:id="_IP5DYCX9EeuNW7ZR1n2KZQ" base_Class="_-Dm1kCX8EeuNW7ZR1n2KZQ"/>
+</xmi:XMI>

@@ -1,0 +1,160 @@
+context Administration {
+    // D4: Add missing domain concept
+    structure MeetingGroupLocation <valueObject> {
+        immutable string city,
+        immutable string countryCode,
+
+        function MeetingGroupLocation create(string city, string countryCode)
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingGroupProposalDecision {
+        Accept,
+        Reject
+    }*/
+    structure MeetingGroupProposalDecision <valueObject> {
+        immutable date ^date,
+        immutable UserId userId,
+        immutable string code,
+        immutable string rejectReason,
+        function MeetingGroupProposalDecision noDecision,
+        hide function boolean isAccepted,
+        hide function boolean isRejected,
+        function MeetingGroupProposalDecision acceptDecision,
+        function MeetingGroupProposalDecision rejectDecision,
+        function MeetingGroupProposalStatus getStatusForDecision
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingGroupProposalStatus {
+        Accepted,
+        InVerification,
+        Rejected
+    }*/
+    structure MeetingGroupProposalStatus <valueObject> {
+        immutable string value,
+        function MeetingGroupProposalStatus toVerify,
+        function MeetingGroupProposalStatus verified,
+        function MeetingGroupProposalStatus create(string value)
+    }
+
+    // D7: Remove domain concept
+    //      The implementation does not realize a dedicated Administrator class, but instead also
+    //      relies on the Member concept to implement administration capabilities
+    /*structure Administrator <valueObject> {
+        ListMeetingGroupProposalDecision meetinggroupproposaldecision
+    }*/
+
+    structure MeetingGroupProposalId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingGroupProposal <entity, aggregate> {
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide string _description,
+        // D5: Add missing data field
+        hide MeetingGroupLocation _location <part>,
+        // D5: Add missing data field
+        hide date _proposalDate,
+        // D5: Add missing data field
+        hide UserId _proposalUserId <part>,
+        // D5: Add missing data field
+        immutable MeetingGroupProposalId id<identifier,part>,
+
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingGroupProposalDecision meetinggroupproposaldecision,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingGroupProposalStatus meetinggroupproposalstatus,
+
+        // D6: Add missing domain operation
+        hide procedure MeetingGroupProposal(MeetingGroupProposalId id, string name, string decision,
+            MeetingGroupLocation location, UserId proposalUserId, date proposalDate),
+
+        // D6: Add missing domain operation
+        procedure accept(UserId userId),
+
+        // D6: Add missing domain operation
+        procedure reject(UserId userId, string rejectReason),
+
+        // D6: Add missing domain operation
+        function MeetingGroupProposal createToVerify(string meetingGroupProposalId, string name,
+            string description, MeetingGroupLocation location, UserId proposalUserId,
+            date proposalDate)
+    }
+
+    structure MeetingGroupProposalVerificationRequestedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposalRejectedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+        string meetingGroupProposalId,
+        string name,
+        string description,
+        string locationCity,
+        string locationCountryCode,
+        string proposalUserId,
+        date ProposalDate
+    }
+
+    structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occurredOn,
+        string meetingGroupProposalId
+    }
+
+    // D7: Remove domain concept
+    //      Removed together with Administrator (see above)
+    /*list ListMeetingGroupProposalDecision {
+        MeetingGroupProposalDecision meetingGroupProposalDecision
+    }*/
+
+    // D4: Add missing domain concept
+    structure UserId <valueObject> {
+        immutable string value
+    }
+
+    structure MemberId <valueObject> {
+        immutable string value
+    }
+
+    structure Member <entity, aggregate> {
+        immutable MemberId id<identifier,part>,
+        string _login,
+        string _email,
+        string _firstName,
+        string _lastName,
+        string _name,
+        date _createDate,
+        hide procedure Member(string id, string login, string email, string firstName,
+            string lastName, string name),
+        function Member create(string id, string login, string email, string firstName,
+            string lastName, string name)
+    }
+
+    structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+        MemberId memberid
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string email,
+        string firstName,
+        string name,
+        string login,
+        string lastName,
+        string userId
+    }
+}

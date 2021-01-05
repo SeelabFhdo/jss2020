@@ -1,0 +1,129 @@
+context Cargo {
+    structure CargoRepository <repository> {
+        ListCargo cargo,
+
+        // D2: Assign concrete names to parameters
+        //        string unnamed --> string trackingIDSelector
+        function ListCargo findbyTrackingID(string trackingIDSelector),
+
+        // D2: Assign concrete names to parameters
+        //        string unnamed --> string customerIDSelector
+        function ListCargo findbyCustomerID(string customerIDSelector)
+    }
+
+    structure Cargo <aggregate, entity> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified trackingID --> long trackingID
+        long trackingID <identifier>,
+
+        DeliverySpecification goal <part>,
+        DeliveryHistory deliveryHistory <part>,
+        CustomerShared CustomerShared
+    }
+
+    structure DeliveryHistory <entity> {
+        Cargo cargo,
+        ListHandlingEvent handlingEvent,
+        CarrierMovement carriermovement
+    }
+
+    structure HandlingEvent <entity> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified completiontime --> date completiontime
+        date completiontime <identifier>,
+
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified type --> string type
+        string type <identifier>,
+
+        Cargo handled
+    }
+
+    structure CarrierMovement <entity> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified scheduleID --> long scheduleID
+        long scheduleID <identifier>
+    }
+
+    structure DeliverySpecification <valueObject> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified arrivaltime --> date arrivaltime
+        date arrivaltime
+    }
+
+    list ListCargo {
+        Cargo cargo
+    }
+
+    list ListHandlingEvent {
+        HandlingEvent handlingEvent
+    }
+
+    structure CustomerShared <valueObject> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //        unspecified customerID --> long customerID
+        long customerID
+    }
+
+    list ListCustomerShared {
+        CustomerShared customerShared
+    }
+}
+
+context Customer {
+    structure CustomerRepository <repository> {
+        ListCustomer customer,
+
+        // D2: Assign concrete names to parameters
+        //      string unnamed --> string nameSelector
+        function ListCustomer findbyname(string nameSelector),
+
+        // D2: Assign concrete names to parameters
+        //      string unnamed --> string customerIDSelector
+        function ListCustomer findbyCustomerID(string customerIDSelector)
+    }
+
+    structure Customer <entity> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //      unspecified name --> string name
+        string name,
+
+        // D1: Replace unspecified type in data fields with concrete type
+        //      unspecified customerID --> long customerID
+        long customerID <identifier>
+    }
+
+    list ListCustomer {
+        Customer customer
+    }
+
+    structure CustomerShared <valueObject> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //      unspecified customerID --> long customerID
+        long customerID
+    }
+
+    list ListCustomerShared {
+        CustomerShared customerShared
+    }
+}
+
+context Location {
+    structure LocationService <service> {
+        ListLocation location,
+
+        // D2: Assign concrete names to parameters
+        //      string unnamed --> string portcode
+        procedure resolvebyportcode(string portcode)
+    }
+
+    structure Location <entity> {
+        // D1: Replace unspecified type in data fields with concrete type
+        //      unspecified portcode --> string portcode
+        string portcode <identifier>
+    }
+
+    list ListLocation {
+        Location location
+    }
+}

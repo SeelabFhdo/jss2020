@@ -1,0 +1,10 @@
+import datatypes from "extracted_domain_UserAccess.data" as userAccess
+
+architecture functional microservice ADD_QUALIFYING_PART.UserAccess {
+	interface ProvidedTypes {
+		getUser(sync out user : userAccess::UserAccess.User);
+	}
+	interface EmittedEvents {
+		sendNewUserRegisteredIntegrationEvent(async out newUserRegisteredIntegrationEvent : userAccess::UserAccess.NewUserRegisteredIntegrationEvent);
+	}
+}

@@ -1,0 +1,767 @@
+context UserAccess {
+	structure Permission <valueObject> {
+		ListUserRole userrole <part>
+	}
+
+	structure User <aggregate, entity> {
+		ListUserRole userrole <part>,
+		UserRegistration userregistration
+	}
+
+	structure UserRegistration <aggregate, entity> {
+		UserRegistrationStatus userregistrationstatus <part>,
+		User user
+	}
+
+	structure UserRole <valueObject> {
+		ListPermission permission,
+		User user
+	}
+
+	structure UserRegistrationStatus <valueObject> {
+		immutable unspecified WaitingForConfirmation,
+		immutable unspecified Confirmed,
+		immutable unspecified Expired,
+		UserRegistration userregistration
+	}
+
+	structure NewUserRegisteredDomainEvent <domainEvent, valueObject> {
+		immutable string login,
+		immutable string email,
+		immutable string firstName,
+		immutable string lastName,
+		immutable date registerDate,
+		immutable string confirmLink,
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserRegistrationId <valueObject> {
+		immutable string value
+	}
+
+	structure UserRegistrationConfirmedDomainEvent <domainEvent, valueObject> {
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserRegistrationExpiredDomainEvent <domainEvent, valueObject> {
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserId <valueObject> {
+		immutable string value
+	}
+
+	structure UserCreatedDomainEvent <domainEvent, valueObject> {
+		UserId userid
+	}
+
+	list ListUserRole {
+		UserRole userRole
+	}
+
+	list ListPermission {
+		Permission permission
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string userId,
+		string login,
+		string email,
+		string firstName,
+		string lastName,
+		string name
+	}
+}
+
+context Administration {
+	enum MeetingGroupProposalDecision {
+		Accept,
+		Reject
+	}
+
+	enum MeetingGroupProposalStatus {
+		Accepted,
+		InVerification,
+		Rejected
+	}
+
+	structure Administrator <valueObject> {
+		ListMeetingGroupProposalDecision meetinggroupproposaldecision
+	}
+
+	structure MeetingGroupProposal <aggregate, entity> {
+		MeetingGroupProposalDecision meetinggroupproposaldecision,
+		MeetingGroupProposalStatus meetinggroupproposalstatus
+	}
+
+	structure Member <aggregate, entity> {
+		string _firstName,
+		string _lastName,
+		string _name,
+		string _login,
+		string _email,
+		date _createDate,
+		MemberId memberid <part>,
+	
+		procedure Member(string id, string login, string email, string firstName, string lastName, string name),
+		function Member create(string id, string login, string email, string firstName, string lastName, string name)
+	}
+
+	structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MeetingGroupProposalId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingGroupProposalRejectedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MeetingGroupProposalVerificationRequestedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+		MemberId memberid <part>
+	}
+
+	structure MemberId <valueObject> {
+		immutable string value
+	}
+
+	list ListMeetingGroupProposalDecision {
+		MeetingGroupProposalDecision meetingGroupProposalDecision
+	}
+
+	structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+		string meetingGroupProposalId,
+		string name,
+		string description,
+		string locationCity,
+		string locationCountryCode,
+		string proposalUserId,
+		date ProposalDate
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string email,
+		string firstName,
+		string name,
+		string login,
+		string lastName,
+		string userId
+	}
+
+	structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occurredOn,
+		string meetingGroupProposalId
+	}
+}
+
+context Meetings {
+	enum MeetingGroupProposalStatus {
+		Accepted,
+		InVerification,
+		Rejected
+	}
+
+	structure Member <aggregate, entity> {
+		MeetingGroupProposal meetinggroupproposal,
+		ListMeetingAttendee meetingattendee <part>,
+		ListMeetingNotAttendee meetingnotattendee <part>,
+		ListMeetingWaitlistMember meetingwaitlistmember <part>,
+		MemberSubscription membersubscription
+	}
+
+	structure MeetingGroupProposal <aggregate, entity> {
+		Member member,
+		MeetingGroupProposalStatus meetinggroupproposalstatus,
+		MeetingGroup meetinggroup
+	}
+
+	structure MeetingAttendee <entity> {
+		Member member,
+		Meeting meeting
+	}
+
+	structure MeetingNotAttendee <entity> {
+		Member member,
+		Meeting meeting
+	}
+
+	structure MeetingWaitlistMember <entity> {
+		Member member,
+		Meeting meeting
+	}
+
+	structure Meeting <aggregate, entity> {
+		ListMeetingAttendee meetingattendee <part>,
+		ListMeetingNotAttendee meetingnotattendee <part>,
+		ListMeetingWaitlistMember meetingwaitlistmember <part>,
+		MeetingLocation meetinglocation <part>,
+		MeetingGroup meetinggroup
+	}
+
+	structure MeetingGroup <aggregate, entity> {
+		MeetingGroupProposal meetinggroupproposal,
+		ListMeeting meeting,
+		MemberSubscription membersubscription
+	}
+
+	structure MemberSubscription <aggregate, entity> {
+		Member member,
+		MeetingGroup meetinggroup
+	}
+
+	structure MeetingLocation <valueObject> {
+		Meeting meeting
+	}
+
+	structure MeetingCommentingConfigurationCreatedDomainEvent <domainEvent, valueObject> {
+		immutable boolean isEnabled,
+		MeetingId meetingid
+	}
+
+	structure MeetingId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingCommentingDisabledDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid
+	}
+
+	structure MeetingCommentingEnabledDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid
+	}
+
+	structure MeetingCommentId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingCommentAddedDomainEvent <domainEvent, valueObject> {
+		immutable string comment,
+		MeetingId meetingid,
+		MeetingCommentId meetingcommentid
+	}
+
+	structure MeetingCommentEditedDomainEvent <domainEvent, valueObject> {
+		immutable string editedComment,
+		MeetingCommentId meetingcommentid
+	}
+
+	structure MeetingCommentRemovedDomainEvent <domainEvent, valueObject> {
+		MeetingCommentId meetingcommentid
+	}
+
+	structure ReplyToMeetingCommentAddedDomainEvent <domainEvent, valueObject> {
+		immutable string reply,
+		MeetingCommentId meetingcommentid,
+		MeetingCommentId inReplyToCommentId
+	}
+
+	structure MeetingGroupProposalId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MeetingGroupProposedDomainEvent <domainEvent, valueObject> {
+		immutable string name,
+		immutable string description,
+		immutable string locationCity,
+		immutable string locationCountryCode,
+		immutable date proposalDate,
+		MeetingGroupProposalId meetinggroupproposalid,
+		MemberId proposalUserId
+	}
+
+	structure MemberId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingAttendeeChangedDecisionDomainEvent <domainEvent, valueObject> {
+		MemberId memberid,
+		MeetingId meetingid
+	}
+
+	structure MeetingGroupCreatedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupId meetinggroupid,
+		MemberId creatorId
+	}
+
+	structure MeetingGroupId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingGroupLocation <valueObject> {
+		immutable string city,
+		immutable string countryCode,
+	
+		function MeetingGroupLocation createNew(string city, string countryCode)
+	}
+
+	structure MeetingGroupGeneralAttributesEditedDomainEvent <domainEvent, valueObject> {
+		immutable string newName,
+		immutable string newDescription,
+		MeetingGroupLocation newLocation
+	}
+
+	structure MeetingGroupMemberLeftGroupDomainEvent <domainEvent, valueObject> {
+		MeetingGroupId meetinggroupid,
+		MemberId memberid
+	}
+
+	structure MeetingGroupPaymentInfoUpdatedDomainEvent <domainEvent, valueObject> {
+		immutable date paymentDateTo,
+		MeetingGroupId meetinggroupid
+	}
+
+	structure MeetingNotAttendeeChangedDecisionDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid,
+		MemberId memberid
+	}
+
+	structure NewMeetingGroupMemberJoinedDomainEvent <domainEvent, valueObject> {
+		MemberId memberid,
+		MeetingGroupId meetinggroupid,
+		MeetingGroupMemberRole role
+	}
+
+	structure MeetingGroupMemberRole <valueObject> {
+		immutable string value,
+	
+		function MeetingGroupMemberRole Organizer(),
+		function MeetingGroupMemberRole Member(),
+		function MeetingGroupMemberRole of(string roleCode)
+	}
+
+	structure MeetingAttendeeAddedDomainEvent <domainEvent, valueObject> {
+		immutable date rsvpDate,
+		immutable string role,
+		immutable int guestsNumber,
+		immutable double feeValue,
+		immutable string feeCurrency,
+		MeetingId meetingid,
+		MemberId attendeeId
+	}
+
+	structure MeetingAttendeeFeePaidDomainEvent <domainEvent, valueObject> {
+		MemberId attendeeId,
+		MeetingId meetingid
+	}
+
+	structure MeetingAttendeeRemovedDomainEvent <domainEvent, valueObject> {
+		immutable string reason,
+		MeetingId meetingid,
+		MemberId memberid
+	}
+
+	structure MeetingCanceledDomainEvent <domainEvent, valueObject> {
+		immutable date cancelDate,
+		MeetingId meetingid,
+		MemberId cancelMemberId
+	}
+
+	structure MeetingCreatedDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid
+	}
+
+	structure MeetingEditedDomainEvent <domainEvent, valueObject> {
+		immutable string meetingId
+	}
+
+	structure MeetingMainAttributesChangedDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid
+	}
+
+	structure MeetingNotAttendeeAddedDomainEvent <domainEvent, valueObject> {
+		MemberId memberid,
+		MeetingId meetingid
+	}
+
+	structure MeetingWaitlistMemberAddedDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid,
+		MemberId memberid
+	}
+
+	structure MemberSetAsAttendeeDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid,
+		MemberId hostId
+	}
+
+	structure MemberSignedOffFromMeetingWaitlistDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid,
+		MemberId memberid
+	}
+
+	structure NewMeetingHostSetDomainEvent <domainEvent, valueObject> {
+		MeetingId meetingid,
+		MemberId hostId
+	}
+
+	structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+		MemberId memberid
+	}
+
+	structure MemberSubscriptionExpirationDateChangedDomainEvent <domainEvent, valueObject> {
+		immutable date expirationDate,
+		MemberId memberid
+	}
+
+	structure MemberCreatedIntegrationEvent <domainEvent, valueObject> {
+		immutable string memberId,
+		immutable string id,
+		immutable date occurredOn
+	}
+
+	list ListMeetingAttendee {
+		MeetingAttendee meetingAttendee
+	}
+
+	list ListMeetingNotAttendee {
+		MeetingNotAttendee meetingNotAttendee
+	}
+
+	list ListMeetingWaitlistMember {
+		MeetingWaitlistMember meetingWaitlistMember
+	}
+
+	list ListMeeting {
+		Meeting meeting
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string userId,
+		string login,
+		string email,
+		string firstName,
+		string lastName,
+		string name
+	}
+
+	structure MeetingFeePaidIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occuredOn,
+		string payerId,
+		string meetingId
+	}
+
+	structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occurredOn,
+		string meetingGroupProposalId
+	}
+
+	structure SubscriptionExpirationDateChangedIntegrationEvent <domainEvent, valueObject> {
+		date occuredOn,
+		string id,
+		string payerId,
+		date expirationDate
+	}
+
+	structure MeetingAttendeeAddedIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occuredOn,
+		string meetingId,
+		string attendeeId,
+		double feeValue,
+		string feeCurrency
+	}
+
+	structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+		string meetingGroupProposalId,
+		string name,
+		string description,
+		string locationCity,
+		string locationCountryCode,
+		string proposalUserId,
+		date ProposalDate
+	}
+}
+
+context Payments {
+	enum MeetingFeePaymentStatus {
+		WaitingForPayment,
+		Paid,
+		Expired
+	}
+
+	enum SubscriptionStatus {
+		Active,
+		Expired
+	}
+
+	enum SubscriptionRenewalPaymentStatus {
+		WaitingForPayment,
+		Paid,
+		Expired
+	}
+
+	enum SubscriptionPaymentStatus {
+		WaitingForPayment,
+		Paid,
+		Expired
+	}
+
+	enum SubscriptionPeriod {
+		Month,
+		HalfYear
+	}
+
+	enum PriceListItemCategory {
+		New,
+		Renewal
+	}
+
+	structure Country <valueObject> {
+		ListPriceListItem pricelistitem
+	}
+
+	structure Payer <aggregate> {
+		ListMeetingFee meetingfee,
+		ListSubscription subscription
+	}
+
+	structure MeetingFee <aggregate> {
+		Payer payer,
+		ListMeetingFeePayment meetingfeepayment
+	}
+
+	structure MeetingFeePayment <aggregate> {
+		MeetingFee meetingfee,
+		MeetingFeePaymentStatus meetingfeepaymentstatus
+	}
+
+	structure Subscription <aggregate> {
+		unspecified ExpirationDate,
+		Payer payer,
+		SubscriptionStatus subscriptionstatus,
+		ListSubscriptionRenewalPayment subscriptionrenewalpayment,
+		ListSubscriptionPayment subscriptionpayment,
+		SubscriptionPeriod subscriptionperiod
+	}
+
+	structure SubscriptionRenewalPayment <aggregate> {
+		Subscription subscription,
+		SubscriptionRenewalPaymentStatus subscriptionrenewalpaymentstatus,
+		SubscriptionPeriod subscriptionperiod
+	}
+
+	structure SubscriptionPayment <aggregate> {
+		SubscriptionPaymentStatus subscriptionpaymentstatus,
+		Subscription subscription,
+		SubscriptionPeriod subscriptionperiod
+	}
+
+	structure PriceListItem <aggregate> {
+		ListSubscriptionPeriod subscriptionperiod,
+		PriceList pricelist,
+		Country country,
+		PriceListItemCategory pricelistitemcategory
+	}
+
+	structure PriceList <valueObject> {
+		ListPriceListItem pricelistitem
+	}
+
+	structure MeetingFeePaymentCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeePaymentId,
+		immutable string meetingFeeId,
+		immutable string status
+	}
+
+	structure MeetingFeeCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeeId,
+		immutable double feeValue,
+		immutable string feeCurrency,
+		immutable string meetingId,
+		immutable string status,
+		immutable string payerId
+	}
+
+	structure MeetingFeeCanceledDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeeId,
+		immutable string status
+	}
+
+	structure MeetingFeePaymentExpiredDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeePaymentId,
+		immutable string status
+	}
+
+	structure MeetingFeePaymentPaidDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeePaymentId,
+		immutable string status
+	}
+
+	structure MeetingFeeExpiredDomainEvent <domainEvent, valueObject> {
+		immutable string meetingFeeId,
+		immutable string status
+	}
+
+	structure MeetingFeePaidDomainEvent <domainEvent, valueObject> {
+		immutable string status,
+		immutable string meetingFeeId
+	}
+
+	structure PayerCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string payerId,
+		immutable string login,
+		immutable string firstName,
+		immutable string lastName,
+		immutable string name,
+		immutable string email
+	}
+
+	structure PriceListItemActivatedDomainEvent <domainEvent, valueObject> {
+		immutable string priceListItemId
+	}
+
+	structure PriceListItemAttributesChangedDomainEvent <domainEvent, valueObject> {
+		immutable string priceListItemId,
+		immutable string countryCode,
+		immutable string subscriptionPeriodCode,
+		immutable string categoryCode,
+		immutable string currency,
+		immutable long price
+	}
+
+	structure PriceListItemCreatedDomainEvent <domainEvent, valueObject> {
+		immutable long price,
+		immutable string subscriptionPeriodCode,
+		immutable string currency,
+		immutable string categoryCode,
+		immutable string countryCode,
+		immutable string priceListItemId,
+		immutable boolean isActive
+	}
+
+	structure PriceListItemDeactivatedDomainEvent <domainEvent, valueObject> {
+		immutable string priceListItemId
+	}
+
+	structure SubscriptionPaymentCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionPaymentId,
+		immutable string payerId,
+		immutable string countryCode,
+		immutable string subscriptionPeriodCode,
+		immutable string status,
+		immutable double value,
+		immutable string currency
+	}
+
+	structure SubscriptionPaymentExpiredDomainEvent <domainEvent, valueObject> {
+		immutable string status,
+		immutable string subscriptionPaymentId
+	}
+
+	structure SubscriptionPaymentPaidDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionPaymentId,
+		immutable string status
+	}
+
+	structure SubscriptionRenewalPaymentCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionRenewalPaymentId,
+		immutable string payerId,
+		immutable string subscriptionId,
+		immutable string subscriptionPeriodCode,
+		immutable string countryCode,
+		immutable string status,
+		immutable string currency,
+		immutable double value
+	}
+
+	structure SubscriptionRenewalPaymentPaidDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionId,
+		immutable string status,
+		immutable string subscriptionRenewalPaymentId
+	}
+
+	structure SubscriptionCreatedDomainEvent <domainEvent, valueObject> {
+		immutable string payerId,
+		immutable string subscriptionPaymentId,
+		immutable string subscriptionId,
+		immutable string subscriptionPeriodCode,
+		immutable string countryCode,
+		immutable date expirationDate,
+		immutable string status
+	}
+
+	structure SubscriptionExpiredDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionId,
+		immutable string status
+	}
+
+	structure SubscriptionRenewedDomainEvent <domainEvent, valueObject> {
+		immutable string subscriptionId,
+		immutable date expirationDate,
+		immutable string payerId,
+		immutable string status,
+		immutable string subscriptionPeriodCode
+	}
+
+	list ListPriceListItem {
+		PriceListItem priceListItem
+	}
+
+	list ListMeetingFee {
+		MeetingFee meetingFee
+	}
+
+	list ListSubscription {
+		Subscription subscription
+	}
+
+	list ListMeetingFeePayment {
+		MeetingFeePayment meetingFeePayment
+	}
+
+	list ListSubscriptionRenewalPayment {
+		SubscriptionRenewalPayment subscriptionRenewalPayment
+	}
+
+	list ListSubscriptionPayment {
+		SubscriptionPayment subscriptionPayment
+	}
+
+	list ListSubscriptionPeriod {
+		SubscriptionPeriod subscriptionPeriod
+	}
+
+	structure MeetingAttendeeAddedIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occuredOn,
+		string meetingId,
+		string attendeeId,
+		double feeValue,
+		string feeCurrency
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string firstName,
+		string name,
+		string login,
+		string lastName,
+		string userId,
+		string email
+	}
+
+	structure MeetingFeePaidIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occuredOn,
+		string payerId,
+		string meetingId
+	}
+
+	structure SubscriptionExpirationDateChangedIntegrationEvent <domainEvent, valueObject> {
+		date occuredOn,
+		string id,
+		string payerId,
+		date expirationDate
+	}
+}

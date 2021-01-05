@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<service:ServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data" xmlns:service="de.fhdo.lemma.service">
+  <imports name="payments" importURI="extracted_domain_Payments.data"/>
+  <microservices name="Payments">
+    <interfaces name="ProvidedTypes">
+      <operations name="getPayer">
+        <parameters name="payer" exchangePattern="OUT">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Payments/extracted_domain_Payments.data.xmi#//@contexts.0/@complexTypes.7"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ReceivedEvents">
+      <operations name="receiveNewUserRegisteredIntegrationEvent">
+        <parameters name="newUserRegisteredIntegrationEvent" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Payments/extracted_domain_Payments.data.xmi#//@contexts.0/@complexTypes.42"/>
+          </importedType>
+        </parameters>
+      </operations>
+      <operations name="receiveMeetingAttendeeAddedIntegrationEvent">
+        <parameters name="meetingAttendeeAddedIntegrationEvent" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Payments/extracted_domain_Payments.data.xmi#//@contexts.0/@complexTypes.43"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents">
+      <operations name="sendSubscriptionExpirationDateChangedIntegrationEvent">
+        <parameters name="subscriptionExpirationDateChangedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Payments/extracted_domain_Payments.data.xmi#//@contexts.0/@complexTypes.44"/>
+          </importedType>
+        </parameters>
+      </operations>
+      <operations name="sendMeetingFeePaidIntegrationEvent">
+        <parameters name="meetingFeePaidIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Payments/extracted_domain_Payments.data.xmi#//@contexts.0/@complexTypes.45"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</service:ServiceModel>

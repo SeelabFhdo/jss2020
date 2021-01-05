@@ -1,0 +1,78 @@
+import microservices from "../Phase 3/UserAccess/service_UserAccess.services" as services
+import technology from "cqrs.technology" as cqrs
+import technology from "domainEvents.technology" as domainEvents
+import technology from "java.technology" as java
+import technology from "kafka.technology" as kafka
+
+@technology(java)
+type services::userAccess::UserAccess.UserId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::userAccess::UserAccess.User {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op User { aspects { java::_aspects.constructor; } }
+    op createFromUserRegistration { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::userAccess::UserAccess.UserRole {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op member { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::userAccess::UserAccess.UserRegistrationId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::userAccess::UserAccess.UserRegistration {
+    op UserRegistration { aspects { java::_aspects.constructor; } }
+    op registerNewUser { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::userAccess::UserAccess.UserRegistrationStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op waitingForConfirmation { aspects { java::_aspects.static; } }
+    op confirmed { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::userAccess::UserAccess.NewUserRegisteredIntegrationEvent {
+    userId : java::_types.UUID;
+}
+
+@technology(cqrs)
+@technology(domainEvents)
+@technology(java)
+@technology(kafka)
+services::org.example.useraccess.UserAccess {
+    protocols { async: kafka::_protocols.kafka }
+    endpoints { kafka::_protocols.kafka: "localhost:9092"; }
+    aspects {
+        java::_aspects.CustomProperty(name = "server.port", value = "8080");
+        kafka::_aspects.BootstrapAddress("localhost:9092");
+    }
+
+    interface Commands {
+        endpoints { java::_protocols.rest: "users"; }
+        aspects { cqrs::_aspects.CommandSide; }
+    }
+
+    operation Commands.registerNewUser {
+        endpoints { java::_protocols.rest: "registerNewUser"; }
+        aspects { java::_aspects.PutMapping; }
+        parameters { complex commandInfo { aspects { java::_aspects.RequestBody; } } }
+    }
+
+    operation EmittedEvents.sendNewUserRegisteredIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Producer("UserAccessProducerService");
+            kafka::_aspects.Participant(topic="userRegistration");
+        }
+    }
+}

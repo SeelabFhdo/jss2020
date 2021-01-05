@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/UserAccess/service_UserAccess.services">
+  <imports name="userAccess" importUri="file://../data models/domain_UserAccess.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/UserAccess/service_UserAccess.services" name="org.example.useraccess.UserAccess" qualifiedName="org.example.useraccess.UserAccess" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="Commands" qualifiedName="org.example.useraccess.UserAccess.Commands" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="registerNewUser" qualifiedName="org.example.useraccess.UserAccess.Commands.registerNewUser" visibility="ARCHITECTURE">
+        <parameters name="commandInfo" qualifiedName="org.example.useraccess.UserAccess.Commands.registerNewUser.commandInfo" exchangePattern="IN" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="RegisterNewUserCommand" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.RegisterNewUserCommand" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="RegisterNewUserCommand" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.RegisterNewUserCommand" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="getUser" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes.getUser" visibility="ARCHITECTURE">
+        <parameters name="user" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes.getUser.user" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="sendNewUserRegisteredIntegrationEvent" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents.sendNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents.sendNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

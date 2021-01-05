@@ -1,0 +1,20 @@
+import datatypes from "domain_Administration.data" as administration
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Administration --> microservice org.example.administration.Administration {
+architecture functional microservice org.example.administration.Administration {
+    // S6: Remove operation
+    //      Since the implementation does not realize a dedicated Administrator class, whose
+    //      instances may be required by other microservices, we remove the operation together with
+    //      the then empty interface.
+    /*interface ProvidedTypes {
+        getAdministrator(sync out administrator : administration::Administration.Administrator);
+    }*/
+    interface ReceivedEvents {
+        receiveMeetingGroupProposedIntegrationEvent(async meetingGroupProposedIntegrationEvent : administration::Administration.MeetingGroupProposedIntegrationEvent);
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : administration::Administration.NewUserRegisteredIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingGroupProposalAcceptedIntegrationEvent(async out meetingGroupProposalAcceptedIntegrationEvent : administration::Administration.MeetingGroupProposalAcceptedIntegrationEvent);
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<service:ServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data" xmlns:service="de.fhdo.lemma.service">
+  <imports name="userAccess" importURI="extracted_domain_UserAccess.data"/>
+  <microservices name="UserAccess">
+    <interfaces name="ProvidedTypes">
+      <operations name="getUser">
+        <parameters name="user" exchangePattern="OUT">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/UserAccess/extracted_domain_UserAccess.data.xmi#//@contexts.0/@complexTypes.1"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents">
+      <operations name="sendNewUserRegisteredIntegrationEvent">
+        <parameters name="newUserRegisteredIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/UserAccess/extracted_domain_UserAccess.data.xmi#//@contexts.0/@complexTypes.13"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</service:ServiceModel>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="ASCII"?>
+<data:DataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data">
+  <contexts name="Payments">
+    <complexTypes xsi:type="data:Enumeration" name="MeetingFeePaymentStatus">
+      <fields name="WaitingForPayment"/>
+      <fields name="Paid"/>
+      <fields name="Expired"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="SubscriptionStatus">
+      <fields name="Active"/>
+      <fields name="Expired"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="SubscriptionRenewalPaymentStatus">
+      <fields name="WaitingForPayment"/>
+      <fields name="Paid"/>
+      <fields name="Expired"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="SubscriptionPaymentStatus">
+      <fields name="WaitingForPayment"/>
+      <fields name="Paid"/>
+      <fields name="Expired"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="SubscriptionPeriod">
+      <fields name="Month"/>
+      <fields name="HalfYear"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="PriceListItemCategory">
+      <fields name="New"/>
+      <fields name="Renewal"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="Country">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="pricelistitem" complexType="//@contexts.0/@complexTypes.35"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="Payer">
+      <features>AGGREGATE</features>
+      <dataFields name="meetingfee" complexType="//@contexts.0/@complexTypes.36"/>
+      <dataFields name="subscription" complexType="//@contexts.0/@complexTypes.37"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFee">
+      <features>AGGREGATE</features>
+      <dataFields name="payer" complexType="//@contexts.0/@complexTypes.7"/>
+      <dataFields name="meetingfeepayment" complexType="//@contexts.0/@complexTypes.38"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePayment">
+      <features>AGGREGATE</features>
+      <dataFields name="meetingfee" complexType="//@contexts.0/@complexTypes.8"/>
+      <dataFields name="meetingfeepaymentstatus" complexType="//@contexts.0/@complexTypes.0"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="Subscription">
+      <features>AGGREGATE</features>
+      <dataFields name="ExpirationDate"/>
+      <dataFields name="payer" complexType="//@contexts.0/@complexTypes.7"/>
+      <dataFields name="subscriptionstatus" complexType="//@contexts.0/@complexTypes.1"/>
+      <dataFields name="subscriptionrenewalpayment" complexType="//@contexts.0/@complexTypes.39"/>
+      <dataFields name="subscriptionpayment" complexType="//@contexts.0/@complexTypes.40"/>
+      <dataFields name="subscriptionperiod" complexType="//@contexts.0/@complexTypes.4"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionRenewalPayment">
+      <features>AGGREGATE</features>
+      <dataFields name="subscription" complexType="//@contexts.0/@complexTypes.10"/>
+      <dataFields name="subscriptionrenewalpaymentstatus" complexType="//@contexts.0/@complexTypes.2"/>
+      <dataFields name="subscriptionperiod" complexType="//@contexts.0/@complexTypes.4"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionPayment">
+      <features>AGGREGATE</features>
+      <dataFields name="subscriptionpaymentstatus" complexType="//@contexts.0/@complexTypes.3"/>
+      <dataFields name="subscription" complexType="//@contexts.0/@complexTypes.10"/>
+      <dataFields name="subscriptionperiod" complexType="//@contexts.0/@complexTypes.4"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceListItem">
+      <features>AGGREGATE</features>
+      <dataFields name="subscriptionperiod" complexType="//@contexts.0/@complexTypes.41"/>
+      <dataFields name="pricelist" complexType="//@contexts.0/@complexTypes.14"/>
+      <dataFields name="country" complexType="//@contexts.0/@complexTypes.6"/>
+      <dataFields name="pricelistitemcategory" complexType="//@contexts.0/@complexTypes.5"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceList">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="pricelistitem" complexType="//@contexts.0/@complexTypes.35"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePaymentCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeePaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="meetingFeeId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeeCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeeId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="feeValue" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDouble"/>
+      </dataFields>
+      <dataFields name="feeCurrency" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="meetingId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeeCanceledDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeeId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePaymentExpiredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeePaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePaymentPaidDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeePaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeeExpiredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingFeeId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePaidDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="meetingFeeId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PayerCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="login" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="firstName" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="lastName" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="name" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="email" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceListItemActivatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="priceListItemId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceListItemAttributesChangedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="priceListItemId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="countryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="categoryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="currency" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="price" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveLong"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceListItemCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="price" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveLong"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="currency" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="categoryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="countryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="priceListItemId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="isActive" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveBoolean"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="PriceListItemDeactivatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="priceListItemId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionPaymentCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="countryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDouble"/>
+      </dataFields>
+      <dataFields name="currency" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionPaymentExpiredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionPaymentPaidDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionRenewalPaymentCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionRenewalPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="countryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="currency" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDouble"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionRenewalPaymentPaidDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionRenewalPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPaymentId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="countryCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="expirationDate" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionExpiredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionRenewedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="subscriptionId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="expirationDate" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="payerId" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="status" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListPriceListItem">
+      <dataFields name="priceListItem" complexType="//@contexts.0/@complexTypes.13"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListMeetingFee">
+      <dataFields name="meetingFee" complexType="//@contexts.0/@complexTypes.8"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListSubscription">
+      <dataFields name="subscription" complexType="//@contexts.0/@complexTypes.10"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListMeetingFeePayment">
+      <dataFields name="meetingFeePayment" complexType="//@contexts.0/@complexTypes.9"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListSubscriptionRenewalPayment">
+      <dataFields name="subscriptionRenewalPayment" complexType="//@contexts.0/@complexTypes.11"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListSubscriptionPayment">
+      <dataFields name="subscriptionPayment" complexType="//@contexts.0/@complexTypes.12"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListSubscriptionPeriod">
+      <dataFields name="subscriptionPeriod" complexType="//@contexts.0/@complexTypes.4"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="NewUserRegisteredIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="firstName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="name">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="login">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="lastName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="userId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="email">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingAttendeeAddedIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="id">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="occuredOn">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="meetingId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="attendeeId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="feeValue">
+        <primitiveType xsi:type="data:PrimitiveDouble"/>
+      </dataFields>
+      <dataFields name="feeCurrency">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="SubscriptionExpirationDateChangedIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="occuredOn">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="id">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="payerId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="expirationDate">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingFeePaidIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="id">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="occuredOn">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="payerId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="meetingId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</data:DataModel>

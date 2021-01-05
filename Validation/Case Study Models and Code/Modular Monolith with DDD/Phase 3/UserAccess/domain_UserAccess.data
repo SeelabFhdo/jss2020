@@ -1,0 +1,180 @@
+context UserAccess {
+    // D7: Remove domain concept
+    //      The implementation does not realize a dedicated Permission class
+    /*structure Permission <valueObject> {
+        ListUserRole userrole <part>
+    }*/
+
+    structure UserId <valueObject> {
+        immutable string value
+    }
+
+    structure User <entity, aggregate> {
+        // D5: Add missing data field
+        immutable UserId userId<identifier,part>,
+        // D5: Add missing data field
+        hide string _login,
+        // D5: Add missing data field
+        hide string _password,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide boolean _isActive,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        ListUserRole userrole <part>,
+        // D9: Refine conceptual relationship
+        //        Conceptual relationship between User and UserRegistration is established by
+        //        identifying a UserRegistration as UserRegistrationId and map it to UserId
+        // UserRegistration userregistration,
+        procedure createFromUserRegistration(UserRegistrationId userRegistrationId, string login,
+            string password, string email, string firstName, string lastName, string name),
+        // D6: Add missing domain operation
+        hide procedure User(UserRegistrationId userRegistrationId, string login, string password,
+            string email, string firstName, string lastName, string name)
+    }
+
+    structure UserRegistrationId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure UsersCounter {
+        function int countUsersWithLogin(string login)
+    }
+
+    structure UserRegistration <entity, aggregate> {
+        // D5: Add missing data field
+        immutable UserRegistrationId id<identifier,part>,
+        // D5: Add missing data field
+        hide string _login,
+        // D5: Add missing data field
+        hide string _password,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide date _registerDate,
+        UserRegistrationStatus userregistrationstatus <part>,
+        // D5: Add missing data field
+        hide date _confirmedDate,
+
+        // D6: Add missing domain operation
+        hide procedure UserRegistration(string login, string password, string email,
+            string firstName, string lastName, UsersCounter usersCounter, string confirmLink),
+
+        // D6: Add missing domain operation
+        procedure registerNewUser(string login, string password, string email, string firstName,
+            string lastName, UsersCounter usersCounter, string confirmLink),
+
+        // D9: Refine conceptual relationship
+        //            This function invokes User.createFromUserRegistration to establish the
+        //            conceptual relationship between User and UserRegistration
+        //User user,
+        function User createUser,
+
+        // D6: Add missing domain operation
+        procedure confirm,
+
+        // D6: Add missing domain operation
+        procedure expire
+    }
+
+    structure UserRole <valueObject> {
+        // D5: Add missing data field
+        immutable string Value,
+        // D8: Remove data field
+        //        Removed together with Permission (see above)
+        //ListPermission permission,
+        // D8: Remove data field
+        //        The conceptual relationship between User and UserRole is bidirectional. In the
+        //        implementation it is however unidirectional (User[1] -> UserRole[*]).
+        //User user,
+        function UserRole member
+    }
+
+    structure UserRegistrationStatus <valueObject> {
+        // D5: Add missing data field
+        immutable string Value,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified WaitingForConfirmation,
+        function UserRegistrationStatus waitingForConfirmation,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified Confirmed,
+        function UserRegistrationStatus confirmed,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified Expired,
+        function UserRegistrationStatus expired
+        // D8: Remove data field
+        //        The conceptual relationship between UserRegistration and UserRegistrationStatus is
+        //        bidirectional. In the implementation it is however unidirectional
+        //        (UserRegistration[1] -> UserRegistrationStatus[1]).
+        //UserRegistration userregistration
+    }
+
+    structure NewUserRegisteredDomainEvent <domainEvent, valueObject> {
+        immutable string login,
+        immutable string email,
+        immutable string firstName,
+        immutable string lastName,
+        immutable date registerDate,
+        immutable string confirmLink,
+        UserRegistrationId userregistrationid
+    }
+
+    list ListUserRole {
+        UserRole userRole
+    }
+
+    // D7: Remove domain concept
+    //      Removed together with Permission (see above)
+    /*list ListPermission {
+        Permission permission
+    }*/
+
+    structure UserRegistrationConfirmedDomainEvent <domainEvent, valueObject> {
+        UserRegistrationId userregistrationid
+    }
+
+    structure UserRegistrationExpiredDomainEvent <domainEvent, valueObject> {
+        UserRegistrationId userregistrationid
+    }
+
+    structure UserCreatedDomainEvent <domainEvent, valueObject> {
+        UserId userid
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string userId,
+        string login,
+        string email,
+        string firstName,
+        string lastName,
+        string name
+    }
+
+    // D4: Add missing domain concept
+    structure RegisterNewUserCommand<valueObject> {
+        string login,
+        string password,
+        string email,
+        string firstName,
+        string lastName,
+        string confirmLink
+    }
+}

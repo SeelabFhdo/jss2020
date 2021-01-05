@@ -1,0 +1,74 @@
+context UserAccess {
+	structure Permission <valueObject> {
+		ListUserRole userrole <part>
+	}
+
+	structure User <aggregate, entity> {
+		ListUserRole userrole <part>,
+		UserRegistration userregistration
+	}
+
+	structure UserRegistration <aggregate, entity> {
+		UserRegistrationStatus userregistrationstatus <part>,
+		User user
+	}
+
+	structure UserRole <valueObject> {
+		ListPermission permission,
+		User user
+	}
+
+	structure UserRegistrationStatus <valueObject> {
+		immutable unspecified WaitingForConfirmation,
+		immutable unspecified Confirmed,
+		immutable unspecified Expired,
+		UserRegistration userregistration
+	}
+
+	structure NewUserRegisteredDomainEvent <domainEvent, valueObject> {
+		immutable string login,
+		immutable string email,
+		immutable string firstName,
+		immutable string lastName,
+		immutable date registerDate,
+		immutable string confirmLink,
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserRegistrationId <valueObject> {
+		immutable string value
+	}
+
+	structure UserRegistrationConfirmedDomainEvent <domainEvent, valueObject> {
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserRegistrationExpiredDomainEvent <domainEvent, valueObject> {
+		UserRegistrationId userregistrationid
+	}
+
+	structure UserId <valueObject> {
+		immutable string value
+	}
+
+	structure UserCreatedDomainEvent <domainEvent, valueObject> {
+		UserId userid
+	}
+
+	list ListUserRole {
+		UserRole userRole
+	}
+
+	list ListPermission {
+		Permission permission
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string email,
+		string firstName,
+		string name,
+		string login,
+		string lastName,
+		string userId
+	}
+}

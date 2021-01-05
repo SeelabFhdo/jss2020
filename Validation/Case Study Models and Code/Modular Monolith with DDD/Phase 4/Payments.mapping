@@ -1,0 +1,397 @@
+import microservices from "../Phase 3/Payments/service_Payments.services" as services
+import technology from "cqrs.technology" as cqrs
+import technology from "domainEvents.technology" as domainEvents
+import technology from "java.technology" as java
+import technology from "kafka.technology" as kafka
+
+@technology(java)
+type services::payments::Payments.MeetingFeePayment {
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentSnapshot {
+    meetingFeePaymentId : java::_types.UUID;
+    meetingFeeId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op waitingForPayment { aspects { java::_aspects.static; } }
+    op paid { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFee {
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeSnapshot {
+    meetingFeeId : java::_types.UUID;
+    payerId : java::_types.UUID;
+    meetingId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op waitingForPayment { aspects { java::_aspects.static; } }
+    op paid { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+    op canceled { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.MeetingId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.Payer {
+    op create {
+        aspects { java::_aspects.static; }
+        parameters { id : java::_types.UUID; }
+    }
+}
+
+@technology(java)
+type services::payments::Payments.PayerId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.PriceList {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op createFromItems { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItem {
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemCategory {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op New { aspects { java::_aspects.static; } }
+    op renewal { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MoneyValue {
+    value : java::_types.BigDecimal;
+    op of {
+        aspects { java::_aspects.static; }
+        parameters { value : java::_types.BigDecimal; }
+    }
+    op greaterThanValue {
+        aspects { java::_aspects.static; }
+        parameters { left : java::_types.BigDecimal; }
+    }
+    op lessThanValue {
+        aspects { java::_aspects.static; }
+        parameters { left : java::_types.BigDecimal; }
+    }
+    op greaterEqualsValue {
+        aspects { java::_aspects.static; }
+        parameters { left : java::_types.BigDecimal; }
+    }
+    op lessEqualsValue {
+        aspects { java::_aspects.static; }
+        parameters { left : java::_types.BigDecimal; }
+    }
+    op greaterThan { aspects { java::_aspects.static; } }
+    op lessThan { aspects { java::_aspects.static; } }
+    op greaterEquals { aspects { java::_aspects.static; } }
+    op lessEquals { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPayment {
+    op buy { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPaymentId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPaymentStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op waitingForPayment { aspects { java::_aspects.static; } }
+    op paid { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewalPayment {
+    op buy { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewalPaymentId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewalPaymentStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op waitingForPayment { aspects { java::_aspects.static; } }
+    op paid { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriberId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.Subscription {
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionDateExpirationCalculator {
+    op calculateForNew { aspects { java::_aspects.static; } }
+    op calculateForRenewal { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPeriod {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op month { aspects { java::_aspects.static; } }
+    op halfYear { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+    op getName { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op active { aspects { java::_aspects.static; } }
+    op expired { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::payments::Payments.UserId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingAttendeeAddedIntegrationEvent {
+    id : java::_types.UUID;
+    meetingId : java::_types.UUID;
+    attendeeId : java::_types.UUID;
+    feeValue : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentCreatedDomainEvent {
+    meetingFeePaymentId : java::_types.UUID;
+    meetingFeeId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentExpiredDomainEvent {
+    meetingFeePaymentId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaymentPaidDomainEvent {
+    meetingFeePaymentId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeCreatedDomainEvent {
+    meetingFeeId : java::_types.UUID;
+    payerId : java::_types.UUID;
+    meetingId : java::_types.UUID;
+    feeValue : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeCanceledDomainEvent {
+    meetingFeeId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeeExpiredDomainEvent {
+    meetingFeeId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaidDomainEvent {
+    meetingFeeId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.PayerCreatedDomainEvent {
+    payerId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemActivatedDomainEvent {
+    priceListItemId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemAttributesChangedDomainEvent {
+    priceListItemId : java::_types.UUID;
+    price : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemCreatedDomainEvent {
+    priceListItemId : java::_types.UUID;
+    price : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.PriceListItemDeactivatedDomainEvent {
+    priceListItemId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPaymentCreatedDomainEvent {
+    subscriptionPaymentId : java::_types.UUID;
+    payerId : java::_types.UUID;
+    value : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPaymentExpiredDomainEvent {
+    subscriptionPaymentId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionPaymentPaidDomainEvent {
+    subscriptionPaymentId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewalPaymentCreatedDomainEvent {
+    subscriptionRenewalPaymentId : java::_types.UUID;
+    payerId : java::_types.UUID;
+    subscriptionId : java::_types.UUID;
+    value : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewalPaymentPaidDomainEvent {
+    subscriptionRenewalPaymentId : java::_types.UUID;
+    subscriptionId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionCreatedDomainEvent {
+    subscriptionPaymentId : java::_types.UUID;
+    payerId : java::_types.UUID;
+    subscriptionId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionExpiredDomainEvent {
+    subscriptionId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionRenewedDomainEvent {
+    subscriptionId : java::_types.UUID;
+    payerId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.MeetingFeePaidIntegrationEvent {
+    id : java::_types.UUID;
+    payerId : java::_types.UUID;
+    meetingId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.SubscriptionExpirationDateChangedIntegrationEvent {
+    id : java::_types.UUID;
+    payerId : java::_types.UUID;
+}
+
+@technology(java)
+type services::payments::Payments.NewUserRegisteredIntegrationEvent {
+    userId : java::_types.UUID;
+}
+
+@technology(cqrs)
+@technology(domainEvents)
+@technology(java)
+@technology(kafka)
+services::org.example.payments.Payments {
+    protocols { async: kafka::_protocols.kafka }
+    endpoints { kafka::_protocols.kafka: "localhost:9092"; }
+    aspects {
+        java::_aspects.CustomProperty(name = "server.port", value = "8083");
+        kafka::_aspects.BootstrapAddress("localhost:9092");
+    }
+
+    operation EmittedEvents.sendMeetingFeePaidIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Producer("PaymentsProducerService");
+            kafka::_aspects.Participant(topic = "meetingOrganization");
+        }
+    }
+
+    operation EmittedEvents.sendSubscriptionExpirationDateChangedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Producer("PaymentsProducerService");
+            kafka::_aspects.Participant(topic = "meetingOrganization");
+        }
+    }
+
+    operation ReceivedEvents.receiveNewUserRegisteredIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "PaymentsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "userRegistration",
+                consumerGroup = "receiveNewUserRegisteredIntegrationEvent"
+            );
+        }
+    }
+
+    operation ReceivedEvents.receiveMeetingAttendeeAddedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "PaymentsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "meetingOrganization",
+                consumerGroup = "receiveMeetingAttendeeAddedIntegrationEvent"
+            );
+        }
+    }
+}

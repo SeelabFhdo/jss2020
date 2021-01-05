@@ -1,0 +1,17 @@
+import datatypes from "domain_UserAccess.data" as userAccess
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.UserAccess --> microservice org.example.useraccess.UserAccess {
+architecture functional microservice org.example.useraccess.UserAccess {
+    // S5: Specify operations for microservices that do not exhibit sharing relationships with other microservices
+    //      Added Commands interface and the required command operations
+    interface Commands {
+        registerNewUser(sync commandInfo : userAccess::UserAccess.RegisterNewUserCommand);
+    }
+    interface ProvidedTypes {
+        getUser(sync out user : userAccess::UserAccess.User);
+    }
+    interface EmittedEvents {
+        sendNewUserRegisteredIntegrationEvent(async out newUserRegisteredIntegrationEvent : userAccess::UserAccess.NewUserRegisteredIntegrationEvent);
+    }
+}

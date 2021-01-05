@@ -1,0 +1,342 @@
+-- @atlcompiler emftvm
+-- @path Domain=/de.fhdo.lemma.data.datadsl.metamodel/model/DataViewpointModel.xcore
+-- @path Service=/de.fhdo.lemma.servicedsl.metamodel/model/ServiceViewpointModel.xcore
+module services;
+create INOUT : Service, FAKE_OUT : Service from IN : UML2, CONTEXT : Domain;
+uses "helpers";
+uses "service_transformation_helpers";
+
+helper def : ServiceModel : Service!ServiceModel = OclUndefined;
+
+entrypoint rule CreateServiceModel() {
+    to
+        t : Service!ServiceModel
+    do {
+        thisModule.ServiceModel <- t;
+        t;
+    }
+}
+
+rule Microservice {
+    from
+        s : UML2!Package(
+            s.hasStereotype('BoundedContext')
+        )
+    using {
+        ctx : String = s.name.lemmaName();
+        providedTypes : Sequence(TupleType(key : OclAny, value : OclAny)) =
+            s.providedTypes()->unpack();
+        receivedTypes : Sequence(TupleType(key : OclAny, value : OclAny)) =
+            s.receivedTypes()->unpack();
+        typeProperty : UML2!Property = OclUndefined;
+        typeStructure : Domain!DataStructure = OclUndefined;
+        typeStructureName : String = OclUndefined;
+        typeStructureListName : String = OclUndefined;
+        typeClassifier : UML2!Classifier = OclUndefined;
+        hasAssociationClass : Boolean = OclUndefined;
+        associationClass : UML2!Class = OclUndefined;
+        isDomainEvent : Boolean = OclUndefined;
+        associationName : String = OclUndefined;
+        operationName : String = OclUndefined;
+        operationType : String = OclUndefined;
+        createdOperations : OrderedSet(String) = OrderedSet{};
+    }
+    to
+        i : Service!Import(
+            name <- s.name.lemmaName().toLowerFirst(),
+            importURI <- 'domain_'.concat(s.name.lemmaName()).concat('.data'),
+            importType <- #DATATYPES,
+            serviceModel <- thisModule.ServiceModel
+        ),
+
+        t : Service!Microservice(
+            serviceModel <- thisModule.ServiceModel,
+            name <- s.name.lemmaName()
+        ),
+
+        interface : Service!Interface(
+            name <- 'ProvidedTypes',
+            microservice <- t
+        )
+    do {
+        for (typeDescription in providedTypes) {
+            typeStructure <- typeDescription.value;
+            typeStructureName <- typeStructure.name.lemmaName();
+            typeStructureListName <- typeStructure.name.lemmaListName();
+            typeClassifier <- typeStructure.findClassifier();
+            typeProperty <- typeDescription.key.memberEndOfType(typeClassifier);
+            hasAssociationClass <- typeDescription.key.oclIsTypeOf(UML2!AssociationClass);
+            isDomainEvent <- typeDescription.key.hasStereotype('DomainEvent');
+            associationName <- typeDescription.key.memberEndOfType(typeClassifier).name;
+
+            if (hasAssociationClass and not isDomainEvent) {
+                associationClass <- typeDescription.key;
+                for (operation in associationClass.ownedOperation) {
+                    operationName <- operation.name.lemmaName();
+                    if (not createdOperations->includes(operationName)) {
+                        thisModule.Operation(operation, ctx, i, interface);
+                        createdOperations <- createdOperations.append(operationName);
+                    }
+                }
+            } else if (not hasAssociationClass) {
+                if (typeProperty.isMultivalued())
+                    operationType <- typeStructureListName;
+                else
+                    operationType <- typeStructureName;
+
+                operationName <- thisModule.nameOfGetOperation(associationName, operationType);
+                if (not createdOperations->includes(operationName)) {
+                    thisModule.GetOperation(operationName, operationType, ctx, i, interface);
+                    createdOperations <- createdOperations.append(operationName);
+                }
+            }
+        }
+
+        if (thisModule.domainEventsIn(receivedTypes))
+            thisModule.DomainEvents(s, receivedTypes, i, t, 'ReceivedEvents', #IN);
+
+        if (thisModule.domainEventsIn(providedTypes))
+            thisModule.DomainEvents(s, providedTypes, i, t, 'EmittedEvents', #OUT);
+    }
+}
+
+helper def : nameOfGetOperation(optionalSuffix : String, typeName : String) : String =
+    let suffix : String = if (optionalSuffix.oclIsUndefined()) then
+            typeName
+        else
+            optionalSuffix.lemmaName().toUpperFirst()
+        endif
+    in
+    'get'.concat(suffix)
+;
+
+rule GetOperation(name : String, typeName : String, ctx : String, typeImport : Service!Import,
+    interface : Service!Interface) {
+    to
+        t : Service!Operation(
+            name <- name,
+            interface <- interface
+        ),
+
+        i : Service!ImportedType(
+            import <- typeImport,
+            type <- thisModule.findCreatedComplexType(ctx, typeName)
+        ),
+
+        p : Service!Parameter(
+            name <- typeName.toLowerFirst(),
+            exchangePattern <- #OUT,
+            communicationType <- #SYNCHRONOUS,
+            importedType <- i,
+            operation <- t
+        )
+}
+
+rule Operation(sourceOperation : UML2!Operation, ctx : String, typeImport : Service!Import,
+    interface : Service!Interface) {
+    to
+        t : Service!Operation(
+            name <- sourceOperation.name.lemmaName(),
+            interface <- interface
+        )
+    do {
+        for (parameter in sourceOperation.ownedParameter) {
+            thisModule.Parameter(parameter, ctx, typeImport, t);
+        }
+
+        t;
+    }
+}
+
+helper def : domainEventsIn(externalTypes : Bag(TupleType(key : OclAny, value : OclAny)))
+    : Boolean =
+    externalTypes->exists(t |
+        t.key.oclIsTypeOf(UML2!AssociationClass) and
+        t.key.hasStereotype('DomainEvent')
+    )
+;
+
+rule DomainEvents(
+    boundedContext : UML2!Package,
+    externalTypes : Bag(TupleType(key : OclAny, value : OclAny)),
+    typeImport : Service!Import,
+    microservice : Service!Microservice,
+    interfaceName : String,
+    exchangePattern : Service!ExchangePattern
+) {
+    using {
+        domainEvents : Bag(TupleType(key : OclAny, value : OclAny)) =
+            externalTypes->select(t |
+                t.key.oclIsTypeOf(UML2!AssociationClass) and
+                t.key.hasStereotype('DomainEvent')
+            );
+        operationName : String = OclUndefined;
+        operationType : String = OclUndefined;
+        createdOperations : OrderedSet(String) = OrderedSet{};
+    }
+    to
+        interface : Service!Interface(
+            name <- interfaceName,
+            microservice <- microservice
+        )
+    do {
+        for (event in domainEvents) {
+            operationType <- event.key.name.lemmaName();
+            operationName <- thisModule.nameOfDomainEventOperation(exchangePattern, operationType);
+            if (not createdOperations->includes(operationName)) {
+                thisModule.DomainEventOperation(exchangePattern, operationType, boundedContext.name,
+                    typeImport, interface);
+                createdOperations <- createdOperations.append(operationName);
+            }
+        }
+    }
+}
+
+helper def : nameOfDomainEventOperation(exchangePattern : Service!ExchangePattern,
+    typeName : String) : String =
+    let prefix : String = if (exchangePattern = #IN) then
+            'receive'
+        else if (exchangePattern = #OUT) then
+            'send'
+        else
+            'receiveAndSend'
+        endif
+        endif
+    in
+    prefix.concat(typeName.lemmaName().toUpperFirst())
+;
+
+rule DomainEventOperation(exchangePattern : Service!ExchangePattern, typeName : String,
+    ctx : String, typeImport : Service!Import, interface : Service!Interface) {
+    to
+        t : Service!Operation(
+            name <- thisModule.nameOfDomainEventOperation(exchangePattern, typeName),
+            interface <- interface
+        ),
+
+        i : Service!ImportedType(
+            import <- typeImport,
+            type <- thisModule.findCreatedComplexType(ctx, typeName)
+        ),
+
+        p : Service!Parameter(
+            name <- typeName.toLowerFirst(),
+            exchangePattern <- exchangePattern,
+            communicationType <- #ASYNCHRONOUS,
+            importedType <- i,
+            operation <- t
+        )
+}
+
+rule Parameter(sourceParameter : UML2!Parameter, ctx : String, typeImport : Service!Import,
+    operation : Service!Operation) {
+    using {
+        allSourceParameters : Sequence(UML2!Parameter) = sourceParameter.operation.ownedParameter;
+    }
+    to
+        t : Service!Parameter(
+            name <- sourceParameter.name.orUniqueName('unnamed', sourceParameter,
+                allSourceParameters, 'name').lemmaName(),
+            exchangePattern <- sourceParameter.lemmaExchangePattern(),
+            communicationType <- #SYNCHRONOUS,
+            operation <- operation
+        )
+    do {
+        if (sourceParameter.type.oclIsUndefined())
+            t.primitiveType <- thisModule.PrimitiveUnspecified();
+        else if (sourceParameter.type.oclIsTypeOf(UML2!PrimitiveType))
+            t.primitiveType <- sourceParameter.type.lemmaPrimitiveType();
+        else if (sourceParameter.isMultivalued())
+            t.importedType <- thisModule.ImportedType(
+                sourceParameter.type.name.lemmaListName(),
+                ctx,
+                typeImport
+            );
+        else
+            t.importedType <- thisModule.ImportedType(sourceParameter.type.name.lemmaName(), ctx,
+                typeImport);
+    }
+}
+
+helper context UML2!Parameter def : lemmaExchangePattern() : Service!ExchangePattern =
+    if (self.direction = #out) then
+        #OUT
+    else if (self.direction = #return) then
+        #OUT
+    else if (self.direction = #inout) then
+        #INOUT
+    else
+        #IN
+    endif
+    endif
+    endif
+;
+
+helper context UML2!PrimitiveType def : lemmaPrimitiveType() : Service!PrimitiveType =
+    if (self.name = 'Boolean') then
+        thisModule.PrimitiveBoolean()
+    else if (self.name = 'EDate') then
+        thisModule.PrimitiveDate()
+    else if (self.name = 'Integer') then
+        thisModule.PrimitiveInteger()
+    else if (self.name = 'String') then
+        thisModule.PrimitiveString()
+    else if (self.name = 'Real') then
+        thisModule.PrimitiveDouble()
+    else if (self.name = 'UnlimitedNatural') then
+        thisModule.PrimitiveLong()
+    else
+        OclUndefined
+    endif
+    endif
+    endif
+    endif
+    endif
+    endif
+;
+
+rule PrimitiveBoolean() {
+    to t : Service!PrimitiveBoolean
+    do { t;    }
+}
+
+rule PrimitiveInteger() {
+    to t : Service!PrimitiveInteger
+    do { t;    }
+}
+
+rule PrimitiveDate() {
+    to t : Service!PrimitiveDate
+    do { t;    }
+}
+
+rule PrimitiveDouble() {
+    to t : Service!PrimitiveDouble
+    do { t;    }
+}
+
+rule PrimitiveLong() {
+    to t : Service!PrimitiveLong
+    do { t;    }
+}
+
+rule PrimitiveString() {
+    to t : Service!PrimitiveString
+    do { t;    }
+}
+
+rule PrimitiveUnspecified() {
+    to t : Service!PrimitiveUnspecified
+    do { t;    }
+}
+
+rule ImportedType(typeName : String, ctx : String, typeImport : Service!Import) {
+    to
+        t : Service!ImportedType(
+            import <- typeImport,
+            type <- thisModule.findCreatedComplexType(ctx, typeName)
+        )
+    do {
+        t;
+    }
+}

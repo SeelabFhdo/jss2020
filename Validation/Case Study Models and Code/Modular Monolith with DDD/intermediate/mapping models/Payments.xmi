@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="">
+  <imports name="services" importUri="file://../service models/service_Payments.xmi" importTypeName="MICROSERVICES"/>
+  <imports name="cqrs" importUri="file://../../Phase 4/cqrs.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="domainEvents" importUri="file://../../Phase 4/domainEvents.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="java" importUri="file://../../Phase 4/java.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="kafka" importUri="file://../../Phase 4/kafka.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="payments" importUri="file://../data models/domain_Payments.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/Payments/service_Payments.services" name="org.example.payments.Payments" qualifiedName="org.example.payments.Payments" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="cqrs" import="//@imports.1"/>
+    <technologies name="domainEvents" import="//@imports.2"/>
+    <technologies name="java" import="//@imports.3"/>
+    <technologies name="kafka" import="//@imports.4"/>
+    <endpoints communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary" technology="//@microservices.0/@technologies.3">
+      <addresses>localhost:9092</addresses>
+    </endpoints>
+    <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.payments.Payments.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="getPayer" qualifiedName="org.example.payments.Payments.ProvidedTypes.getPayer" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <parameters name="payer" qualifiedName="org.example.payments.Payments.ProvidedTypes.getPayer.payer" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer" import="//@imports.5"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ReceivedEvents" qualifiedName="org.example.payments.Payments.ReceivedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="receiveMeetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveMeetingAttendeeAddedIntegrationEvent" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="Consumer" qualifiedName="DomainEvents.Consumer" import="//@imports.2">
+          <featureNames>SINGLE_VALUED</featureNames>
+          <properties name="handlerName" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="groupEventsOnly" type="boolean" defaultValue="false"/>
+          <properties name="disableErrorHandling" type="boolean" defaultValue="false"/>
+          <propertyValues value="PaymentsConsumerService" property="//@microservices.0/@interfaces.1/@operations.0/@aspects.0/@properties.0"/>
+        </aspects>
+        <aspects name="Participant" qualifiedName="Kafka.Participant" import="//@imports.4">
+          <properties name="topic" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="consumerGroup" type="string"/>
+          <propertyValues value="meetingOrganization" property="//@microservices.0/@interfaces.1/@operations.0/@aspects.1/@properties.0"/>
+          <propertyValues value="receiveMeetingAttendeeAddedIntegrationEvent" property="//@microservices.0/@interfaces.1/@operations.0/@aspects.1/@properties.1"/>
+        </aspects>
+        <parameters name="meetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveMeetingAttendeeAddedIntegrationEvent.meetingAttendeeAddedIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent" import="//@imports.5"/>
+        </parameters>
+      </operations>
+      <operations name="receiveNewUserRegisteredIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="Consumer" qualifiedName="DomainEvents.Consumer" import="//@imports.2">
+          <featureNames>SINGLE_VALUED</featureNames>
+          <properties name="handlerName" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="groupEventsOnly" type="boolean" defaultValue="false"/>
+          <properties name="disableErrorHandling" type="boolean" defaultValue="false"/>
+          <propertyValues value="PaymentsConsumerService" property="//@microservices.0/@interfaces.1/@operations.1/@aspects.0/@properties.0"/>
+        </aspects>
+        <aspects name="Participant" qualifiedName="Kafka.Participant" import="//@imports.4">
+          <properties name="topic" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="consumerGroup" type="string"/>
+          <propertyValues value="userRegistration" property="//@microservices.0/@interfaces.1/@operations.1/@aspects.1/@properties.0"/>
+          <propertyValues value="receiveNewUserRegisteredIntegrationEvent" property="//@microservices.0/@interfaces.1/@operations.1/@aspects.1/@properties.1"/>
+        </aspects>
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.NewUserRegisteredIntegrationEvent" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.NewUserRegisteredIntegrationEvent" import="//@imports.5"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.payments.Payments.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="sendMeetingFeePaidIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendMeetingFeePaidIntegrationEvent" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="Producer" qualifiedName="DomainEvents.Producer" import="//@imports.2">
+          <featureNames>SINGLE_VALUED</featureNames>
+          <properties name="handlerName" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <propertyValues value="PaymentsProducerService" property="//@microservices.0/@interfaces.2/@operations.0/@aspects.0/@properties.0"/>
+        </aspects>
+        <aspects name="Participant" qualifiedName="Kafka.Participant" import="//@imports.4">
+          <properties name="topic" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="consumerGroup" type="string"/>
+          <propertyValues value="meetingOrganization" property="//@microservices.0/@interfaces.2/@operations.0/@aspects.1/@properties.0"/>
+        </aspects>
+        <parameters name="meetingFeePaidIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendMeetingFeePaidIntegrationEvent.meetingFeePaidIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidIntegrationEvent" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidIntegrationEvent" import="//@imports.5"/>
+        </parameters>
+      </operations>
+      <operations name="sendSubscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendSubscriptionExpirationDateChangedIntegrationEvent" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="Producer" qualifiedName="DomainEvents.Producer" import="//@imports.2">
+          <featureNames>SINGLE_VALUED</featureNames>
+          <properties name="handlerName" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <propertyValues value="PaymentsProducerService" property="//@microservices.0/@interfaces.2/@operations.1/@aspects.0/@properties.0"/>
+        </aspects>
+        <aspects name="Participant" qualifiedName="Kafka.Participant" import="//@imports.4">
+          <properties name="topic" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="consumerGroup" type="string"/>
+          <propertyValues value="meetingOrganization" property="//@microservices.0/@interfaces.2/@operations.1/@aspects.1/@properties.0"/>
+        </aspects>
+        <parameters name="subscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendSubscriptionExpirationDateChangedIntegrationEvent.subscriptionExpirationDateChangedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.5"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <aspects name="CustomProperty" qualifiedName="java.CustomProperty" import="//@imports.3">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <properties name="value" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="server.port" property="//@microservices.0/@aspects.0/@properties.0"/>
+      <propertyValues value="8083" property="//@microservices.0/@aspects.0/@properties.1"/>
+    </aspects>
+    <aspects name="BootstrapAddress" qualifiedName="Kafka.BootstrapAddress" import="//@imports.4">
+      <featureNames>SINGLE_VALUED</featureNames>
+      <properties name="address" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="localhost:9092" property="//@microservices.0/@aspects.1/@properties.0"/>
+    </aspects>
+  </microservices>
+</intermediate:IntermediateServiceModel>

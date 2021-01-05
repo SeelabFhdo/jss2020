@@ -1,0 +1,14 @@
+import datatypes from "domain_Administration.data" as administration
+
+architecture functional microservice ADD_QUALIFYING_PART.Administration {
+	interface ProvidedTypes {
+		getAdministrator(sync out administrator : administration::Administration.Administrator);
+	}
+	interface ReceivedEvents {
+		receiveMeetingGroupProposedIntegrationEvent(async meetingGroupProposedIntegrationEvent : administration::Administration.MeetingGroupProposedIntegrationEvent);
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : administration::Administration.NewUserRegisteredIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendMeetingGroupProposalAcceptedIntegrationEvent(async out meetingGroupProposalAcceptedIntegrationEvent : administration::Administration.MeetingGroupProposalAcceptedIntegrationEvent);
+	}
+}

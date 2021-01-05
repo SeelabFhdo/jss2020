@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/customer/service_customer.services">
+  <imports name="customer" importUri="file://../data models/domain_customer.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/customer/service_customer.services" name="org.example.customer.Customer" qualifiedName="org.example.customer.Customer" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.customer.Customer.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="getCustomerId" qualifiedName="org.example.customer.Customer.ProvidedTypes.getCustomerId" visibility="ARCHITECTURE">
+        <parameters name="customerId" qualifiedName="org.example.customer.Customer.ProvidedTypes.getCustomerId.customerId" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="CustomerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="customer.CustomerId" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="CustomerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="customer.CustomerId" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="getCustomers" qualifiedName="org.example.customer.Customer.ProvidedTypes.getCustomers" visibility="ARCHITECTURE">
+        <parameters name="listCustomerId" qualifiedName="org.example.customer.Customer.ProvidedTypes.getCustomers.listCustomerId" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="ListCustomerId" origin="DATA_MODEL" kind="LIST" qualifiedName="customer.ListCustomerId" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="ListCustomerId" origin="DATA_MODEL" kind="LIST" qualifiedName="customer.ListCustomerId" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

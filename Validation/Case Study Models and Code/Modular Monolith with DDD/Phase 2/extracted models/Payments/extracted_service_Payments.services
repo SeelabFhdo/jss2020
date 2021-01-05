@@ -1,0 +1,15 @@
+import datatypes from "extracted_domain_Payments.data" as payments
+
+architecture functional microservice ADD_QUALIFYING_PART.Payments {
+	interface ProvidedTypes {
+		getPayer(sync out payer : payments::Payments.Payer);
+	}
+	interface ReceivedEvents {
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : payments::Payments.NewUserRegisteredIntegrationEvent);
+		receiveMeetingAttendeeAddedIntegrationEvent(async meetingAttendeeAddedIntegrationEvent : payments::Payments.MeetingAttendeeAddedIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendSubscriptionExpirationDateChangedIntegrationEvent(async out subscriptionExpirationDateChangedIntegrationEvent : payments::Payments.SubscriptionExpirationDateChangedIntegrationEvent);
+		sendMeetingFeePaidIntegrationEvent(async out meetingFeePaidIntegrationEvent : payments::Payments.MeetingFeePaidIntegrationEvent);
+	}
+}

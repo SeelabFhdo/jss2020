@@ -1,0 +1,70 @@
+import datatypes from "domain.data" as domain
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Administration --> microservice org.example.administration.Administration {
+architecture functional microservice org.example.administration.Administration {
+    // S6: Remove operation
+    //      Since the implementation does not realize a dedicated Administrator class, whose
+    //      instances may be required by other microservices, we remove the operation together with
+    //      the then empty interface.
+    /*interface ProvidedTypes {
+        getAdministrator(sync out administrator : administration::Administration.Administrator);
+    }*/
+    interface ReceivedEvents {
+        receiveMeetingGroupProposedIntegrationEvent(async meetingGroupProposedIntegrationEvent : domain::Administration.MeetingGroupProposedIntegrationEvent);
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Administration.NewUserRegisteredIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingGroupProposalAcceptedIntegrationEvent(async out meetingGroupProposalAcceptedIntegrationEvent : domain::Administration.MeetingGroupProposalAcceptedIntegrationEvent);
+    }
+}
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Meetings --> microservice org.example.meetings.Meetings {
+architecture functional microservice org.example.meetings.Meetings {
+    interface ProvidedTypes {
+        getMember(sync out member : domain::Meetings.Member);
+    }
+    interface ReceivedEvents {
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Meetings.NewUserRegisteredIntegrationEvent);
+        receiveMeetingGroupProposalAcceptedIntegrationEvent(async meetingGroupProposalAcceptedIntegrationEvent : domain::Meetings.MeetingGroupProposalAcceptedIntegrationEvent);
+        receiveMeetingFeePaidIntegrationEvent(async meetingFeePaidIntegrationEvent : domain::Meetings.MeetingFeePaidIntegrationEvent);
+        receiveSubscriptionExpirationDateChangedIntegrationEvent(async subscriptionExpirationDateChangedIntegrationEvent : domain::Meetings.SubscriptionExpirationDateChangedIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingGroupProposedIntegrationEvent(async out meetingGroupProposedIntegrationEvent : domain::Meetings.MeetingGroupProposedIntegrationEvent);
+        sendMeetingAttendeeAddedIntegrationEvent(async out meetingAttendeeAddedIntegrationEvent : domain::Meetings.MeetingAttendeeAddedIntegrationEvent);
+    }
+}
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Payments --> microservice org.example.payments.Payments {
+architecture functional microservice org.example.payments.Payments {
+    interface ProvidedTypes {
+        getPayer(sync out payer : domain::Payments.Payer);
+    }
+    interface ReceivedEvents {
+        receiveMeetingAttendeeAddedIntegrationEvent(async meetingAttendeeAddedIntegrationEvent : domain::Payments.MeetingAttendeeAddedIntegrationEvent);
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Payments.NewUserRegisteredIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingFeePaidIntegrationEvent(async out meetingFeePaidIntegrationEvent : domain::Payments.MeetingFeePaidIntegrationEvent);
+        sendSubscriptionExpirationDateChangedIntegrationEvent(async out subscriptionExpirationDateChangedIntegrationEvent : domain::Payments.SubscriptionExpirationDateChangedIntegrationEvent);
+    }
+}
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.UserAccess --> microservice org.example.useraccess.UserAccess {
+architecture functional microservice org.example.useraccess.UserAccess {
+    // S5: Specify operations for microservices that do not exhibit sharing relationships with other microservices
+    //      Added Commands interface and the required command operations
+    interface Commands {
+        registerNewUser(sync commandInfo : domain::UserAccess.RegisterNewUserCommand);
+    }
+    interface ProvidedTypes {
+        getUser(sync out user : domain::UserAccess.User);
+    }
+    interface EmittedEvents {
+        sendNewUserRegisteredIntegrationEvent(async out newUserRegisteredIntegrationEvent : domain::UserAccess.NewUserRegisteredIntegrationEvent);
+    }
+}

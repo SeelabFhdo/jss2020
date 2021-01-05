@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateDataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/Administration/domain_Administration.data">
+  <contexts name="Administration" qualifiedName="Administration">
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="create" qualifiedName="Administration.MeetingGroupLocation.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+        </returnType>
+        <parameters name="city" qualifiedName="Administration.MeetingGroupLocation.create.city">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="countryCode" qualifiedName="Administration.MeetingGroupLocation.create.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="city" qualifiedName="Administration.MeetingGroupLocation.city" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Administration.MeetingGroupLocation.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="noDecision" qualifiedName="Administration.MeetingGroupProposalDecision.noDecision">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+        </returnType>
+      </operations>
+      <operations name="isAccepted" qualifiedName="Administration.MeetingGroupProposalDecision.isAccepted" hidden="true">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+      </operations>
+      <operations name="isRejected" qualifiedName="Administration.MeetingGroupProposalDecision.isRejected" hidden="true">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+      </operations>
+      <operations name="acceptDecision" qualifiedName="Administration.MeetingGroupProposalDecision.acceptDecision">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+        </returnType>
+      </operations>
+      <operations name="rejectDecision" qualifiedName="Administration.MeetingGroupProposalDecision.rejectDecision">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+        </returnType>
+      </operations>
+      <operations name="getStatusForDecision" qualifiedName="Administration.MeetingGroupProposalDecision.getStatusForDecision">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+        </returnType>
+      </operations>
+      <dataFields name="date" qualifiedName="Administration.MeetingGroupProposalDecision.date" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userId" qualifiedName="Administration.MeetingGroupProposalDecision.userId" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+      </dataFields>
+      <dataFields name="code" qualifiedName="Administration.MeetingGroupProposalDecision.code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="rejectReason" qualifiedName="Administration.MeetingGroupProposalDecision.rejectReason" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="toVerify" qualifiedName="Administration.MeetingGroupProposalStatus.toVerify">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+        </returnType>
+      </operations>
+      <operations name="verified" qualifiedName="Administration.MeetingGroupProposalStatus.verified">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+        </returnType>
+      </operations>
+      <operations name="create" qualifiedName="Administration.MeetingGroupProposalStatus.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+        </returnType>
+        <parameters name="value" qualifiedName="Administration.MeetingGroupProposalStatus.create.value">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="value" qualifiedName="Administration.MeetingGroupProposalStatus.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Administration.MeetingGroupProposalId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposal" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposal">
+      <featureNames>ENTITY</featureNames>
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="MeetingGroupProposal" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal" hidden="true">
+        <parameters name="id" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.id">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+        </parameters>
+        <parameters name="name" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="decision" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.decision">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="location" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.location">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+        </parameters>
+        <parameters name="proposalUserId" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.proposalUserId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        </parameters>
+        <parameters name="proposalDate" qualifiedName="Administration.MeetingGroupProposal.MeetingGroupProposal.proposalDate">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="accept" qualifiedName="Administration.MeetingGroupProposal.accept">
+        <parameters name="userId" qualifiedName="Administration.MeetingGroupProposal.accept.userId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        </parameters>
+      </operations>
+      <operations name="reject" qualifiedName="Administration.MeetingGroupProposal.reject">
+        <parameters name="userId" qualifiedName="Administration.MeetingGroupProposal.reject.userId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        </parameters>
+        <parameters name="rejectReason" qualifiedName="Administration.MeetingGroupProposal.reject.rejectReason">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="createToVerify" qualifiedName="Administration.MeetingGroupProposal.createToVerify">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposal" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposal"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposal" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposal"/>
+        </returnType>
+        <parameters name="meetingGroupProposalId" qualifiedName="Administration.MeetingGroupProposal.createToVerify.meetingGroupProposalId">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="Administration.MeetingGroupProposal.createToVerify.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="description" qualifiedName="Administration.MeetingGroupProposal.createToVerify.description">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="location" qualifiedName="Administration.MeetingGroupProposal.createToVerify.location">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+        </parameters>
+        <parameters name="proposalUserId" qualifiedName="Administration.MeetingGroupProposal.createToVerify.proposalUserId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        </parameters>
+        <parameters name="proposalDate" qualifiedName="Administration.MeetingGroupProposal.createToVerify.proposalDate">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="_name" qualifiedName="Administration.MeetingGroupProposal._name" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_description" qualifiedName="Administration.MeetingGroupProposal._description" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_location" qualifiedName="Administration.MeetingGroupProposal._location" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupLocation" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupLocation"/>
+      </dataFields>
+      <dataFields name="_proposalDate" qualifiedName="Administration.MeetingGroupProposal._proposalDate" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_proposalUserId" qualifiedName="Administration.MeetingGroupProposal._proposalUserId" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId"/>
+      </dataFields>
+      <dataFields name="id" qualifiedName="Administration.MeetingGroupProposal.id" immutable="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+      </dataFields>
+      <dataFields name="meetinggroupproposaldecision" qualifiedName="Administration.MeetingGroupProposal.meetinggroupproposaldecision" hidden="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalDecision" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalDecision"/>
+      </dataFields>
+      <dataFields name="meetinggroupproposalstatus" qualifiedName="Administration.MeetingGroupProposal.meetinggroupproposalstatus" hidden="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalStatus"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalVerificationRequestedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalVerificationRequestedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetinggroupproposalid" qualifiedName="Administration.MeetingGroupProposalVerificationRequestedDomainEvent.meetinggroupproposalid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalAcceptedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalAcceptedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetinggroupproposalid" qualifiedName="Administration.MeetingGroupProposalAcceptedDomainEvent.meetinggroupproposalid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalRejectedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalRejectedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetinggroupproposalid" qualifiedName="Administration.MeetingGroupProposalRejectedDomainEvent.meetinggroupproposalid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingGroupProposalId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingGroupProposalId" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.meetingGroupProposalId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="name" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.name">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="description" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.description">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="locationCity" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.locationCity">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="locationCountryCode" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.locationCountryCode">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="proposalUserId" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.proposalUserId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="ProposalDate" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent.ProposalDate">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingGroupProposalAcceptedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="id" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent.id">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="occurredOn" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent.occurredOn">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingGroupProposalId" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent.meetingGroupProposalId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.UserId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Administration.UserId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MemberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Administration.MemberId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="Member" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.Member">
+      <featureNames>ENTITY</featureNames>
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="Member" qualifiedName="Administration.Member.Member" hidden="true">
+        <parameters name="id" qualifiedName="Administration.Member.Member.id">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="login" qualifiedName="Administration.Member.Member.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="Administration.Member.Member.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="Administration.Member.Member.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="Administration.Member.Member.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="Administration.Member.Member.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="create" qualifiedName="Administration.Member.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="Member" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.Member"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="Member" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.Member"/>
+        </returnType>
+        <parameters name="id" qualifiedName="Administration.Member.create.id">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="login" qualifiedName="Administration.Member.create.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="Administration.Member.create.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="Administration.Member.create.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="Administration.Member.create.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="Administration.Member.create.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="id" qualifiedName="Administration.Member.id" immutable="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MemberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MemberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberId"/>
+      </dataFields>
+      <dataFields name="_login" qualifiedName="Administration.Member._login">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_email" qualifiedName="Administration.Member._email">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_firstName" qualifiedName="Administration.Member._firstName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_lastName" qualifiedName="Administration.Member._lastName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_name" qualifiedName="Administration.Member._name">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_createDate" qualifiedName="Administration.Member._createDate">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MemberCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="memberid" qualifiedName="Administration.MemberCreatedDomainEvent.memberid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MemberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MemberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MemberId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.NewUserRegisteredIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="email" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.email">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="firstName" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.firstName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="name" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.name">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="login" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.login">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.lastName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userId" qualifiedName="Administration.NewUserRegisteredIntegrationEvent.userId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</intermediate:IntermediateDataModel>

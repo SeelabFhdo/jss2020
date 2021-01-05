@@ -1,0 +1,19 @@
+context Location {
+	structure LocationService <service> {
+		ListLocation location,
+	
+		// D2: Assign concrete names to parameters
+		//		string unnamed --> string portcode
+		procedure resolvebyportcode(string portcode)
+	}
+
+	structure Location <entity> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified portcode --> string portcode
+		string portcode <identifier>
+	}
+
+	list ListLocation {
+		Location location
+	}
+}

@@ -1,0 +1,25 @@
+context city {
+	structure City <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified name --> immutable string name
+		immutable string name,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified postalCode --> immutable string postalCode
+		immutable string postalCode
+	}
+
+	structure CityShared <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified name --> immutable string name
+		string name,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified postalCode --> immutable string postalCode
+		string postalCode
+	}
+
+	list ListCityShared {
+		CityShared cityShared
+	}
+}

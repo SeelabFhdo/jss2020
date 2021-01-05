@@ -1,0 +1,311 @@
+import microservices from "../Phase 3/Meetings/service_Meetings.services" as services
+import technology from "cqrs.technology" as cqrs
+import technology from "domainEvents.technology" as domainEvents
+import technology from "java.technology" as java
+import technology from "kafka.technology" as kafka
+
+@technology(java)
+type services::meetings::Meetings.MeetingCommentingConfiguration {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingCommentingConfigurationId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingComment {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingComment { aspects { java::_aspects.constructor; } }
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingCommentId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupProposal {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingGroupProposal { aspects { java::_aspects.constructor; } }
+    op proposeNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupProposalId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupProposalStatus {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op inVerification { aspects { java::_aspects.static; } }
+    op accepted { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroup {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingGroup { aspects { java::_aspects.constructor; } }
+    op createBasedOnProposal { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupLocation {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupMember {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingGroupMember { aspects { java::_aspects.constructor; } }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupMemberRole {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op Organizer { aspects { java::_aspects.static; } }
+    op Member { aspects { java::_aspects.static; } }
+    op of { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.Meeting {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op Meeting { aspects { java::_aspects.constructor; } }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingAttendee {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingAttendee { aspects { java::_aspects.constructor; } }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingAttendeeRole {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op Host { aspects { java::_aspects.static; } }
+    op Attendee { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingLimits {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op create { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingLocation {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingNotAttendee {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingNotAttendee { aspects { java::_aspects.constructor; } }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingTerm {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op createNewBetweenDates { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingWaitlistMember {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MeetingWaitlistMember { aspects { java::_aspects.constructor; } }
+    op createNew { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MoneyValue {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+
+    value : java::_types.BigDecimal;
+
+    op undefined { aspects { java::_aspects.static; } }
+    op Of {
+        aspects { java::_aspects.static; }
+        parameters { value : java::_types.BigDecimal; }
+    }
+    op multiply { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.Term {
+    aspects { java::_aspects.constructor(protectInitializing = true); }
+    op noTerm { aspects { java::_aspects.static; } }
+    op createNewBetweenDates { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.Member {
+    aspects { java::_aspects.constructor(initializing = false); }
+
+    op create {
+        aspects { java::_aspects.static; }
+        parameters { id : java::_types.UUID; }
+    }
+    op Member {
+        aspects { java::_aspects.constructor; }
+        parameters { id : java::_types.UUID; }
+    }
+}
+
+@technology(java)
+type services::meetings::Meetings.MemberId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MemberSubscription {
+    aspects { java::_aspects.constructor(initializing = false); }
+    op MemberSubscription { aspects { java::_aspects.constructor; } }
+    op createForMember { aspects { java::_aspects.static; } }
+}
+
+@technology(java)
+type services::meetings::Meetings.MemberSubscriptionId {
+    value : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingAttendeeAddedIntegrationEvent {
+    id : java::_types.UUID;
+    meetingId : java::_types.UUID;
+    attendeeId : java::_types.UUID;
+    feeValue : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingFeePaidIntegrationEvent {
+    id : java::_types.UUID;
+    payerId : java::_types.UUID;
+    meetingId : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.SubscriptionExpirationDateChangedIntegrationEvent {
+    id : java::_types.UUID;
+    payerId : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingAttendeeAddedDomainEvent {
+    feeValue : java::_types.BigDecimal;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingEditedDomainEvent {
+    meetingId : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupProposedIntegrationEvent {
+    meetingGroupProposalId : java::_types.UUID;
+    proposalUserId : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MemberCreatedIntegrationEvent {
+    memberId : java::_types.UUID;
+    id : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.MeetingGroupProposalAcceptedIntegrationEvent {
+    id : java::_types.UUID;
+    meetingGroupProposalId : java::_types.UUID;
+}
+
+@technology(java)
+type services::meetings::Meetings.NewUserRegisteredIntegrationEvent {
+    userId : java::_types.UUID;
+}
+
+@technology(cqrs)
+@technology(domainEvents)
+@technology(java)
+@technology(kafka)
+services::org.example.meetings.Meetings {
+    protocols { async: kafka::_protocols.kafka }
+    endpoints { kafka::_protocols.kafka: "localhost:9092"; }
+    aspects {
+        java::_aspects.CustomProperty(name = "server.port", value = "8082");
+        kafka::_aspects.BootstrapAddress("localhost:9092");
+    }
+
+    operation EmittedEvents.sendMeetingGroupProposedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Producer("MeetingsProducerService");
+            kafka::_aspects.Participant(topic = "meetingGroupCreation");
+        }
+    }
+
+    operation EmittedEvents.sendMeetingAttendeeAddedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Producer("MeetingsProducerService");
+            kafka::_aspects.Participant(topic = "meetingOrganization");
+        }
+    }
+
+    operation ReceivedEvents.receiveNewUserRegisteredIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "MeetingsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "userRegistration",
+                consumerGroup = "receiveNewUserRegisteredIntegrationEvent"
+            );
+        }
+    }
+
+    operation ReceivedEvents.receiveMeetingGroupProposalAcceptedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "MeetingsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "meetingGroupCreation",
+                consumerGroup = "receiveMeetingGroupProposalAcceptedIntegrationEvent"
+            );
+        }
+    }
+
+    operation ReceivedEvents.receiveMeetingFeePaidIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "MeetingsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "payments",
+                consumerGroup = "receiveMeetingFeePaidIntegrationEvent"
+            );
+        }
+    }
+
+    operation ReceivedEvents.receiveSubscriptionExpirationDateChangedIntegrationEvent {
+        aspects {
+            domainEvents::_aspects.Consumer(handlerName = "MeetingsConsumerService");
+            kafka::_aspects.Participant(
+                topic = "payments",
+                consumerGroup = "receiveSubscriptionExpirationDateChangedIntegrationEvent"
+            );
+        }
+    }
+}

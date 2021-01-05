@@ -1,0 +1,31 @@
+import datatypes from "domain.data" as domain
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Cargo --> microservice org.example.cargo.Cargo {
+architecture functional microservice org.example.cargo.Cargo {
+    interface ProvidedTypes {
+        getDeliverySpecification(sync out deliverySpecification : domain::Cargo.DeliverySpecification);
+    }
+}
+
+// S1: Add qualifying part to microservice name
+//        microservice ADD_QUALIFYING_PART.Customer --> microservice org.example.customer.Customer {
+architecture functional microservice org.example.customer.Customer {
+    interface ProvidedTypes {
+        // S2: Assign concrete names to parameters
+        //        sync out unnamed --> sync out customer
+        // S3: Replace unspecified type in parameters with concrete type
+        //      getCustomer(, ... sync name : unspecified --> getCustomer(, ... sync name : string
+        getCustomer(sync out customer : domain::Customer.CustomerShared, sync name : string);
+    }
+}
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Location --> microservice org.example.location.Location {
+architecture functional microservice org.example.location.Location {
+    interface ProvidedTypes {
+        getDestination(sync out location : domain::Location.Location);
+        getFrom(sync out location : domain::Location.Location);
+        getTo(sync out location : domain::Location.Location);
+    }
+}

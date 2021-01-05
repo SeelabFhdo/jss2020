@@ -1,0 +1,87 @@
+context Administration {
+	enum MeetingGroupProposalDecision {
+		Accept,
+		Reject
+	}
+
+	enum MeetingGroupProposalStatus {
+		Accepted,
+		InVerification,
+		Rejected
+	}
+
+	structure Administrator <valueObject> {
+		ListMeetingGroupProposalDecision meetinggroupproposaldecision
+	}
+
+	structure MeetingGroupProposal <aggregate, entity> {
+		MeetingGroupProposalDecision meetinggroupproposaldecision,
+		MeetingGroupProposalStatus meetinggroupproposalstatus
+	}
+
+	structure Member <aggregate, entity> {
+		string _firstName,
+		string _lastName,
+		string _name,
+		string _login,
+		string _email,
+		date _createDate,
+		MemberId memberid <part>,
+	
+		procedure Member(string id, string login, string email, string firstName, string lastName, string name),
+		function Member create(string id, string login, string email, string firstName, string lastName, string name)
+	}
+
+	structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MeetingGroupProposalId <valueObject> {
+		immutable string value
+	}
+
+	structure MeetingGroupProposalRejectedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MeetingGroupProposalVerificationRequestedDomainEvent <domainEvent, valueObject> {
+		MeetingGroupProposalId meetinggroupproposalid
+	}
+
+	structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+		MemberId memberid <part>
+	}
+
+	structure MemberId <valueObject> {
+		immutable string value
+	}
+
+	list ListMeetingGroupProposalDecision {
+		MeetingGroupProposalDecision meetingGroupProposalDecision
+	}
+
+	structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+		string meetingGroupProposalId,
+		string name,
+		string description,
+		string locationCity,
+		string locationCountryCode,
+		string proposalUserId,
+		date ProposalDate
+	}
+
+	structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+		string email,
+		string firstName,
+		string name,
+		string login,
+		string lastName,
+		string userId
+	}
+
+	structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+		string id,
+		date occurredOn,
+		string meetingGroupProposalId
+	}
+}

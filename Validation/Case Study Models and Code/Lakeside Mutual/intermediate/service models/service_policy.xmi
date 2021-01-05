@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/policy/service_policy.services">
+  <imports name="policy" importUri="file://../data models/domain_policy.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/policy/service_policy.services" name="org.example.policy.Policy" qualifiedName="org.example.policy.Policy" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="Policy" qualifiedName="org.example.policy.Policy.Policy" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="updatePolicy" qualifiedName="org.example.policy.Policy.Policy.updatePolicy" visibility="ARCHITECTURE">
+        <parameters name="policy" qualifiedName="org.example.policy.Policy.Policy.updatePolicy.policy" exchangePattern="IN" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="PolicyAggregateRoot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="policy.PolicyAggregateRoot" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="PolicyAggregateRoot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="policy.PolicyAggregateRoot" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

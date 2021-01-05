@@ -1,0 +1,17 @@
+import datatypes from "domain_Meetings.data" as meetings
+
+architecture functional microservice ADD_QUALIFYING_PART.Meetings {
+	interface ProvidedTypes {
+		getMember(sync out member : meetings::Meetings.Member);
+	}
+	interface ReceivedEvents {
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : meetings::Meetings.NewUserRegisteredIntegrationEvent);
+		receiveMeetingFeePaidIntegrationEvent(async meetingFeePaidIntegrationEvent : meetings::Meetings.MeetingFeePaidIntegrationEvent);
+		receiveMeetingGroupProposalAcceptedIntegrationEvent(async meetingGroupProposalAcceptedIntegrationEvent : meetings::Meetings.MeetingGroupProposalAcceptedIntegrationEvent);
+		receiveSubscriptionExpirationDateChangedIntegrationEvent(async subscriptionExpirationDateChangedIntegrationEvent : meetings::Meetings.SubscriptionExpirationDateChangedIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendMeetingGroupProposedIntegrationEvent(async out meetingGroupProposedIntegrationEvent : meetings::Meetings.MeetingGroupProposedIntegrationEvent);
+		sendMeetingAttendeeAddedIntegrationEvent(async out meetingAttendeeAddedIntegrationEvent : meetings::Meetings.MeetingAttendeeAddedIntegrationEvent);
+	}
+}

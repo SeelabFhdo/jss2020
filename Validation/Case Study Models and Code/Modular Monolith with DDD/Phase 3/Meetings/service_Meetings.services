@@ -1,0 +1,19 @@
+import datatypes from "domain_Meetings.data" as meetings
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Meetings --> microservice org.example.meetings.Meetings {
+architecture functional microservice org.example.meetings.Meetings {
+    interface ProvidedTypes {
+        getMember(sync out member : meetings::Meetings.Member);
+    }
+    interface ReceivedEvents {
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : meetings::Meetings.NewUserRegisteredIntegrationEvent);
+        receiveMeetingGroupProposalAcceptedIntegrationEvent(async meetingGroupProposalAcceptedIntegrationEvent : meetings::Meetings.MeetingGroupProposalAcceptedIntegrationEvent);
+        receiveMeetingFeePaidIntegrationEvent(async meetingFeePaidIntegrationEvent : meetings::Meetings.MeetingFeePaidIntegrationEvent);
+        receiveSubscriptionExpirationDateChangedIntegrationEvent(async subscriptionExpirationDateChangedIntegrationEvent : meetings::Meetings.SubscriptionExpirationDateChangedIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingGroupProposedIntegrationEvent(async out meetingGroupProposedIntegrationEvent : meetings::Meetings.MeetingGroupProposedIntegrationEvent);
+        sendMeetingAttendeeAddedIntegrationEvent(async out meetingAttendeeAddedIntegrationEvent : meetings::Meetings.MeetingAttendeeAddedIntegrationEvent);
+    }
+}

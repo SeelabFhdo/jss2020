@@ -1,0 +1,145 @@
+context policy {
+	structure RiskManagementService <service> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified originator --> long originator
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified ^date --> date ^date
+		function PolicyEvent notifyRiskManagement(long originator, date ^date, CustomerShared customer, PolicyAggregateRoot policy)
+	}
+
+	structure InsuringAgreementEntity <entity> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified id --> long id
+		long id <identifier>,
+
+		ListInsuringAgreementItem items
+	}
+
+	structure PolicyAggregateRoot <aggregate, entity> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified creationDate --> date creationDate
+		date creationDate,
+
+		PolicyId id <identifier, part>,
+		PolicyPeriod policyPeriod <part>,
+		PolicyType policyType <part>,
+		MoneyAmount policyLimit <part>,
+		MoneyAmount insurancePremium <part>,
+		InsuringAgreementEntity insuringAgreement
+	}
+
+	structure InsuringAgreementItem <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified id --> immutable long id
+		immutable long id,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified title --> immutable string title
+		immutable string title,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified description --> immutable string description
+		immutable string description
+	}
+
+	structure MoneyAmount <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified amount --> immutable float amount
+		immutable float amount,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified currency --> immutable string currency
+		immutable string currency
+	}
+
+	structure PolicyId <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified id --> immutable long id
+		immutable long id,
+
+		function PolicyId random()
+	}
+
+	structure PolicyPeriod <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified startDate --> immutable date startDate,
+		immutable date startDate,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified endDate --> immutable date endDate,
+		immutable date endDate
+	}
+
+	structure PolicyType <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified name --> immutable string name,
+		immutable string name
+	}
+
+	structure PolicyEvent <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified originator --> immutable long originator,
+		immutable long originator,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		immutable unspecified ^date --> immutable date ^date,
+		immutable date ^date,
+
+		CustomerShared CustomerShared
+	}
+
+	list ListInsuringAgreementItem {
+		InsuringAgreementItem insuringAgreementItem
+	}
+
+	structure CustomerShared <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified customerId --> long customerId,
+		long customerId,
+
+		CustomerProfileShared customerProfile
+	}
+
+	structure CustomerProfileShared <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified firstname --> string firstname
+		string firstname,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified lastname --> string lastname
+		string lastname,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified birthday --> date birthday
+		date birthday,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified email --> string email
+		string email,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified phoneNumber --> string phoneNumber
+		string phoneNumber,
+
+		AddressShared address,
+		ListAddressShared moveHistory
+	}
+
+	structure AddressShared <valueObject> {
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified streetAddress --> string streetAddress
+		string streetAddress,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified postalCode --> string postalCode
+		string postalCode,
+
+		// D1: Replace unspecified type in data fields with concrete type
+		//		unspecified city --> string city
+		string city
+	}
+
+	list ListAddressShared {
+		AddressShared addressShared
+	}
+}

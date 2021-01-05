@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ASCII"?>
+<data:DataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data">
+  <contexts name="Administration">
+    <complexTypes xsi:type="data:Enumeration" name="MeetingGroupProposalDecision">
+      <fields name="Accept"/>
+      <fields name="Reject"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:Enumeration" name="MeetingGroupProposalStatus">
+      <fields name="Accepted"/>
+      <fields name="InVerification"/>
+      <fields name="Rejected"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="Administrator">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetinggroupproposaldecision" complexType="//@contexts.0/@complexTypes.11"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposal">
+      <features>AGGREGATE</features>
+      <features>ENTITY</features>
+      <dataFields name="meetinggroupproposaldecision" complexType="//@contexts.0/@complexTypes.0"/>
+      <dataFields name="meetinggroupproposalstatus" complexType="//@contexts.0/@complexTypes.1"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="Member">
+      <features>AGGREGATE</features>
+      <features>ENTITY</features>
+      <dataFields name="_firstName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="_lastName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="_name">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="_login">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="_email">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="_createDate">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="memberid" complexType="//@contexts.0/@complexTypes.10">
+        <features>PART</features>
+      </dataFields>
+      <operations name="Member" hidden="true">
+        <parameters name="id">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="login">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="email">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="firstName">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="lastName">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="name">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+      </operations>
+      <operations name="create" complexReturnType="//@contexts.0/@complexTypes.4">
+        <parameters name="id">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="login">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="email">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="firstName">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="lastName">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+        <parameters name="name">
+          <primitiveType xsi:type="data:PrimitiveString"/>
+        </parameters>
+      </operations>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposalAcceptedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetinggroupproposalid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposalId">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposalRejectedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetinggroupproposalid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposalVerificationRequestedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetinggroupproposalid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MemberCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="memberid" complexType="//@contexts.0/@complexTypes.10">
+        <features>PART</features>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MemberId">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListMeetingGroupProposalDecision">
+      <dataFields name="meetingGroupProposalDecision" complexType="//@contexts.0/@complexTypes.0"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposedIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="meetingGroupProposalId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="name">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="description">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="locationCity">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="locationCountryCode">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="proposalUserId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="ProposalDate">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="NewUserRegisteredIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="email">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="firstName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="name">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="login">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="lastName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="userId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="MeetingGroupProposalAcceptedIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="id">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="occurredOn">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="meetingGroupProposalId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</data:DataModel>

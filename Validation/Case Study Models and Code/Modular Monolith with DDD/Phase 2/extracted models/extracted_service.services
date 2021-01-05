@@ -1,0 +1,53 @@
+import datatypes from "extracted_domain.data" as domain
+
+architecture functional microservice ADD_QUALIFYING_PART.UserAccess {
+	interface ProvidedTypes {
+		getUser(sync out user : domain::UserAccess.User);
+	}
+	interface EmittedEvents {
+		sendNewUserRegisteredIntegrationEvent(async out newUserRegisteredIntegrationEvent : domain::UserAccess.NewUserRegisteredIntegrationEvent);
+	}
+}
+
+architecture functional microservice ADD_QUALIFYING_PART.Administration {
+	interface ProvidedTypes {
+		getAdministrator(sync out administrator : domain::Administration.Administrator);
+	}
+	interface ReceivedEvents {
+		receiveMeetingGroupProposedIntegrationEvent(async meetingGroupProposedIntegrationEvent : domain::Administration.MeetingGroupProposedIntegrationEvent);
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Administration.NewUserRegisteredIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendMeetingGroupProposalAcceptedIntegrationEvent(async out meetingGroupProposalAcceptedIntegrationEvent : domain::Administration.MeetingGroupProposalAcceptedIntegrationEvent);
+	}
+}
+
+architecture functional microservice ADD_QUALIFYING_PART.Meetings {
+	interface ProvidedTypes {
+		getMember(sync out member : domain::Meetings.Member);
+	}
+	interface ReceivedEvents {
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Meetings.NewUserRegisteredIntegrationEvent);
+		receiveMeetingFeePaidIntegrationEvent(async meetingFeePaidIntegrationEvent : domain::Meetings.MeetingFeePaidIntegrationEvent);
+		receiveMeetingGroupProposalAcceptedIntegrationEvent(async meetingGroupProposalAcceptedIntegrationEvent : domain::Meetings.MeetingGroupProposalAcceptedIntegrationEvent);
+		receiveSubscriptionExpirationDateChangedIntegrationEvent(async subscriptionExpirationDateChangedIntegrationEvent : domain::Meetings.SubscriptionExpirationDateChangedIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendMeetingAttendeeAddedIntegrationEvent(async out meetingAttendeeAddedIntegrationEvent : domain::Meetings.MeetingAttendeeAddedIntegrationEvent);
+		sendMeetingGroupProposedIntegrationEvent(async out meetingGroupProposedIntegrationEvent : domain::Meetings.MeetingGroupProposedIntegrationEvent);
+	}
+}
+
+architecture functional microservice ADD_QUALIFYING_PART.Payments {
+	interface ProvidedTypes {
+		getPayer(sync out payer : domain::Payments.Payer);
+	}
+	interface ReceivedEvents {
+		receiveMeetingAttendeeAddedIntegrationEvent(async meetingAttendeeAddedIntegrationEvent : domain::Payments.MeetingAttendeeAddedIntegrationEvent);
+		receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : domain::Payments.NewUserRegisteredIntegrationEvent);
+	}
+	interface EmittedEvents {
+		sendMeetingFeePaidIntegrationEvent(async out meetingFeePaidIntegrationEvent : domain::Payments.MeetingFeePaidIntegrationEvent);
+		sendSubscriptionExpirationDateChangedIntegrationEvent(async out subscriptionExpirationDateChangedIntegrationEvent : domain::Payments.SubscriptionExpirationDateChangedIntegrationEvent);
+	}
+}

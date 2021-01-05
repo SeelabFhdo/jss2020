@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="">
+  <imports name="services" importUri="file://../service models/service_UserAccess.xmi" importTypeName="MICROSERVICES"/>
+  <imports name="cqrs" importUri="file://../../Phase 4/cqrs.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="domainEvents" importUri="file://../../Phase 4/domainEvents.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="java" importUri="file://../../Phase 4/java.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="kafka" importUri="file://../../Phase 4/kafka.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="userAccess" importUri="file://../data models/domain_UserAccess.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/UserAccess/service_UserAccess.services" name="org.example.useraccess.UserAccess" qualifiedName="org.example.useraccess.UserAccess" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="cqrs" import="//@imports.1"/>
+    <technologies name="domainEvents" import="//@imports.2"/>
+    <technologies name="java" import="//@imports.3"/>
+    <technologies name="kafka" import="//@imports.4"/>
+    <endpoints communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary" technology="//@microservices.0/@technologies.3">
+      <addresses>localhost:9092</addresses>
+    </endpoints>
+    <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+    <interfaces name="Commands" qualifiedName="org.example.useraccess.UserAccess.Commands" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json" technology="//@microservices.0/@technologies.2">
+        <addresses>users</addresses>
+      </endpoints>
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="registerNewUser" qualifiedName="org.example.useraccess.UserAccess.Commands.registerNewUser" visibility="ARCHITECTURE">
+        <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json" technology="//@microservices.0/@technologies.2">
+          <addresses>registerNewUser</addresses>
+        </endpoints>
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="PutMapping" qualifiedName="java.PutMapping" import="//@imports.3"/>
+        <parameters name="commandInfo" qualifiedName="org.example.useraccess.UserAccess.Commands.registerNewUser.commandInfo" exchangePattern="IN" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="RegisterNewUserCommand" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.RegisterNewUserCommand" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="RegisterNewUserCommand" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.RegisterNewUserCommand" import="//@imports.5"/>
+          <aspects name="RequestBody" qualifiedName="java.RequestBody" import="//@imports.3"/>
+        </parameters>
+      </operations>
+      <aspects name="CommandSide" qualifiedName="CQRS.CommandSide" import="//@imports.1"/>
+    </interfaces>
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="getUser" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes.getUser" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <parameters name="user" qualifiedName="org.example.useraccess.UserAccess.ProvidedTypes.getUser.user" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User" import="//@imports.5"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+      <operations name="sendNewUserRegisteredIntegrationEvent" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents.sendNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <protocols communicationType="ASYNCHRONOUS" protocol="kafka" dataFormat="binary"/>
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="json"/>
+        <aspects name="Producer" qualifiedName="DomainEvents.Producer" import="//@imports.2">
+          <featureNames>SINGLE_VALUED</featureNames>
+          <properties name="handlerName" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <propertyValues value="UserAccessProducerService" property="//@microservices.0/@interfaces.2/@operations.0/@aspects.0/@properties.0"/>
+        </aspects>
+        <aspects name="Participant" qualifiedName="Kafka.Participant" import="//@imports.4">
+          <properties name="topic" type="string">
+            <featureNames>MANDATORY</featureNames>
+          </properties>
+          <properties name="consumerGroup" type="string"/>
+          <propertyValues value="userRegistration" property="//@microservices.0/@interfaces.2/@operations.0/@aspects.1/@properties.0"/>
+        </aspects>
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.useraccess.UserAccess.EmittedEvents.sendNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent" import="//@imports.5"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent" import="//@imports.5"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <aspects name="CustomProperty" qualifiedName="java.CustomProperty" import="//@imports.3">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <properties name="value" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="server.port" property="//@microservices.0/@aspects.0/@properties.0"/>
+      <propertyValues value="8080" property="//@microservices.0/@aspects.0/@properties.1"/>
+    </aspects>
+    <aspects name="BootstrapAddress" qualifiedName="Kafka.BootstrapAddress" import="//@imports.4">
+      <featureNames>SINGLE_VALUED</featureNames>
+      <properties name="address" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="localhost:9092" property="//@microservices.0/@aspects.1/@properties.0"/>
+    </aspects>
+  </microservices>
+</intermediate:IntermediateServiceModel>

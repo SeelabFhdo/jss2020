@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateDataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/Payments/domain_Payments.data">
+  <contexts name="Payments" qualifiedName="Payments">
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="waitingForPayment" qualifiedName="Payments.MeetingFeePaymentStatus.waitingForPayment">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="paid" qualifiedName="Payments.MeetingFeePaymentStatus.paid">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="Payments.MeetingFeePaymentStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.MeetingFeePaymentStatus.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.MeetingFeePaymentStatus.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.MeetingFeePaymentStatus.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="active" qualifiedName="Payments.SubscriptionStatus.active">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="Payments.SubscriptionStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.SubscriptionStatus.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.SubscriptionStatus.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.SubscriptionStatus.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="waitingForPayment" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.waitingForPayment">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="paid" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.paid">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.SubscriptionRenewalPaymentStatus.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.UserId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.UserId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="waitingForPayment" qualifiedName="Payments.SubscriptionPaymentStatus.waitingForPayment">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="paid" qualifiedName="Payments.SubscriptionPaymentStatus.paid">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="Payments.SubscriptionPaymentStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.SubscriptionPaymentStatus.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.SubscriptionPaymentStatus.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.SubscriptionPaymentStatus.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="month" qualifiedName="Payments.SubscriptionPeriod.month">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </returnType>
+      </operations>
+      <operations name="halfYear" qualifiedName="Payments.SubscriptionPeriod.halfYear">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.SubscriptionPeriod.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.SubscriptionPeriod.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="getName" qualifiedName="Payments.SubscriptionPeriod.getName">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.SubscriptionPeriod.getName.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="getMonthsNumber" qualifiedName="Payments.SubscriptionPeriod.getMonthsNumber">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="int" origin="BUILTIN" kind="PRIMITIVE" size="32"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="int" origin="BUILTIN" kind="PRIMITIVE" size="32"/>
+        </returnType>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.SubscriptionPeriod.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="New" qualifiedName="Payments.PriceListItemCategory.New">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </returnType>
+      </operations>
+      <operations name="renewal" qualifiedName="Payments.PriceListItemCategory.renewal">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.PriceListItemCategory.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.PriceListItemCategory.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="Code" qualifiedName="Payments.PriceListItemCategory.Code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemData" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemData">
+      <dataFields name="CountryCode" qualifiedName="Payments.PriceListItemData.CountryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="SubscriptionPeriod" qualifiedName="Payments.PriceListItemData.SubscriptionPeriod" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="Value" qualifiedName="Payments.PriceListItemData.Value" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+      </dataFields>
+      <dataFields name="Category" qualifiedName="Payments.PriceListItemData.Category" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.PriceListItemId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriberId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.SubscriberId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="of" qualifiedName="Payments.MoneyValue.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </returnType>
+        <parameters name="value" qualifiedName="Payments.MoneyValue.of.value">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="currency" qualifiedName="Payments.MoneyValue.of.currency">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="greaterThanValue" qualifiedName="Payments.MoneyValue.greaterThanValue">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.greaterThanValue.left">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.greaterThanValue.right">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="lessThanValue" qualifiedName="Payments.MoneyValue.lessThanValue">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.lessThanValue.left">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.lessThanValue.right">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="greaterEqualsValue" qualifiedName="Payments.MoneyValue.greaterEqualsValue">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.greaterEqualsValue.left">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.greaterEqualsValue.right">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="lessEqualsValue" qualifiedName="Payments.MoneyValue.lessEqualsValue">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.lessEqualsValue.left">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.lessEqualsValue.right">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="greaterThan" qualifiedName="Payments.MoneyValue.greaterThan">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.greaterThan.left">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.greaterThan.right">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+      </operations>
+      <operations name="lessThan" qualifiedName="Payments.MoneyValue.lessThan">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.lessThan.left">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.lessThan.right">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+      </operations>
+      <operations name="greaterEquals" qualifiedName="Payments.MoneyValue.greaterEquals">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.greaterEquals.left">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.greaterEquals.right">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+      </operations>
+      <operations name="lessEquals" qualifiedName="Payments.MoneyValue.lessEquals">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        </returnType>
+        <parameters name="left" qualifiedName="Payments.MoneyValue.lessEquals.left">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="right" qualifiedName="Payments.MoneyValue.lessEquals.right">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+      </operations>
+      <dataFields name="value" qualifiedName="Payments.MoneyValue.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+      <dataFields name="currency" qualifiedName="Payments.MoneyValue.currency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPayment">
+      <featureNames>AGGREGATE</featureNames>
+      <featureNames>ENTITY</featureNames>
+      <operations name="buy" qualifiedName="Payments.SubscriptionRenewalPayment.buy">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPayment"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPayment"/>
+        </returnType>
+        <parameters name="payerId" qualifiedName="Payments.SubscriptionRenewalPayment.buy.payerId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        </parameters>
+        <parameters name="subscriptionId" qualifiedName="Payments.SubscriptionRenewalPayment.buy.subscriptionId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionId"/>
+        </parameters>
+        <parameters name="period" qualifiedName="Payments.SubscriptionRenewalPayment.buy.period">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+        <parameters name="countryCode" qualifiedName="Payments.SubscriptionRenewalPayment.buy.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="priceOffer" qualifiedName="Payments.SubscriptionRenewalPayment.buy.priceOffer">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="priceList" qualifiedName="Payments.SubscriptionRenewalPayment.buy.priceList">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+        </parameters>
+      </operations>
+      <operations name="getSnapshot" qualifiedName="Payments.SubscriptionRenewalPayment.getSnapshot">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot"/>
+        </returnType>
+      </operations>
+      <operations name="MarkRenewalAsPaid" qualifiedName="Payments.SubscriptionRenewalPayment.MarkRenewalAsPaid"/>
+      <operations name="whenSubscriptionRenewalPaymentCreated" qualifiedName="Payments.SubscriptionRenewalPayment.whenSubscriptionRenewalPaymentCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.SubscriptionRenewalPayment.whenSubscriptionRenewalPaymentCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionRenewalPaymentPaid" qualifiedName="Payments.SubscriptionRenewalPayment.whenSubscriptionRenewalPaymentPaid" hidden="true">
+        <parameters name="event" qualifiedName="Payments.SubscriptionRenewalPayment.whenSubscriptionRenewalPaymentPaid.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_payerId" qualifiedName="Payments.SubscriptionRenewalPayment._payerId" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+      </dataFields>
+      <dataFields name="_subscriptionId" qualifiedName="Payments.SubscriptionRenewalPayment._subscriptionId" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionId"/>
+      </dataFields>
+      <dataFields name="subscriptionperiod" qualifiedName="Payments.SubscriptionRenewalPayment.subscriptionperiod" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="_countryCode" qualifiedName="Payments.SubscriptionRenewalPayment._countryCode" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionrenewalpaymentstatus" qualifiedName="Payments.SubscriptionRenewalPayment.subscriptionrenewalpaymentstatus" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentStatus"/>
+      </dataFields>
+      <dataFields name="_value" qualifiedName="Payments.SubscriptionRenewalPayment._value" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionRenewalPaymentId" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.subscriptionRenewalPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionId" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.subscriptionId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="currency" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.currency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="value" qualifiedName="Payments.SubscriptionRenewalPaymentCreatedDomainEvent.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionId" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent.subscriptionId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionRenewalPaymentId" qualifiedName="Payments.SubscriptionRenewalPaymentPaidDomainEvent.subscriptionRenewalPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.SubscriptionRenewalPaymentId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewalPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot">
+      <dataFields name="PayerId" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot.PayerId" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+      </dataFields>
+      <dataFields name="SubscriptionPeriod" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot.SubscriptionPeriod" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="CountryCode" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot.CountryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="Id" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot.Id" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer">
+      <featureNames>ENTITY</featureNames>
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="create" qualifiedName="Payments.Payer.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer"/>
+        </returnType>
+        <parameters name="id" qualifiedName="Payments.Payer.create.id">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        </parameters>
+        <parameters name="login" qualifiedName="Payments.Payer.create.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="Payments.Payer.create.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="Payments.Payer.create.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="Payments.Payer.create.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="Payments.Payer.create.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="whenPayerCreated" qualifiedName="Payments.Payer.whenPayerCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.Payer.whenPayerCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PayerCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_login" qualifiedName="Payments.Payer._login" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_email" qualifiedName="Payments.Payer._email" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_firstName" qualifiedName="Payments.Payer._firstName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_lastName" qualifiedName="Payments.Payer._lastName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_name" qualifiedName="Payments.Payer._name" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_createDate" qualifiedName="Payments.Payer._createDate" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PayerCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="payerId" qualifiedName="Payments.PayerCreatedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="login" qualifiedName="Payments.PayerCreatedDomainEvent.login" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="firstName" qualifiedName="Payments.PayerCreatedDomainEvent.firstName" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="Payments.PayerCreatedDomainEvent.lastName" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="name" qualifiedName="Payments.PayerCreatedDomainEvent.name" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="email" qualifiedName="Payments.PayerCreatedDomainEvent.email" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.PayerId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFee" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFee">
+      <featureNames>AGGREGATE</featureNames>
+      <featureNames>ENTITY</featureNames>
+      <operations name="create" qualifiedName="Payments.MeetingFee.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFee" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFee"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFee" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFee"/>
+        </returnType>
+        <parameters name="payerId" qualifiedName="Payments.MeetingFee.create.payerId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        </parameters>
+        <parameters name="meetingId" qualifiedName="Payments.MeetingFee.create.meetingId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingId"/>
+        </parameters>
+        <parameters name="fee" qualifiedName="Payments.MeetingFee.create.fee">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="markAsPaid" qualifiedName="Payments.MeetingFee.markAsPaid"/>
+      <operations name="getSnapshot" qualifiedName="Payments.MeetingFee.getSnapshot">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeSnapshot"/>
+        </returnType>
+      </operations>
+      <operations name="whenMeetingFeeCreated" qualifiedName="Payments.MeetingFee.whenMeetingFeeCreated" hidden="true">
+        <parameters name="meetingFeeCreated" qualifiedName="Payments.MeetingFee.whenMeetingFeeCreated.meetingFeeCreated">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenMeetingFeeCanceled" qualifiedName="Payments.MeetingFee.whenMeetingFeeCanceled" hidden="true">
+        <parameters name="meetingFeeCanceled" qualifiedName="Payments.MeetingFee.whenMeetingFeeCanceled.meetingFeeCanceled">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeCanceledDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCanceledDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeCanceledDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCanceledDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenMeetingFeeExpired" qualifiedName="Payments.MeetingFee.whenMeetingFeeExpired" hidden="true">
+        <parameters name="meetingFeeExpired" qualifiedName="Payments.MeetingFee.whenMeetingFeeExpired.meetingFeeExpired">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeExpiredDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeExpiredDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenMeetingFeePaid" qualifiedName="Payments.MeetingFee.whenMeetingFeePaid" hidden="true">
+        <parameters name="meetingFeePaid" qualifiedName="Payments.MeetingFee.whenMeetingFeePaid.meetingFeePaid">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_payerId" qualifiedName="Payments.MeetingFee._payerId" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+      </dataFields>
+      <dataFields name="_meetingId" qualifiedName="Payments.MeetingFee._meetingId" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingId"/>
+      </dataFields>
+      <dataFields name="_fee" qualifiedName="Payments.MeetingFee._fee" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+      </dataFields>
+      <dataFields name="_status" qualifiedName="Payments.MeetingFee._status" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="feeValue" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.feeValue" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+      <dataFields name="feeCurrency" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.feeCurrency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingId" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.meetingId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.MeetingFeeCreatedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeCanceledDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeCanceledDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeeCanceledDomainEvent.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeeCanceledDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeExpiredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeeExpiredDomainEvent.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeeExpiredDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeePaidDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeePaidDomainEvent.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePayment">
+      <featureNames>AGGREGATE</featureNames>
+      <featureNames>ENTITY</featureNames>
+      <operations name="create" qualifiedName="Payments.MeetingFeePayment.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePayment"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePayment"/>
+        </returnType>
+        <parameters name="meetingFeeId" qualifiedName="Payments.MeetingFeePayment.create.meetingFeeId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeId"/>
+        </parameters>
+      </operations>
+      <operations name="expire" qualifiedName="Payments.MeetingFeePayment.expire"/>
+      <operations name="markAsPaid" qualifiedName="Payments.MeetingFeePayment.markAsPaid"/>
+      <operations name="getSnapshot" qualifiedName="Payments.MeetingFeePayment.getSnapshot">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentSnapshot"/>
+        </returnType>
+      </operations>
+      <operations name="whenPaymentCreated" qualifiedName="Payments.MeetingFeePayment.whenPaymentCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.MeetingFeePayment.whenPaymentCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenPaymentExpired" qualifiedName="Payments.MeetingFeePayment.whenPaymentExpired" hidden="true">
+        <parameters name="event" qualifiedName="Payments.MeetingFeePayment.whenPaymentExpired.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentExpiredDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentExpiredDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenPaymentPaid" qualifiedName="Payments.MeetingFeePayment.whenPaymentPaid" hidden="true">
+        <parameters name="event" qualifiedName="Payments.MeetingFeePayment.whenPaymentPaid.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentPaidDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentPaidDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_meetingFeeId" qualifiedName="Payments.MeetingFeePayment._meetingFeeId" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeId"/>
+      </dataFields>
+      <dataFields name="meetingfeepaymentstatus" qualifiedName="Payments.MeetingFeePayment.meetingfeepaymentstatus" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeePaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentStatus"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeePaymentId" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent.meetingFeePaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeePaymentCreatedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentExpiredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeePaymentId" qualifiedName="Payments.MeetingFeePaymentExpiredDomainEvent.meetingFeePaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeePaymentExpiredDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentPaidDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="meetingFeePaymentId" qualifiedName="Payments.MeetingFeePaymentPaidDomainEvent.meetingFeePaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.MeetingFeePaymentPaidDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="waitingForPayment" qualifiedName="Payments.MeetingFeeStatus.waitingForPayment">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        </returnType>
+      </operations>
+      <operations name="paid" qualifiedName="Payments.MeetingFeeStatus.paid">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="Payments.MeetingFeeStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        </returnType>
+      </operations>
+      <operations name="canceled" qualifiedName="Payments.MeetingFeeStatus.canceled">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        </returnType>
+      </operations>
+      <operations name="of" qualifiedName="Payments.MeetingFeeStatus.of">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MeetingFeeStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeStatus"/>
+        </returnType>
+        <parameters name="code" qualifiedName="Payments.MeetingFeeStatus.of.code">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="code" qualifiedName="Payments.MeetingFeeStatus.code" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.MeetingId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.MeetingFeeId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeeSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeeSnapshot">
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeeSnapshot.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.MeetingFeeSnapshot.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingId" qualifiedName="Payments.MeetingFeeSnapshot.meetingId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.MeetingFeePaymentId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaymentSnapshot">
+      <dataFields name="meetingFeePaymentId" qualifiedName="Payments.MeetingFeePaymentSnapshot.meetingFeePaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingFeeId" qualifiedName="Payments.MeetingFeePaymentSnapshot.meetingFeeId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="Subscription" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Subscription">
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="renew" qualifiedName="Payments.Subscription.renew">
+        <parameters name="subscriptionRenewalPayment" qualifiedName="Payments.Subscription.renew.subscriptionRenewalPayment">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewalPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewalPaymentSnapshot"/>
+        </parameters>
+      </operations>
+      <operations name="expire" qualifiedName="Payments.Subscription.expire"/>
+      <operations name="create" qualifiedName="Payments.Subscription.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="Subscription" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Subscription"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="Subscription" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Subscription"/>
+        </returnType>
+        <parameters name="subscriptionPayment" qualifiedName="Payments.Subscription.create.subscriptionPayment">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentSnapshot"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionCreated" qualifiedName="Payments.Subscription.whenSubscriptionCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.Subscription.whenSubscriptionCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionRenewed" qualifiedName="Payments.Subscription.whenSubscriptionRenewed" hidden="true">
+        <parameters name="event" qualifiedName="Payments.Subscription.whenSubscriptionRenewed.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionRenewedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionExpired" qualifiedName="Payments.Subscription.whenSubscriptionExpired" hidden="true">
+        <parameters name="event" qualifiedName="Payments.Subscription.whenSubscriptionExpired.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpiredDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpiredDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_subscriberId" qualifiedName="Payments.Subscription._subscriberId" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriberId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriberId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriberId"/>
+      </dataFields>
+      <dataFields name="subscriptionperiod" qualifiedName="Payments.Subscription.subscriptionperiod" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="subscriptionstatus" qualifiedName="Payments.Subscription.subscriptionstatus" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionStatus"/>
+      </dataFields>
+      <dataFields name="_countryCode" qualifiedName="Payments.Subscription._countryCode" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="ExpirationDate" qualifiedName="Payments.Subscription.ExpirationDate" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="payerId" qualifiedName="Payments.SubscriptionCreatedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPaymentId" qualifiedName="Payments.SubscriptionCreatedDomainEvent.subscriptionPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionId" qualifiedName="Payments.SubscriptionCreatedDomainEvent.subscriptionId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.SubscriptionCreatedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Payments.SubscriptionCreatedDomainEvent.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="expirationDate" qualifiedName="Payments.SubscriptionCreatedDomainEvent.expirationDate" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionCreatedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpiredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionId" qualifiedName="Payments.SubscriptionExpiredDomainEvent.subscriptionId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionExpiredDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionRenewedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionRenewedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionId" qualifiedName="Payments.SubscriptionRenewedDomainEvent.subscriptionId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="expirationDate" qualifiedName="Payments.SubscriptionRenewedDomainEvent.expirationDate" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.SubscriptionRenewedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionRenewedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.SubscriptionRenewedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionDateExpirationCalculator" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionDateExpirationCalculator">
+      <featureNames>SERVICE</featureNames>
+      <operations name="calculateForNew" qualifiedName="Payments.SubscriptionDateExpirationCalculator.calculateForNew">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        </returnType>
+        <parameters name="period" qualifiedName="Payments.SubscriptionDateExpirationCalculator.calculateForNew.period">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+      </operations>
+      <operations name="calculateForRenewal" qualifiedName="Payments.SubscriptionDateExpirationCalculator.calculateForRenewal">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        </returnType>
+        <parameters name="expirationDate" qualifiedName="Payments.SubscriptionDateExpirationCalculator.calculateForRenewal.expirationDate">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="period" qualifiedName="Payments.SubscriptionDateExpirationCalculator.calculateForRenewal.period">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+      </operations>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.SubscriptionId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPayment">
+      <featureNames>AGGREGATE</featureNames>
+      <featureNames>ENTITY</featureNames>
+      <operations name="buy" qualifiedName="Payments.SubscriptionPayment.buy">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPayment"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPayment" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPayment"/>
+        </returnType>
+        <parameters name="payerId" qualifiedName="Payments.SubscriptionPayment.buy.payerId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        </parameters>
+        <parameters name="period" qualifiedName="Payments.SubscriptionPayment.buy.period">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+        <parameters name="countryCode" qualifiedName="Payments.SubscriptionPayment.buy.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="priceOffer" qualifiedName="Payments.SubscriptionPayment.buy.priceOffer">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+        <parameters name="priceList" qualifiedName="Payments.SubscriptionPayment.buy.priceList">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+        </parameters>
+      </operations>
+      <operations name="getSnapshot" qualifiedName="Payments.SubscriptionPayment.getSnapshot">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentSnapshot"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentSnapshot"/>
+        </returnType>
+      </operations>
+      <operations name="markAsPaid" qualifiedName="Payments.SubscriptionPayment.markAsPaid"/>
+      <operations name="expire" qualifiedName="Payments.SubscriptionPayment.expire"/>
+      <operations name="whenSubscriptionPaymentPaid" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentPaid" hidden="true">
+        <parameters name="event" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentPaid.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentPaidDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentPaidDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionPaymentCreated" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenSubscriptionPaymentExpired" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentExpired" hidden="true">
+        <parameters name="event" qualifiedName="Payments.SubscriptionPayment.whenSubscriptionPaymentExpired.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentExpiredDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentExpiredDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_payerId" qualifiedName="Payments.SubscriptionPayment._payerId">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+      </dataFields>
+      <dataFields name="subscriptionperiod" qualifiedName="Payments.SubscriptionPayment.subscriptionperiod" hidden="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="_countryCode" qualifiedName="Payments.SubscriptionPayment._countryCode">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionpaymentstatus" qualifiedName="Payments.SubscriptionPayment.subscriptionpaymentstatus">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentStatus"/>
+      </dataFields>
+      <dataFields name="_value" qualifiedName="Payments.SubscriptionPayment._value" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionPaymentId" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.subscriptionPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.payerId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="value" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+      <dataFields name="currency" qualifiedName="Payments.SubscriptionPaymentCreatedDomainEvent.currency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentExpiredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionPaymentExpiredDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPaymentId" qualifiedName="Payments.SubscriptionPaymentExpiredDomainEvent.subscriptionPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentPaidDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentPaidDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="subscriptionPaymentId" qualifiedName="Payments.SubscriptionPaymentPaidDomainEvent.subscriptionPaymentId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="status" qualifiedName="Payments.SubscriptionPaymentPaidDomainEvent.status" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="Payments.SubscriptionPaymentId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionPaymentSnapshot" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentSnapshot">
+      <dataFields name="PayerId" qualifiedName="Payments.SubscriptionPaymentSnapshot.PayerId" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PayerId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PayerId"/>
+      </dataFields>
+      <dataFields name="SubscriptionPeriod" qualifiedName="Payments.SubscriptionPaymentSnapshot.SubscriptionPeriod" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="CountryCode" qualifiedName="Payments.SubscriptionPaymentSnapshot.CountryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="Id" qualifiedName="Payments.SubscriptionPaymentSnapshot.Id" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPaymentId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPaymentId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItem" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItem">
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="create" qualifiedName="Payments.PriceListItem.create">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItem" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItem"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItem" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItem"/>
+        </returnType>
+        <parameters name="countryCode" qualifiedName="Payments.PriceListItem.create.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="subscriptionPeriod" qualifiedName="Payments.PriceListItem.create.subscriptionPeriod">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+        <parameters name="category" qualifiedName="Payments.PriceListItem.create.category">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </parameters>
+        <parameters name="price" qualifiedName="Payments.PriceListItem.create.price">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="activate" qualifiedName="Payments.PriceListItem.activate"/>
+      <operations name="deactivate" qualifiedName="Payments.PriceListItem.deactivate"/>
+      <operations name="changeAttributes" qualifiedName="Payments.PriceListItem.changeAttributes">
+        <parameters name="countryCode" qualifiedName="Payments.PriceListItem.changeAttributes.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="subscriptionPeriod" qualifiedName="Payments.PriceListItem.changeAttributes.subscriptionPeriod">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+        <parameters name="category" qualifiedName="Payments.PriceListItem.changeAttributes.category">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </parameters>
+        <parameters name="price" qualifiedName="Payments.PriceListItem.changeAttributes.price">
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </parameters>
+      </operations>
+      <operations name="whenPriceListItemActivated" qualifiedName="Payments.PriceListItem.whenPriceListItemActivated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.PriceListItem.whenPriceListItemActivated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemActivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemActivatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemActivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemActivatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenPriceListItemCreated" qualifiedName="Payments.PriceListItem.whenPriceListItemCreated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.PriceListItem.whenPriceListItemCreated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCreatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCreatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenPriceListItemDeactivated" qualifiedName="Payments.PriceListItem.whenPriceListItemDeactivated" hidden="true">
+        <parameters name="event" qualifiedName="Payments.PriceListItem.whenPriceListItemDeactivated.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemDeactivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemDeactivatedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemDeactivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemDeactivatedDomainEvent"/>
+        </parameters>
+      </operations>
+      <operations name="whenPriceListItemAttributesChanged" qualifiedName="Payments.PriceListItem.whenPriceListItemAttributesChanged" hidden="true">
+        <parameters name="event" qualifiedName="Payments.PriceListItem.whenPriceListItemAttributesChanged.event">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemAttributesChangedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemAttributesChangedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent"/>
+        </parameters>
+      </operations>
+      <dataFields name="_countryCode" qualifiedName="Payments.PriceListItem._countryCode" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_subscriptionPeriod" qualifiedName="Payments.PriceListItem._subscriptionPeriod" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+      </dataFields>
+      <dataFields name="pricelistitemcategory" qualifiedName="Payments.PriceListItem.pricelistitemcategory" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+      </dataFields>
+      <dataFields name="_price" qualifiedName="Payments.PriceListItem._price" hidden="true">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+      </dataFields>
+      <dataFields name="_isActive" qualifiedName="Payments.PriceListItem._isActive" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemActivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemActivatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="priceListItemId" qualifiedName="Payments.PriceListItemActivatedDomainEvent.priceListItemId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemAttributesChangedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="priceListItemId" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.priceListItemId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="categoryCode" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.categoryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="currency" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.currency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="price" qualifiedName="Payments.PriceListItemAttributesChangedDomainEvent.price" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="price" qualifiedName="Payments.PriceListItemCreatedDomainEvent.price" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="long" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+      <dataFields name="subscriptionPeriodCode" qualifiedName="Payments.PriceListItemCreatedDomainEvent.subscriptionPeriodCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="currency" qualifiedName="Payments.PriceListItemCreatedDomainEvent.currency" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="categoryCode" qualifiedName="Payments.PriceListItemCreatedDomainEvent.categoryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="countryCode" qualifiedName="Payments.PriceListItemCreatedDomainEvent.countryCode" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="priceListItemId" qualifiedName="Payments.PriceListItemCreatedDomainEvent.priceListItemId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="isActive" qualifiedName="Payments.PriceListItemCreatedDomainEvent.isActive" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceListItemDeactivatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemDeactivatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="priceListItemId" qualifiedName="Payments.PriceListItemDeactivatedDomainEvent.priceListItemId" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="createFromItems" qualifiedName="Payments.PriceList.createFromItems">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceList" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceList"/>
+        </returnType>
+        <parameters name="items" qualifiedName="Payments.PriceList.createFromItems.items">
+          <type xsi:type="intermediate:IntermediateComplexType" name="ListPriceListItem" origin="DATA_MODEL" kind="LIST" qualifiedName="Payments.ListPriceListItem"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="ListPriceListItem" origin="DATA_MODEL" kind="LIST" qualifiedName="Payments.ListPriceListItem"/>
+        </parameters>
+      </operations>
+      <operations name="getPrice" qualifiedName="Payments.PriceList.getPrice">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="MoneyValue" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MoneyValue"/>
+        </returnType>
+        <parameters name="countryCode" qualifiedName="Payments.PriceList.getPrice.countryCode">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="subscriptionPeriod" qualifiedName="Payments.PriceList.getPrice.subscriptionPeriod">
+          <type xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="SubscriptionPeriod" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionPeriod"/>
+        </parameters>
+        <parameters name="category" qualifiedName="Payments.PriceList.getPrice.category">
+          <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItemCategory" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItemCategory"/>
+        </parameters>
+      </operations>
+      <dataFields name="pricelistitem" qualifiedName="Payments.PriceList.pricelistitem" immutable="true">
+        <type xsi:type="intermediate:IntermediateComplexType" name="ListPriceListItem" origin="DATA_MODEL" kind="LIST" qualifiedName="Payments.ListPriceListItem"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="ListPriceListItem" origin="DATA_MODEL" kind="LIST" qualifiedName="Payments.ListPriceListItem"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="id" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.id">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="occuredOn" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.occuredOn">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingId" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.meetingId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="attendeeId" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.attendeeId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="feeValue" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.feeValue">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="double" origin="BUILTIN" kind="PRIMITIVE" size="64"/>
+      </dataFields>
+      <dataFields name="feeCurrency" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent.feeCurrency">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="id" qualifiedName="Payments.MeetingFeePaidIntegrationEvent.id">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="occuredOn" qualifiedName="Payments.MeetingFeePaidIntegrationEvent.occuredOn">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.MeetingFeePaidIntegrationEvent.payerId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="meetingId" qualifiedName="Payments.MeetingFeePaidIntegrationEvent.meetingId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="occuredOn" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent.occuredOn">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="id" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent.id">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="payerId" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent.payerId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="expirationDate" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent.expirationDate">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.NewUserRegisteredIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="firstName" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.firstName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="name" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.name">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="login" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.login">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.lastName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userId" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.userId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="email" qualifiedName="Payments.NewUserRegisteredIntegrationEvent.email">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateListType" name="ListPriceListItem" origin="DATA_MODEL" kind="LIST" qualifiedName="Payments.ListPriceListItem" structuredList="true">
+      <dataFields name="priceListItem" qualifiedName="Payments.ListPriceListItem.priceListItem">
+        <type xsi:type="intermediate:IntermediateComplexType" name="PriceListItem" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItem"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="PriceListItem" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.PriceListItem"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</intermediate:IntermediateDataModel>

@@ -1,0 +1,18 @@
+.metadata/
+bin/
+Analyzer/
+Validation Eclipse 2019-12/
+*.xtendbin
+*.java._trace
+*.ods
+target/
+aaa/
+Validation Eclipse 2020-06/
+.metadata-2019-12/
+Modular Monolith with DDD GitHub Code/
+Validation/Case Study Models and Code/Modular Monolith with DDD/Conceptual_Model.png
+Validation/Case Study Models and Code/Modular Monolith with DDD/Conceptual_Model_done.okular
+Validation/Case Study Models and Code/Modular Monolith with DDD/Conceptual_Model_done.png
+Validation/Case Study Models and Code/Modular Monolith with DDD/Meeting_Organization.jpg
+Validation/Case Study Models and Code/Modular Monolith with DDD/Payments_EventStorming_Design.jpg
+Validation/Case Study Models and Code/Modular Monolith with DDD/Payments_EventStorming_Design.okular

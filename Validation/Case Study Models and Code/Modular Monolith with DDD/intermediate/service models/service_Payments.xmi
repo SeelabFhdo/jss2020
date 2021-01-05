@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/Payments/service_Payments.services">
+  <imports name="payments" importUri="file://../data models/domain_Payments.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/Payments/service_Payments.services" name="org.example.payments.Payments" qualifiedName="org.example.payments.Payments" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.payments.Payments.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="getPayer" qualifiedName="org.example.payments.Payments.ProvidedTypes.getPayer" visibility="ARCHITECTURE">
+        <parameters name="payer" qualifiedName="org.example.payments.Payments.ProvidedTypes.getPayer.payer" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="Payer" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.Payer" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ReceivedEvents" qualifiedName="org.example.payments.Payments.ReceivedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="receiveMeetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveMeetingAttendeeAddedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveMeetingAttendeeAddedIntegrationEvent.meetingAttendeeAddedIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingAttendeeAddedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="receiveNewUserRegisteredIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.payments.Payments.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.payments.Payments.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="sendMeetingFeePaidIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendMeetingFeePaidIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingFeePaidIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendMeetingFeePaidIntegrationEvent.meetingFeePaidIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.MeetingFeePaidIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="sendSubscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendSubscriptionExpirationDateChangedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="subscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.payments.Payments.EmittedEvents.sendSubscriptionExpirationDateChangedIntegrationEvent.subscriptionExpirationDateChangedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Payments.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

@@ -1,0 +1,17 @@
+import datatypes from "domain_Payments.data" as payments
+
+// S1: Add qualifying part to microservice name
+//      microservice ADD_QUALIFYING_PART.Payments --> microservice org.example.payments.Payments {
+architecture functional microservice org.example.payments.Payments {
+    interface ProvidedTypes {
+        getPayer(sync out payer : payments::Payments.Payer);
+    }
+    interface ReceivedEvents {
+        receiveMeetingAttendeeAddedIntegrationEvent(async meetingAttendeeAddedIntegrationEvent : payments::Payments.MeetingAttendeeAddedIntegrationEvent);
+        receiveNewUserRegisteredIntegrationEvent(async newUserRegisteredIntegrationEvent : payments::Payments.NewUserRegisteredIntegrationEvent);
+    }
+    interface EmittedEvents {
+        sendMeetingFeePaidIntegrationEvent(async out meetingFeePaidIntegrationEvent : payments::Payments.MeetingFeePaidIntegrationEvent);
+        sendSubscriptionExpirationDateChangedIntegrationEvent(async out subscriptionExpirationDateChangedIntegrationEvent : payments::Payments.SubscriptionExpirationDateChangedIntegrationEvent);
+    }
+}

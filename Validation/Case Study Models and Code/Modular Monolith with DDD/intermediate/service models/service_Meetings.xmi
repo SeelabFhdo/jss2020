@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/Meetings/service_Meetings.services">
+  <imports name="meetings" importUri="file://../data models/domain_Meetings.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/Meetings/service_Meetings.services" name="org.example.meetings.Meetings" qualifiedName="org.example.meetings.Meetings" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="ProvidedTypes" qualifiedName="org.example.meetings.Meetings.ProvidedTypes" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="getMember" qualifiedName="org.example.meetings.Meetings.ProvidedTypes.getMember" visibility="ARCHITECTURE">
+        <parameters name="member" qualifiedName="org.example.meetings.Meetings.ProvidedTypes.getMember.member" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="Member" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.Member" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="Member" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.Member" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ReceivedEvents" qualifiedName="org.example.meetings.Meetings.ReceivedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="receiveNewUserRegisteredIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="receiveMeetingGroupProposalAcceptedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveMeetingGroupProposalAcceptedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingGroupProposalAcceptedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveMeetingGroupProposalAcceptedIntegrationEvent.meetingGroupProposalAcceptedIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposalAcceptedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingGroupProposalAcceptedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposalAcceptedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingGroupProposalAcceptedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="receiveMeetingFeePaidIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveMeetingFeePaidIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingFeePaidIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveMeetingFeePaidIntegrationEvent.meetingFeePaidIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingFeePaidIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingFeePaidIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingFeePaidIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="receiveSubscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveSubscriptionExpirationDateChangedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="subscriptionExpirationDateChangedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.ReceivedEvents.receiveSubscriptionExpirationDateChangedIntegrationEvent.subscriptionExpirationDateChangedIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="SubscriptionExpirationDateChangedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.SubscriptionExpirationDateChangedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.meetings.Meetings.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="sendMeetingGroupProposedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.EmittedEvents.sendMeetingGroupProposedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingGroupProposedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.EmittedEvents.sendMeetingGroupProposedIntegrationEvent.meetingGroupProposedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingGroupProposedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingGroupProposedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="sendMeetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.EmittedEvents.sendMeetingAttendeeAddedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingAttendeeAddedIntegrationEvent" qualifiedName="org.example.meetings.Meetings.EmittedEvents.sendMeetingAttendeeAddedIntegrationEvent.meetingAttendeeAddedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingAttendeeAddedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingAttendeeAddedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Meetings.MeetingAttendeeAddedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

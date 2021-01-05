@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateDataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/UserAccess/domain_UserAccess.data">
+  <contexts name="UserAccess" qualifiedName="UserAccess">
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="UserAccess.UserId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User">
+      <featureNames>ENTITY</featureNames>
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="createFromUserRegistration" qualifiedName="UserAccess.User.createFromUserRegistration">
+        <parameters name="userRegistrationId" qualifiedName="UserAccess.User.createFromUserRegistration.userRegistrationId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        </parameters>
+        <parameters name="login" qualifiedName="UserAccess.User.createFromUserRegistration.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="password" qualifiedName="UserAccess.User.createFromUserRegistration.password">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="UserAccess.User.createFromUserRegistration.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="UserAccess.User.createFromUserRegistration.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="UserAccess.User.createFromUserRegistration.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="UserAccess.User.createFromUserRegistration.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="User" qualifiedName="UserAccess.User.User" hidden="true">
+        <parameters name="userRegistrationId" qualifiedName="UserAccess.User.User.userRegistrationId">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        </parameters>
+        <parameters name="login" qualifiedName="UserAccess.User.User.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="password" qualifiedName="UserAccess.User.User.password">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="UserAccess.User.User.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="UserAccess.User.User.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="UserAccess.User.User.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="name" qualifiedName="UserAccess.User.User.name">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <dataFields name="userId" qualifiedName="UserAccess.User.userId" immutable="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserId"/>
+      </dataFields>
+      <dataFields name="_login" qualifiedName="UserAccess.User._login" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_password" qualifiedName="UserAccess.User._password" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_email" qualifiedName="UserAccess.User._email" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_isActive" qualifiedName="UserAccess.User._isActive" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="boolean" origin="BUILTIN" kind="PRIMITIVE" size="1"/>
+      </dataFields>
+      <dataFields name="_firstName" qualifiedName="UserAccess.User._firstName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_lastName" qualifiedName="UserAccess.User._lastName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_name" qualifiedName="UserAccess.User._name" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userrole" qualifiedName="UserAccess.User.userrole">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="ListUserRole" origin="DATA_MODEL" kind="LIST" qualifiedName="UserAccess.ListUserRole"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="ListUserRole" origin="DATA_MODEL" kind="LIST" qualifiedName="UserAccess.ListUserRole"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="value" qualifiedName="UserAccess.UserRegistrationId.value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UsersCounter" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UsersCounter">
+      <operations name="countUsersWithLogin" qualifiedName="UserAccess.UsersCounter.countUsersWithLogin">
+        <returnType>
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="int" origin="BUILTIN" kind="PRIMITIVE" size="32"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="int" origin="BUILTIN" kind="PRIMITIVE" size="32"/>
+        </returnType>
+        <parameters name="login" qualifiedName="UserAccess.UsersCounter.countUsersWithLogin.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRegistration" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistration">
+      <featureNames>ENTITY</featureNames>
+      <featureNames>AGGREGATE</featureNames>
+      <operations name="UserRegistration" qualifiedName="UserAccess.UserRegistration.UserRegistration" hidden="true">
+        <parameters name="login" qualifiedName="UserAccess.UserRegistration.UserRegistration.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="password" qualifiedName="UserAccess.UserRegistration.UserRegistration.password">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="UserAccess.UserRegistration.UserRegistration.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="UserAccess.UserRegistration.UserRegistration.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="UserAccess.UserRegistration.UserRegistration.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="usersCounter" qualifiedName="UserAccess.UserRegistration.UserRegistration.usersCounter">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UsersCounter" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UsersCounter"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UsersCounter" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UsersCounter"/>
+        </parameters>
+        <parameters name="confirmLink" qualifiedName="UserAccess.UserRegistration.UserRegistration.confirmLink">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="registerNewUser" qualifiedName="UserAccess.UserRegistration.registerNewUser">
+        <parameters name="login" qualifiedName="UserAccess.UserRegistration.registerNewUser.login">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="password" qualifiedName="UserAccess.UserRegistration.registerNewUser.password">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="email" qualifiedName="UserAccess.UserRegistration.registerNewUser.email">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="firstName" qualifiedName="UserAccess.UserRegistration.registerNewUser.firstName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="lastName" qualifiedName="UserAccess.UserRegistration.registerNewUser.lastName">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+        <parameters name="usersCounter" qualifiedName="UserAccess.UserRegistration.registerNewUser.usersCounter">
+          <type xsi:type="intermediate:IntermediateComplexType" name="UsersCounter" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UsersCounter"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UsersCounter" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UsersCounter"/>
+        </parameters>
+        <parameters name="confirmLink" qualifiedName="UserAccess.UserRegistration.registerNewUser.confirmLink">
+          <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+          <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        </parameters>
+      </operations>
+      <operations name="createUser" qualifiedName="UserAccess.UserRegistration.createUser">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="User" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.User"/>
+        </returnType>
+      </operations>
+      <operations name="confirm" qualifiedName="UserAccess.UserRegistration.confirm"/>
+      <operations name="expire" qualifiedName="UserAccess.UserRegistration.expire"/>
+      <dataFields name="id" qualifiedName="UserAccess.UserRegistration.id" immutable="true">
+        <featureNames>IDENTIFIER</featureNames>
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+      </dataFields>
+      <dataFields name="_login" qualifiedName="UserAccess.UserRegistration._login" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_password" qualifiedName="UserAccess.UserRegistration._password" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_email" qualifiedName="UserAccess.UserRegistration._email" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_firstName" qualifiedName="UserAccess.UserRegistration._firstName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_lastName" qualifiedName="UserAccess.UserRegistration._lastName" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_name" qualifiedName="UserAccess.UserRegistration._name" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="_registerDate" qualifiedName="UserAccess.UserRegistration._registerDate" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userregistrationstatus" qualifiedName="UserAccess.UserRegistration.userregistrationstatus">
+        <featureNames>PART</featureNames>
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+      </dataFields>
+      <dataFields name="_confirmedDate" qualifiedName="UserAccess.UserRegistration._confirmedDate" hidden="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRole" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRole">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="member" qualifiedName="UserAccess.UserRole.member">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRole" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRole"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRole" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRole"/>
+        </returnType>
+      </operations>
+      <dataFields name="Value" qualifiedName="UserAccess.UserRole.Value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <operations name="waitingForConfirmation" qualifiedName="UserAccess.UserRegistrationStatus.waitingForConfirmation">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+        </returnType>
+      </operations>
+      <operations name="confirmed" qualifiedName="UserAccess.UserRegistrationStatus.confirmed">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+        </returnType>
+      </operations>
+      <operations name="expired" qualifiedName="UserAccess.UserRegistrationStatus.expired">
+        <returnType>
+          <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+          <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationStatus" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationStatus"/>
+        </returnType>
+      </operations>
+      <dataFields name="Value" qualifiedName="UserAccess.UserRegistrationStatus.Value" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="NewUserRegisteredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="login" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.login" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="email" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.email" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="firstName" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.firstName" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.lastName" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="registerDate" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.registerDate" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="date" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="confirmLink" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.confirmLink" immutable="true">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="userregistrationid" qualifiedName="UserAccess.NewUserRegisteredDomainEvent.userregistrationid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRegistrationConfirmedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationConfirmedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="userregistrationid" qualifiedName="UserAccess.UserRegistrationConfirmedDomainEvent.userregistrationid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserRegistrationExpiredDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationExpiredDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="userregistrationid" qualifiedName="UserAccess.UserRegistrationExpiredDomainEvent.userregistrationid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRegistrationId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRegistrationId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="UserCreatedDomainEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserCreatedDomainEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="userid" qualifiedName="UserAccess.UserCreatedDomainEvent.userid">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserId"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserId" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserId"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent">
+      <featureNames>DOMAIN_EVENT</featureNames>
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="userId" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.userId">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="login" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.login">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="email" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.email">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="firstName" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.firstName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.lastName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="name" qualifiedName="UserAccess.NewUserRegisteredIntegrationEvent.name">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="RegisterNewUserCommand" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.RegisterNewUserCommand">
+      <featureNames>VALUE_OBJECT</featureNames>
+      <dataFields name="login" qualifiedName="UserAccess.RegisterNewUserCommand.login">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="password" qualifiedName="UserAccess.RegisterNewUserCommand.password">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="email" qualifiedName="UserAccess.RegisterNewUserCommand.email">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="firstName" qualifiedName="UserAccess.RegisterNewUserCommand.firstName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="lastName" qualifiedName="UserAccess.RegisterNewUserCommand.lastName">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+      <dataFields name="confirmLink" qualifiedName="UserAccess.RegisterNewUserCommand.confirmLink">
+        <type xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+        <originalType xsi:type="intermediate:IntermediatePrimitiveType" name="string" origin="BUILTIN" kind="PRIMITIVE"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="intermediate:IntermediateListType" name="ListUserRole" origin="DATA_MODEL" kind="LIST" qualifiedName="UserAccess.ListUserRole" structuredList="true">
+      <dataFields name="userRole" qualifiedName="UserAccess.ListUserRole.userRole">
+        <type xsi:type="intermediate:IntermediateComplexType" name="UserRole" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRole"/>
+        <originalType xsi:type="intermediate:IntermediateComplexType" name="UserRole" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="UserAccess.UserRole"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</intermediate:IntermediateDataModel>

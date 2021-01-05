@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ASCII"?>
+<data:DataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data">
+  <contexts name="UserAccess">
+    <complexTypes xsi:type="data:DataStructure" name="Permission">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="userrole" complexType="//@contexts.0/@complexTypes.11">
+        <features>PART</features>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="User">
+      <features>AGGREGATE</features>
+      <features>ENTITY</features>
+      <dataFields name="userrole" complexType="//@contexts.0/@complexTypes.11">
+        <features>PART</features>
+      </dataFields>
+      <dataFields name="userregistration" complexType="//@contexts.0/@complexTypes.2"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRegistration">
+      <features>AGGREGATE</features>
+      <features>ENTITY</features>
+      <dataFields name="userregistrationstatus" complexType="//@contexts.0/@complexTypes.4">
+        <features>PART</features>
+      </dataFields>
+      <dataFields name="user" complexType="//@contexts.0/@complexTypes.1"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRole">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="permission" complexType="//@contexts.0/@complexTypes.12"/>
+      <dataFields name="user" complexType="//@contexts.0/@complexTypes.1"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRegistrationStatus">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="WaitingForConfirmation" immutable="true"/>
+      <dataFields name="Confirmed" immutable="true"/>
+      <dataFields name="Expired" immutable="true"/>
+      <dataFields name="userregistration" complexType="//@contexts.0/@complexTypes.2"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="NewUserRegisteredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="login" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="email" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="firstName" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="lastName" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="registerDate" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveDate"/>
+      </dataFields>
+      <dataFields name="confirmLink" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="userregistrationid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRegistrationId">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRegistrationConfirmedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="userregistrationid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserRegistrationExpiredDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="userregistrationid" complexType="//@contexts.0/@complexTypes.6"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserId">
+      <features>VALUE_OBJECT</features>
+      <dataFields name="value" immutable="true">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="UserCreatedDomainEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="userid" complexType="//@contexts.0/@complexTypes.9"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListUserRole">
+      <dataFields name="userRole" complexType="//@contexts.0/@complexTypes.3"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:ListType" name="ListPermission">
+      <dataFields name="permission" complexType="//@contexts.0/@complexTypes.0"/>
+    </complexTypes>
+    <complexTypes xsi:type="data:DataStructure" name="NewUserRegisteredIntegrationEvent">
+      <features>DOMAIN_EVENT</features>
+      <features>VALUE_OBJECT</features>
+      <dataFields name="email">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="firstName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="name">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="login">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="lastName">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+      <dataFields name="userId">
+        <primitiveType xsi:type="data:PrimitiveString"/>
+      </dataFields>
+    </complexTypes>
+  </contexts>
+</data:DataModel>

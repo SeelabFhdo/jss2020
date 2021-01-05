@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://../../Phase 3/Administration/service_Administration.services">
+  <imports name="administration" importUri="file://../data models/domain_Administration.xmi" importTypeName="DATATYPES"/>
+  <microservices sourceModelUri="file://../../Phase 3/Administration/service_Administration.services" name="org.example.administration.Administration" qualifiedName="org.example.administration.Administration" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <interfaces name="ReceivedEvents" qualifiedName="org.example.administration.Administration.ReceivedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="receiveMeetingGroupProposedIntegrationEvent" qualifiedName="org.example.administration.Administration.ReceivedEvents.receiveMeetingGroupProposedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingGroupProposedIntegrationEvent" qualifiedName="org.example.administration.Administration.ReceivedEvents.receiveMeetingGroupProposedIntegrationEvent.meetingGroupProposedIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+      <operations name="receiveNewUserRegisteredIntegrationEvent" qualifiedName="org.example.administration.Administration.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="newUserRegisteredIntegrationEvent" qualifiedName="org.example.administration.Administration.ReceivedEvents.receiveNewUserRegisteredIntegrationEvent.newUserRegisteredIntegrationEvent" exchangePattern="IN" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="NewUserRegisteredIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.NewUserRegisteredIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents" qualifiedName="org.example.administration.Administration.EmittedEvents" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="sendMeetingGroupProposalAcceptedIntegrationEvent" qualifiedName="org.example.administration.Administration.EmittedEvents.sendMeetingGroupProposalAcceptedIntegrationEvent" visibility="ARCHITECTURE">
+        <parameters name="meetingGroupProposalAcceptedIntegrationEvent" qualifiedName="org.example.administration.Administration.EmittedEvents.sendMeetingGroupProposalAcceptedIntegrationEvent.meetingGroupProposalAcceptedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposalAcceptedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent" import="//@imports.0"/>
+          <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="MeetingGroupProposalAcceptedIntegrationEvent" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="Administration.MeetingGroupProposalAcceptedIntegrationEvent" import="//@imports.0"/>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

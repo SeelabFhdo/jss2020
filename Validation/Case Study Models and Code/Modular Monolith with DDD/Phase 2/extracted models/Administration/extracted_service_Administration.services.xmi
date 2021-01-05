@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<service:ServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="de.fhdo.lemma.data" xmlns:service="de.fhdo.lemma.service">
+  <imports name="administration" importURI="extracted_domain_Administration.data"/>
+  <microservices name="Administration">
+    <interfaces name="ProvidedTypes">
+      <operations name="getAdministrator">
+        <parameters name="administrator" exchangePattern="OUT">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Administration/extracted_domain_Administration.data.xmi#//@contexts.0/@complexTypes.2"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="ReceivedEvents">
+      <operations name="receiveMeetingGroupProposedIntegrationEvent">
+        <parameters name="meetingGroupProposedIntegrationEvent" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Administration/extracted_domain_Administration.data.xmi#//@contexts.0/@complexTypes.12"/>
+          </importedType>
+        </parameters>
+      </operations>
+      <operations name="receiveNewUserRegisteredIntegrationEvent">
+        <parameters name="newUserRegisteredIntegrationEvent" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Administration/extracted_domain_Administration.data.xmi#//@contexts.0/@complexTypes.13"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+    <interfaces name="EmittedEvents">
+      <operations name="sendMeetingGroupProposalAcceptedIntegrationEvent">
+        <parameters name="meetingGroupProposalAcceptedIntegrationEvent" exchangePattern="OUT" communicationType="ASYNCHRONOUS">
+          <importedType import="//@imports.0">
+            <type xsi:type="data:DataStructure" href="/Modular Monolith with DDD/extracted models/Administration/extracted_domain_Administration.data.xmi#//@contexts.0/@complexTypes.14"/>
+          </importedType>
+        </parameters>
+      </operations>
+    </interfaces>
+  </microservices>
+</service:ServiceModel>

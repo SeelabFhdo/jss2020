@@ -1,0 +1,1822 @@
+context Administration {
+    // D4: Add missing domain concept
+    structure MeetingGroupLocation <valueObject> {
+        immutable string city,
+        immutable string countryCode,
+
+        function MeetingGroupLocation create(string city, string countryCode)
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingGroupProposalDecision {
+        Accept,
+        Reject
+    }*/
+    structure MeetingGroupProposalDecision <valueObject> {
+        immutable date ^date,
+        immutable UserId userId,
+        immutable string code,
+        immutable string rejectReason,
+        function MeetingGroupProposalDecision noDecision,
+        hide function boolean isAccepted,
+        hide function boolean isRejected,
+        function MeetingGroupProposalDecision acceptDecision,
+        function MeetingGroupProposalDecision rejectDecision,
+        function MeetingGroupProposalStatus getStatusForDecision
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingGroupProposalStatus {
+        Accepted,
+        InVerification,
+        Rejected
+    }*/
+    structure MeetingGroupProposalStatus <valueObject> {
+        immutable string value,
+        function MeetingGroupProposalStatus toVerify,
+        function MeetingGroupProposalStatus verified,
+        function MeetingGroupProposalStatus create(string value)
+    }
+
+    // D7: Remove domain concept
+    //      The implementation does not realize a dedicated Administrator class, but instead also
+    //      relies on the Member concept to implement administration capabilities
+    /*structure Administrator <valueObject> {
+        ListMeetingGroupProposalDecision meetinggroupproposaldecision
+    }*/
+
+    structure MeetingGroupProposalId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingGroupProposal <entity, aggregate> {
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide string _description,
+        // D5: Add missing data field
+        hide MeetingGroupLocation _location <part>,
+        // D5: Add missing data field
+        hide date _proposalDate,
+        // D5: Add missing data field
+        hide UserId _proposalUserId <part>,
+        // D5: Add missing data field
+        immutable MeetingGroupProposalId id<identifier,part>,
+
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingGroupProposalDecision meetinggroupproposaldecision,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingGroupProposalStatus meetinggroupproposalstatus,
+
+        // D6: Add missing domain operation
+        hide procedure MeetingGroupProposal(MeetingGroupProposalId id, string name, string decision,
+            MeetingGroupLocation location, UserId proposalUserId, date proposalDate),
+
+        // D6: Add missing domain operation
+        procedure accept(UserId userId),
+
+        // D6: Add missing domain operation
+        procedure reject(UserId userId, string rejectReason),
+
+        // D6: Add missing domain operation
+        function MeetingGroupProposal createToVerify(string meetingGroupProposalId, string name,
+            string description, MeetingGroupLocation location, UserId proposalUserId,
+            date proposalDate)
+    }
+
+    structure MeetingGroupProposalVerificationRequestedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposalRejectedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+        string meetingGroupProposalId,
+        string name,
+        string description,
+        string locationCity,
+        string locationCountryCode,
+        string proposalUserId,
+        date ProposalDate
+    }
+
+    structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occurredOn,
+        string meetingGroupProposalId
+    }
+
+    // D7: Remove domain concept
+    //      Removed together with Administrator (see above)
+    /*list ListMeetingGroupProposalDecision {
+        MeetingGroupProposalDecision meetingGroupProposalDecision
+    }*/
+
+    // D4: Add missing domain concept
+    structure UserId <valueObject> {
+        immutable string value
+    }
+
+    structure MemberId <valueObject> {
+        immutable string value
+    }
+
+    structure Member <entity, aggregate> {
+        immutable MemberId id<identifier,part>,
+        string _login,
+        string _email,
+        string _firstName,
+        string _lastName,
+        string _name,
+        date _createDate,
+        hide procedure Member(string id, string login, string email, string firstName,
+            string lastName, string name),
+        function Member create(string id, string login, string email, string firstName,
+            string lastName, string name)
+    }
+
+    structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+        MemberId memberid
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string email,
+        string firstName,
+        string name,
+        string login,
+        string lastName,
+        string userId
+    }
+}
+
+context Meetings {
+    // D4: Add missing domain concept
+    structure MeetingCommentingConfiguration <entity,aggregate> {
+        immutable MeetingCommentingConfigurationId Id<identifier,part>,
+        hide MeetingId _meetingId <part>,
+        hide boolean _isCommentingEnabled,
+        procedure enableCommenting(MemberId enablingMemberId, MeetingGroup meetingGroup),
+        procedure disableCommenting(MemberId disablingMemberId, MeetingGroup meetingGroup),
+        function boolean getIsCommentingEnabled,
+        function MeetingCommentingConfiguration create(MeetingId meetingId)
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingCommentingConfigurationId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingComment <entity, aggregate> {
+        immutable MeetingCommentId Id <identifier,part>,
+        hide MeetingId _meetingId <part>,
+        hide MemberId _authorId <part>,
+        hide MeetingCommentId _inReplyToCommentId <part>,
+        hide string _comment,
+        hide date _createDate,
+        hide date _editDate,
+        hide boolean _isRemoved,
+        hide string _removedByReason,
+        hide procedure MeetingComment(
+            MeetingId meetingId,
+            MemberId authorId,
+            string comment,
+            MeetingCommentId inReplyToCommentId,
+            MeetingCommentingConfiguration meetingCommentingConfiguration,
+            MeetingGroup meetingGroup
+        ),
+        procedure edit(
+            MemberId editorId,
+            string editedComment,
+            MeetingCommentingConfiguration meetingCommentingConfiguration
+        ),
+        procedure remove(MemberId removingMemberId, MeetingGroup meetingGroup, string reason),
+        function MeetingComment reply(MemberId replierId, string reply, MeetingGroup meetingGroup,
+            MeetingCommentingConfiguration meetingCommentingConfiguration),
+        function MeetingId getMeetingId,
+        function MeetingComment create(
+            MeetingId meetingId,
+            MemberId authorId,
+            string comment,
+            MeetingGroup meetingGroup,
+            MeetingCommentingConfiguration meetingCommentingConfiguration
+        )
+    }
+
+    structure MeetingCommentId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingCommentAddedDomainEvent <domainEvent, valueObject> {
+        immutable string comment,
+        MeetingId meetingid,
+        MeetingCommentId meetingcommentid
+    }
+
+    structure MeetingCommentEditedDomainEvent <domainEvent, valueObject> {
+        immutable string editedComment,
+        MeetingCommentId meetingcommentid
+    }
+
+    structure MeetingCommentRemovedDomainEvent <domainEvent, valueObject> {
+        MeetingCommentId meetingcommentid
+    }
+
+    structure ReplyToMeetingCommentAddedDomainEvent <domainEvent, valueObject> {
+        immutable string reply,
+        MeetingCommentId meetingcommentid,
+        MeetingCommentId inReplyToCommentId
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingGroupProposalStatus {
+        Accepted,
+        InVerification,
+        Rejected
+    }*/
+    structure MeetingGroupProposalStatus <valueObject> {
+        immutable string Value,
+        function MeetingGroupProposalStatus inVerification,
+        function MeetingGroupProposalStatus accepted,
+        function boolean isAccepted
+    }
+
+    structure MeetingEditedDomainEvent <domainEvent, valueObject> {
+        string meetingId
+    }
+
+    structure Member <entity, aggregate> {
+        // D5: Add missing data field
+        immutable MemberId Id <identifier,part>,
+        // D5: Add missing data field
+        hide string _login,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide date _createDate,
+        // D6: Add missing domain operation
+        function Member create(string id, string login, string email, string firstName,
+            string lastName, string name),
+        // D6: Add missing domain operation
+        hide procedure Member(string id, string login, string email, string firstName,
+            string lastName, string name)
+
+        // D8: Remove data field
+        //        The conceptual relationship between Member and MeetingGroupProposal is
+        //        bidirectional. In the implementation it is however unidirectional and established
+        //        via MemberId (MeetingGroupProposal[1] -> MemberId[1]).
+        //MeetingGroupProposal meetinggroupproposal,
+        // D8: Remove data field
+        //        The conceptual relationship between Member and MeetingAttendee is bidirectional.
+        //        In the implementation it is however unidirectional and established via MemberId
+        //        (MeetingAttendee[1] -> MemberId[1]).
+        //ListMeetingAttendee meetingattendee <part>,
+        // D8: Remove data field
+        //        The conceptual relationship between Member and MeetingNotAttendee is
+        //        bidirectional. In the implementation it is however unidirectional and
+        //        established via MemberId (MeetingNotAttendee[1] -> MemberId[1]).
+        //ListMeetingNotAttendee meetingnotattendee <part>,
+        // D8: Remove data field
+        //        The conceptual relationship between Member and MeetingWaitlistMember is
+        //        bidirectional. In the implementation it is however unidirectional and
+        //        established via MemberId (MeetingWaitlistMember[1] -> MemberId[1]).
+        //ListMeetingWaitlistMember meetingwaitlistmember <part>,
+        // D8: Remove data field
+        //        The conceptual relationship between Member and MemberSubscription is
+        //        bidirectional. In the implementation it is however unidirectional and
+        //        established via MemberSubscriptionId (MemberSubscription[1] -> MemberId[1]).
+        //MemberSubscription membersubscription
+    }
+
+    structure MemberId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    list MemberIds { MemberId i }
+
+    structure MeetingAttendeeChangedDecisionDomainEvent <domainEvent, valueObject> {
+        MemberId memberid,
+        MeetingId meetingid
+    }
+
+    structure MeetingGroupCreatedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupId meetinggroupid,
+        MemberId creatorId
+    }
+
+    structure MeetingGroupProposal <entity, aggregate> {
+        // D5: Add missing data field
+        immutable MeetingGroupProposalId Id<identifier,part>,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide string _description,
+        // D5: Add missing data field
+        hide MeetingGroupLocation _location,
+        // D5: Add missing data field
+        hide date _proposalDate,
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between Member and
+        //      MeetingGroupProposal based on the MemberId domain concept
+        //Member member
+        hide MemberId _proposalUserId,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingGroupProposalStatus meetinggroupproposalstatus,
+
+        // D11: Refine conceptual data field
+        //        In the implementation, the conceptual relationship between MeetingGroupProposal
+        //        and MeetingGroup is established by means of a factory method in
+        //        MeetingGroupProposal, which returns MeetingGroup objects
+        //MeetingGroup meetinggroup
+        function MeetingGroup createMeetingGroup,
+        // D6: Add missing domain operation
+        hide procedure MeetingGroupProposal(string name, string description,
+            MeetingGroupLocation location, MemberId proposalUserId),
+        // D6: Add missing domain operation
+        function MeetingGroupProposal proposeNew(string name, string description,
+            MeetingGroupLocation location, MemberId proposalMemberId),
+        // D6: Add missing domain operation
+        procedure accept
+    }
+
+    structure MeetingGroupProposalId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingGroupProposalAcceptedDomainEvent <domainEvent, valueObject> {
+        MeetingGroupProposalId meetinggroupproposalid
+    }
+
+    structure MeetingGroupProposedDomainEvent <domainEvent, valueObject> {
+        immutable string name,
+        immutable string description,
+        immutable string locationCity,
+        immutable string locationCountryCode,
+        immutable date proposalDate,
+        MeetingGroupProposalId meetinggroupproposalid,
+        MemberId proposalUserId
+    }
+
+    structure MeetingAttendee <entity> {
+        // D11: Refine conceptual data field
+        //      The conceptual relationship between MeetingAttendee and Member is established by
+        //      means of MemberId
+        //Member member,
+        immutable MemberId AttendeeId <identifier>,
+        // D11: Refine conceptual data field
+        //      The conceptual relationship between MeetingAttendee and Meeting is established by
+        //      means of MeetingId
+        //Meeting meeting
+        immutable MeetingId MeetingId,
+        // D5: Add missing data field
+        hide date _decisionDate,
+        // D5: Add missing data field
+        hide MeetingAttendeeRole _role,
+        // D5: Add missing data field
+        hide int _guestsNumber,
+        // D5: Add missing data field
+        hide boolean _decisionChanged,
+        // D5: Add missing data field
+        hide date _decisionChangeDate,
+        // D5: Add missing data field
+        hide date _removedDate,
+        // D5: Add missing data field
+        hide MemberId _removingMemberId,
+        // D5: Add missing data field
+        hide string _removingReason,
+        // D5: Add missing data field
+        hide boolean _isRemoved,
+        // D5: Add missing data field
+        hide MoneyValue _fee,
+        // D5: Add missing data field
+        hide boolean _isFeePaid,
+        // D6: Add missing domain operation
+        function MeetingAttendee createNew(MeetingId meetingId, MemberId attendeeId,
+            date decisionDate, MeetingAttendeeRole role, int guestsNumber, MoneyValue eventFee),
+        // D6: Add missing domain operation
+        hide procedure MeetingAttendee(MeetingId meetingId, MemberId attendeeId, date decisionDate,
+            MeetingAttendeeRole role, int guestsNumber, MoneyValue eventFee),
+        // D6: Add missing domain operation
+        procedure ChangeDecision,
+        // D6: Add missing domain operation
+        function boolean isActiveAttendee(MemberId attendeeId),
+        // D6: Add missing domain operation
+        function boolean isActive,
+        // D6: Add missing domain operation
+        function boolean isActiveHost,
+        // D6: Add missing domain operation
+        function int getAttendeeWithGuestsNumber,
+        // D6: Add missing domain operation
+        procedure setAsHost,
+        // D6: Add missing domain operation
+        procedure setAsAttendee(),
+        // D6: Add missing domain operation
+        procedure remove(MemberId removingMemberId, string reason),
+        // D6: Add missing domain operation
+        procedure markFeeAsPayed
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingAttendeeRole <valueObject> {
+        function MeetingAttendeeRole Host,
+        function MeetingAttendeeRole Attendee,
+        immutable string Value
+    }
+
+    structure MeetingCommentingConfigurationCreatedDomainEvent <domainEvent, valueObject> {
+        immutable boolean isEnabled,
+        MeetingId meetingid
+    }
+
+    structure MeetingCommentingDisabledDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid
+    }
+
+    structure MeetingCommentingEnabledDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid
+    }
+
+    structure MeetingId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingLimits <valueObject> {
+        immutable int AttendeesLimit,
+        immutable int GuestsLimit,
+        function MeetingLimits create(int attendeesLimit, int guestsLimit)
+    }
+
+    structure MeetingNotAttendee <entity> {
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between Member and
+        //      MeetingNotAttendee based on the MemberId domain concept
+        //Member member,
+        immutable MemberId MemberId <identifier>,
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between Meeting and
+        //      MeetingNotAttendee based on the MeetingId domain concept
+        //Meeting meeting
+        immutable MeetingId MeetingId,
+        // D5: Add missing data field
+        hide date _decisionDate,
+        // D5: Add missing data field
+        hide boolean _decisionChanged,
+        // D5: Add missing data field
+        hide date _decisionChangeDate,
+        // D6: Add missing domain operation
+        hide procedure MeetingNotAttendee(MeetingId meetingId, MemberId memberId),
+        // D6: Add missing domain operation
+        function MeetingNotAttendee createNew(MeetingId meetingId, MemberId memberId),
+        // D6: Add missing domain operation
+        function boolean isActiveNotAttendee(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure changeDecision
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingTerm <valueObject> {
+        immutable date StartDate,
+        immutable date EndDate,
+        function MeetingTerm createNewBetweenDates(date startDate, date endDate),
+        function boolean isAfterStart
+    }
+
+    structure MeetingWaitlistMember <entity> {
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between Member and
+        //      MeetingNotAttendee based on the MemberId domain concept
+        //Member member,
+        immutable MemberId MemberId <identifier>,
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between Meeting and
+        //      MeetingNotAttendee based on the MeetingId domain concept
+        //Meeting meeting
+        immutable MeetingId MeetingId,
+        // D5: Add missing data field
+        immutable date SignUpDate,
+        // D5: Add missing data field
+        hide boolean _isSignedOff,
+        // D5: Add missing data field
+        hide date _signOffDate,
+        // D5: Add missing data field
+        hide boolean _isMovedToAttendees,
+        // D5: Add missing data field
+        hide date _movedToAttendeesDate,
+        // D6: Add missing domain operation
+        hide procedure MeetingWaitlistMember(MeetingId meetingId, MemberId memberId),
+        // D6: Add missing domain operation
+        function MeetingWaitlistMember createNew(MeetingId meetingId, MemberId memberId),
+        // D6: Add missing domain operation
+        procedure markIsMovedToAttendees,
+        // D6: Add missing domain operation
+        function boolean isActiveOnWaitList(MemberId memberId),
+        // D6: Add missing domain operation
+        function boolean isActive,
+        // D6: Add missing domain operation
+        procedure signOff
+    }
+
+    structure Meeting <entity, aggregate> {
+        // D5: Add missing data field
+        immutable MeetingId Id <identifier,part>,
+        // D11: Refine conceptual data field
+        //      The conceptual relationship between Meeting and MeetingGroup is established by means
+        //      of MeetingGroupId
+        //MeetingGroup meetinggroup
+        hide MeetingGroupId _meetingGroupId <part>,
+        // D5: Add missing data field
+        hide string _title,
+        // D5: Add missing data field
+        hide MeetingTerm _term <part>,
+        // D5: Add missing data field
+        hide string _description,
+        // D5: Add missing data field
+        hide MeetingLimits _meetingLimits <part>,
+        // D5: Add missing data field
+        hide Term _rsvpTerm <part>,
+        // D5: Add missing data field
+        hide MoneyValue _eventFee <part>,
+        // D5: Add missing data field
+        hide MemberId _creatorId <part>,
+        // D5: Add missing data field
+        hide date _createDate,
+        // D5: Add missing data field
+        hide MemberId _changeMemberId <part>,
+        // D5: Add missing data field
+        hide date _changeDate,
+        // D5: Add missing data field
+        hide date _cancelDate,
+        // D5: Add missing data field
+        hide MemberId _cancelMemberId <part>,
+        // D5: Add missing data field
+        hide boolean _isCanceled,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide ListMeetingAttendee meetingattendee <part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide ListMeetingNotAttendee meetingnotattendee <part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide ListMeetingWaitlistMember meetingwaitlistmember <part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingLocation meetinglocation <part>,
+        // D6: Add missing domain operation
+        function Meeting createNew(MeetingGroupId meetingGroupId, string title, MeetingTerm term,
+            string description, MeetingLocation location, MeetingLimits meetingLimits,
+            Term rsvpTerm, MoneyValue eventFee, MemberIds hostsMembersIds, MemberId creatorId),
+        // D6: Add missing domain operation
+        hide procedure Meeting(MeetingGroupId meetingGroupId, string title, MeetingTerm term,
+            string description, MeetingLocation location, MeetingLimits meetingLimits,
+            Term rsvpTerm, MoneyValue eventFee, MemberIds hostsMembersIds, MemberId creatorId),
+        // D6: Add missing domain operation
+        procedure changeMainAttributes(string title, MeetingTerm term, string description,
+            MeetingLocation location, MeetingLimits meetingLimits, Term rsvpTerm,
+            MoneyValue eventFee, MemberId modifyUserId),
+        // D6: Add missing domain operation
+        procedure addAttendee(MeetingGroup meetingGroup, MemberId attendeeId, int guestsNumber),
+        // D6: Add missing domain operation
+        procedure addNotAttendee(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure changeNotAttendeeDecision(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure signUpMemberToWaitlist(MeetingGroup meetingGroup, MemberId memberId),
+        // D6: Add missing domain operation
+        procedure signOffMemberFromWaitlist(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure setHostRole(MeetingGroup meetingGroup, MemberId settingMemberId,
+            MemberId newOrganizerId),
+        // D6: Add missing domain operation
+        procedure setAttendeeRole(MeetingGroup meetingGroup, MemberId settingMemberId,
+            MemberId newOrganizerId),
+        // D6: Add missing domain operation
+        function MeetingGroupId getMeetingGroupId,
+        // D6: Add missing domain operation
+        procedure cancel(MemberId cancelMemberId),
+        // D6: Add missing domain operation
+        procedure removeAttendee(MemberId attendeeId, MemberId removingPersonId, string reason),
+        // D6: Add missing domain operation
+        procedure markAttendeeFeeAsPayed(MemberId memberId),
+        // D6: Add missing domain operation
+        function MeetingComment addComment(
+            MemberId authorId,
+            string comment,
+            MeetingGroup meetingGroup,
+            MeetingCommentingConfiguration meetingCommentingConfiguration
+        ),
+        // D6: Add missing domain operation
+        function MeetingCommentingConfiguration createCommentingConfiguration,
+        // D6: Add missing domain operation
+        hide function MeetingWaitlistMember getActiveMemberOnWaitlist(MemberId memberId),
+        // D6: Add missing domain operation
+        hide function MeetingAttendee getActiveAttendee(MemberId attendeeId),
+        // D6: Add missing domain operation
+        hide function MeetingNotAttendee getActiveNotAttendee(MemberId memberId),
+        // D6: Add missing domain operation
+        hide function int GetAllActiveAttendeesWithGuestsNumber,
+        // D6: Add missing domain operation
+        hide procedure setRsvpTerm(Term rsvpTerm, MeetingTerm meetingTerm)
+    }
+
+    structure MeetingGroup <entity, aggregate> {
+        // D5: Add missing data field
+        immutable MeetingGroupId Id <identifier,part>,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide string _description,
+        // D5: Add missing data field
+        hide MeetingGroupLocation _location <part>,
+        // D5: Add missing data field
+        hide MemberId _creatorId <part>,
+        // D5: Add missing data field
+        hide MeetingGroupMembers _members <part>,
+        // D5: Add missing data field
+        hide date _createDate,
+        // D5: Add missing data field
+        hide date _paymentDateTo,
+        // D6: Add missing domain operation
+        function MeetingGroup createBasedOnProposal(
+            MeetingGroupProposalId meetingGroupProposalId,
+            string name,
+            string description,
+            MeetingGroupLocation location,
+            MemberId creatorId
+        ),
+        // D6: Add missing domain operation
+        hide procedure MeetingGroup(MeetingGroupProposalId meetingGroupProposalId, string name,
+            string description, MeetingGroupLocation location, MemberId creatorId),
+        // D6: Add missing domain operation
+        procedure editGeneralAttributes(string name, string description,
+            MeetingGroupLocation location),
+        // D6: Add missing domain operation
+        procedure joinToGroupMember(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure leaveGroup(MemberId memberId),
+        // D6: Add missing domain operation
+        procedure setExpirationDate(date dateTo),
+        // D6: Add missing domain operation
+        function Meeting createMeeting(string title, MeetingTerm term, string description,
+            MeetingLocation location, int attendeesLimit, int guestsLimit, Term rsvpTerm,
+            MoneyValue eventFee, MemberIds hostsMembersIds, MemberId creatorId),
+        // D6: Add missing domain operation
+        function boolean isMemberOfGroup(MemberId attendeeId),
+        // D6: Add missing domain operation
+        function boolean isOrganizer(MemberId memberId)
+
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method
+        //        (createBasedOnProposal), which creates objects of MeetingGroup from
+        //        MeetingGroupProposals identified by their IDs
+        //MeetingGroupProposal meetinggroupproposal,
+
+        // D8: Remove data field
+        //        The conceptual relationship between MeetingGroup and Meeting is bidirectional.
+        //        In the implementation it is however unidirectional
+        //        (Meeting[1] -> MeetingGroup[1]).
+        //ListMeeting meeting,
+
+        // D8: Remove data field
+        //MemberSubscription membersubscription
+    }
+
+    structure MeetingGroupId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingGroupLocation <valueObject> {
+        // D6: Add missing domain operation
+        function MeetingGroupLocation createNew(string city, string countryCode),
+        immutable string city,
+        immutable string countryCode
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingGroupMember <entity> {
+        immutable MeetingGroupId MeetingGroupId <identifier>,
+        immutable MemberId MemberId,
+        hide MeetingGroupMemberRole _role,
+        immutable date JoinedDate,
+        hide boolean _isActive,
+        hide date _leaveDate,
+        hide procedure MeetingGroupMember(MeetingGroupId meetingGroupId, MemberId memberId,
+            MeetingGroupMemberRole role),
+        function MeetingGroupMember createNew(MeetingGroupId meetingGroupId, MemberId memberId,
+            MeetingGroupMemberRole role),
+        procedure leave,
+        function boolean isMember(MemberId memberId),
+        function boolean IsOrganizer(MemberId memberId)
+    }
+
+    // D4: Add missing domain concept
+    list MeetingGroupMembers { MeetingGroupMember m }
+
+    structure MeetingGroupMemberRole <valueObject> {
+        function MeetingGroupMemberRole Organizer,
+        function MeetingGroupMemberRole Member,
+        immutable string value,
+        function MeetingGroupMemberRole of(string roleCode)
+    }
+
+    structure MeetingAttendeeAddedDomainEvent <domainEvent, valueObject> {
+        immutable date rsvpDate,
+        immutable string role,
+        immutable int guestsNumber,
+        immutable double feeValue,
+        immutable string feeCurrency,
+        MeetingId meetingid,
+        MemberId attendeeId
+    }
+
+    structure MeetingAttendeeFeePaidDomainEvent <domainEvent, valueObject> {
+        MemberId attendeeId,
+        MeetingId meetingid
+    }
+
+    structure MeetingAttendeeRemovedDomainEvent <domainEvent, valueObject> {
+        immutable string reason,
+        MeetingId meetingid,
+        MemberId memberid
+    }
+
+    structure MeetingCanceledDomainEvent <domainEvent, valueObject> {
+        immutable date cancelDate,
+        MeetingId meetingid,
+        MemberId cancelMemberId
+    }
+
+    structure MeetingCreatedDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid
+    }
+
+    structure MeetingMainAttributesChangedDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid
+    }
+
+    structure MeetingNotAttendeeAddedDomainEvent <domainEvent, valueObject> {
+        MemberId memberid,
+        MeetingId meetingid
+    }
+
+    structure MeetingWaitlistMemberAddedDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid,
+        MemberId memberid
+    }
+
+    structure MemberSetAsAttendeeDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid,
+        MemberId hostId
+    }
+
+    structure MemberSignedOffFromMeetingWaitlistDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid,
+        MemberId memberid
+    }
+
+    structure NewMeetingHostSetDomainEvent <domainEvent, valueObject> {
+        MeetingId meetingid,
+        MemberId hostId
+    }
+
+    structure MemberCreatedDomainEvent <domainEvent, valueObject> {
+        MemberId memberid
+    }
+
+    structure MemberSubscriptionExpirationDateChangedDomainEvent <domainEvent, valueObject> {
+        immutable date expirationDate,
+        MemberId memberid
+    }
+
+    structure MemberCreatedIntegrationEvent <domainEvent, valueObject> {
+        immutable string memberId,
+        immutable string id,
+        immutable date occurredOn
+    }
+
+    structure MemberSubscription <entity, aggregate> {
+        // D11: Refine conceptual data field
+        //      In the implementation, the relationship between MemberSubscription and Member is
+        //      established by means of MemberId, whose value in the "value" attribute is assigned
+        //      to the "value" attribute of the MemberSubscriptionId
+        //Member member,
+        immutable MemberSubscriptionId Id <identifier,part>,
+        // D5: Add missing data field
+        hide date _expirationDate,
+        // D6: Add missing domain operation
+        hide procedure MemberSubscription(MemberId memberId, date expirationDate),
+        // D6: Add missing domain operation
+        function MemberSubscription createForMember(MemberId memberId, date expirationDate),
+        // D6: Add missing domain operation
+        procedure changeExpirationDate(date expirationDate)
+        // D8: Remove data field
+        //MeetingGroup meetinggroup
+    }
+
+    // D4: Add missing domain concept
+    structure MemberSubscriptionId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingLocation <valueObject> {
+        // D6: Add missing domain operation
+        function MeetingLocation createNew(string name, string address, string postalCode,
+            string city),
+        // D5: Add missing data field
+        immutable string Name,
+        // D5: Add missing data field
+        immutable string Address,
+        // D5: Add missing data field
+        immutable string PostalCode,
+        // D5: Add missing data field
+        immutable string City
+        // D8: Remove data field
+        //        The conceptual relationship between MeetingLocation and Meeting is bidirectional.
+        //        In the implementation it is however unidirectional
+        //        (Meeting[1] -> MeetingLocation[1]).
+        //Meeting meeting
+    }
+
+    // D4: Add missing domain concept
+    structure MoneyValue <valueObject> {
+        function MoneyValue undefined,
+        immutable double value,
+        immutable string Currency,
+        function MoneyValue Of(double value, string currency),
+        function MoneyValue multiply(int left, MoneyValue right)
+    }
+
+    // D4: Add missing domain concept
+    structure Term <valueObject> {
+        function Term noTerm,
+        immutable date StartDate,
+        immutable date EndDate,
+        function Term createNewBetweenDates(date startDate, date endDate),
+        function boolean isInTerm(date ^date)
+    }
+
+    list ListMeetingAttendee {
+        MeetingAttendee meetingAttendee
+    }
+
+    list ListMeetingNotAttendee {
+        MeetingNotAttendee meetingNotAttendee
+    }
+
+    list ListMeetingWaitlistMember {
+        MeetingWaitlistMember meetingWaitlistMember
+    }
+
+    // D7: Remove domain concept
+    //        The conceptual relationship between MeetingGroup and Meeting is bidirectional.
+    //        In the implementation it is however unidirectional
+    //        (Meeting[1] -> MeetingGroup[1]). This approach renders the following list type
+    //        redundant.
+    /*list ListMeeting {
+        Meeting meeting
+    }*/
+
+    structure MeetingAttendeeAddedIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occuredOn,
+        string meetingId,
+        string attendeeId,
+        double feeValue,
+        string feeCurrency
+    }
+
+    structure MeetingFeePaidIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occuredOn,
+        string payerId,
+        string meetingId
+    }
+
+    structure SubscriptionExpirationDateChangedIntegrationEvent <domainEvent, valueObject> {
+        date occuredOn,
+        string id,
+        string payerId,
+        date expirationDate
+    }
+
+    structure MeetingGroupProposedIntegrationEvent <domainEvent, valueObject> {
+        string meetingGroupProposalId,
+        string name,
+        string description,
+        string locationCity,
+        string locationCountryCode,
+        string proposalUserId,
+        date ProposalDate
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string userId,
+        string login,
+        string email,
+        string firstName,
+        string lastName,
+        string name
+    }
+
+    structure MeetingGroupProposalAcceptedIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occurredOn,
+        string meetingGroupProposalId
+    }
+}
+
+context Payments {
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum MeetingFeePaymentStatus {
+        WaitingForPayment,
+        Paid,
+        Expired
+    }*/
+    structure MeetingFeePaymentStatus <valueObject> {
+        function MeetingFeePaymentStatus waitingForPayment,
+        function MeetingFeePaymentStatus paid,
+        function MeetingFeePaymentStatus expired,
+        immutable string Code,
+        function MeetingFeePaymentStatus of(string code)
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum SubscriptionStatus {
+        Active,
+        Expired
+    }*/
+    structure SubscriptionStatus <valueObject> {
+        function SubscriptionStatus active,
+        function SubscriptionStatus expired,
+        immutable string Code,
+        function SubscriptionStatus of(string code)
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum SubscriptionRenewalPaymentStatus {
+        WaitingForPayment,
+        Paid,
+        Expired
+    }*/
+    structure SubscriptionRenewalPaymentStatus <valueObject> {
+        function SubscriptionRenewalPaymentStatus waitingForPayment,
+        function SubscriptionRenewalPaymentStatus paid,
+        function SubscriptionRenewalPaymentStatus expired,
+        immutable string Code,
+        function SubscriptionRenewalPaymentStatus of(string code)
+    }
+
+    // D4: Add missing domain concept
+    structure UserId <valueObject> {
+        immutable string value
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum SubscriptionPaymentStatus {
+        WaitingForPayment,
+        Paid,
+        Expired
+    }*/
+    structure SubscriptionPaymentStatus <valueObject> {
+        function SubscriptionPaymentStatus waitingForPayment,
+        function SubscriptionPaymentStatus paid,
+        function SubscriptionPaymentStatus expired,
+        immutable string Code,
+        function SubscriptionPaymentStatus of(string code)
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum SubscriptionPeriod {
+        Month,
+        HalfYear
+    }*/
+    structure SubscriptionPeriod <valueObject> {
+        immutable string Code,
+        function SubscriptionPeriod month,
+        function SubscriptionPeriod halfYear,
+        function SubscriptionPeriod of(string code),
+        function string getName(string code),
+        function int getMonthsNumber
+    }
+
+    // D10: Refine conceptual domain concept
+    //        In the implementation, the conceptual enumeration became a Value Object
+    /*enum PriceListItemCategory {
+        New,
+        Renewal
+    }*/
+    structure PriceListItemCategory <valueObject> {
+        function PriceListItemCategory New,
+        function PriceListItemCategory renewal,
+        immutable string Code,
+        function PriceListItemCategory of(string code)
+    }
+
+    // D4: Add missing domain concept
+    structure PriceListItemData {
+        immutable string CountryCode,
+        immutable SubscriptionPeriod SubscriptionPeriod,
+        immutable MoneyValue Value,
+        immutable PriceListItemCategory Category
+    }
+
+    // D4: Add missing domain concept
+    structure PriceListItemId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriberId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure MoneyValue <valueObject> {
+        immutable double value,
+        immutable string currency,
+        function MoneyValue of(double value, string currency),
+        function boolean greaterThanValue(double left, MoneyValue right),
+        function boolean lessThanValue(double left, MoneyValue right),
+        function boolean greaterEqualsValue(double left, MoneyValue right),
+        function boolean lessEqualsValue(double left, MoneyValue right),
+        function boolean greaterThan(MoneyValue left, double right),
+        function boolean lessThan(MoneyValue left, double right),
+        function boolean greaterEquals(MoneyValue left, double right),
+        function boolean lessEquals(MoneyValue left, double right)
+    }
+
+    structure SubscriptionRenewalPayment <aggregate,entity> {
+        // D5: Add missing data field
+        hide PayerId _payerId<identifier,part>,
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between
+        //      SubscriptionRenewalPayment and Subscription based on the SubscriptionId domain
+        //      concept
+        //Subscription subscription,
+        hide SubscriptionId _subscriptionId<identifier,part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide SubscriptionPeriod subscriptionperiod<part>,
+        // D5: Add missing data field
+        hide string _countryCode,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide SubscriptionRenewalPaymentStatus subscriptionrenewalpaymentstatus<part>,
+        // D5: Add missing data field
+        hide MoneyValue _value<part>,
+        // D6: Add missing domain operation
+        function SubscriptionRenewalPayment buy(PayerId payerId, SubscriptionId subscriptionId,
+            SubscriptionPeriod period, string countryCode, MoneyValue priceOffer,
+            PriceList priceList),
+        // D6: Add missing domain operation
+        function SubscriptionRenewalPaymentSnapshot getSnapshot,
+        // D6: Add missing domain operation
+        procedure MarkRenewalAsPaid,
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionRenewalPaymentCreated(
+            SubscriptionRenewalPaymentCreatedDomainEvent event
+        ),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionRenewalPaymentPaid(
+            SubscriptionRenewalPaymentPaidDomainEvent event
+        )
+    }
+
+    structure SubscriptionRenewalPaymentCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionRenewalPaymentId,
+        immutable string payerId,
+        immutable string subscriptionId,
+        immutable string subscriptionPeriodCode,
+        immutable string countryCode,
+        immutable string status,
+        immutable string currency,
+        immutable double value
+    }
+
+    structure SubscriptionRenewalPaymentPaidDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionId,
+        immutable string status,
+        immutable string subscriptionRenewalPaymentId
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionRenewalPaymentId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionRenewalPaymentSnapshot {
+        immutable PayerId PayerId,
+        immutable SubscriptionPeriod SubscriptionPeriod,
+        immutable string CountryCode,
+        immutable SubscriptionRenewalPaymentId Id
+    }
+
+    // D7: Remove domain concept
+    //      The implementation realizes the conceptual Country concept in the form of string-based
+    //      country codes
+    /*structure Country <valueObject> {
+        ListPriceListItem pricelistitem
+    }*/
+
+    structure Payer <entity,aggregate> {
+        // D5: Add missing data field
+        hide string _login<identifier>,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide date _createDate,
+        // D6: Add missing domain operation
+        function Payer create(long id, string login, string email, string firstName,
+            string lastName, string name),
+        // D6: Add missing domain operation
+        hide procedure whenPayerCreated(PayerCreatedDomainEvent event)
+        // D8: Remove data field
+        //        The conceptual relationship between Payer and MeetingFee is bidirectional. In the
+        //        implementation it is however unidirectional (MeetingFee[1] -> Payer[1]).
+        //ListMeetingFee meetingfee,
+        // D8: Remove data field
+        //        In the implementation, the conceptual relationship between Payer and Subscription
+        //        is resolved by means of the SubscriptionPayment concept, which identifies the
+        //        payment of a subscription for a certain SubscriptionPeriod and per PayerId.
+        //ListSubscription subscription
+    }
+
+    structure PayerCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string payerId,
+        immutable string login,
+        immutable string firstName,
+        immutable string lastName,
+        immutable string name,
+        immutable string email
+    }
+
+    // D4: Add missing domain concept
+    structure PayerId <valueObject> {
+        immutable string value
+    }
+
+    structure MeetingFee <aggregate,entity> {
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between MeetingFee and
+        //      Payer based on the PayerId domain concept
+        //Payer payer,
+        hide PayerId _payerId<identifier,part>,
+        // D4: Add missing domain concept
+        hide MeetingId _meetingId<identifier,part>,
+        // D4: Add missing domain concept
+        hide MoneyValue _fee<part>,
+        // D4: Add missing domain concept
+        hide MeetingFeeStatus _status<part>,
+        // D6: Add missing domain operation
+        function MeetingFee create(PayerId payerId, MeetingId meetingId, MoneyValue fee),
+        // D6: Add missing domain operation
+        procedure markAsPaid,
+        // D6: Add missing domain operation
+        function MeetingFeeSnapshot getSnapshot,
+        // D6: Add missing domain operation
+        hide procedure whenMeetingFeeCreated(MeetingFeeCreatedDomainEvent meetingFeeCreated),
+        hide procedure whenMeetingFeeCanceled(MeetingFeeCanceledDomainEvent meetingFeeCanceled),
+        hide procedure whenMeetingFeeExpired(MeetingFeeExpiredDomainEvent meetingFeeExpired),
+        hide procedure whenMeetingFeePaid(MeetingFeePaidDomainEvent meetingFeePaid)
+        // D8: Remove data field
+        //        The conceptual relationship between MeetingFeePayment and MeetingFee is
+        //        bidirectional. In the implementation it is however unidirectional
+        //        (MeetingFeePayment[1] -> MeetingFee[1]).
+        //ListMeetingFeePayment meetingfeepayment
+    }
+
+    structure MeetingFeeCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeeId,
+        immutable double feeValue,
+        immutable string feeCurrency,
+        immutable string meetingId,
+        immutable string status,
+        immutable string payerId
+    }
+
+    structure MeetingFeeCanceledDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeeId,
+        immutable string status
+    }
+
+    structure MeetingFeeExpiredDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeeId,
+        immutable string status
+    }
+
+    structure MeetingFeePaidDomainEvent <domainEvent, valueObject> {
+        immutable string status,
+        immutable string meetingFeeId
+    }
+
+    structure MeetingFeePayment <aggregate,entity> {
+        // D9: Refine conceptual relationship
+        //      The implementation establishes the conceptual relationship between MeetingFee and
+        //      MeetingFeePayment based on the MeetingFeeId domain concept
+        //MeetingFee meetingfee,
+        hide MeetingFeeId _meetingFeeId<identifier,part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide MeetingFeePaymentStatus meetingfeepaymentstatus<part>,
+        // D6: Add missing domain operation
+        function MeetingFeePayment create(MeetingFeeId meetingFeeId),
+        // D6: Add missing domain operation
+        procedure expire,
+        // D6: Add missing domain operation
+        procedure markAsPaid,
+        // D6: Add missing domain operation
+        function MeetingFeePaymentSnapshot getSnapshot,
+        // D6: Add missing domain operation
+        hide procedure whenPaymentCreated(MeetingFeePaymentCreatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenPaymentExpired(MeetingFeePaymentExpiredDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenPaymentPaid(MeetingFeePaymentPaidDomainEvent event)
+    }
+
+    structure MeetingFeePaymentCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeePaymentId,
+        immutable string meetingFeeId,
+        immutable string status
+    }
+
+    structure MeetingFeePaymentExpiredDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeePaymentId,
+        immutable string status
+    }
+
+    structure MeetingFeePaymentPaidDomainEvent <domainEvent, valueObject> {
+        immutable string meetingFeePaymentId,
+        immutable string status
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingFeeStatus <valueObject> {
+        immutable string code,
+        function MeetingFeeStatus waitingForPayment,
+        function MeetingFeeStatus paid,
+        function MeetingFeeStatus expired,
+        function MeetingFeeStatus canceled,
+        function MeetingFeeStatus of(string code)
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingFeeId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingFeeSnapshot {
+        immutable string meetingFeeId,
+        immutable string payerId,
+        immutable string meetingId
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingFeePaymentId <valueObject> {
+        immutable string value
+        // TODO: Remove procedure, probably not necessary (handled by JBG as constructor)
+        //procedure MeetingFeePaymentId(string value)
+    }
+
+    // D4: Add missing domain concept
+    structure MeetingFeePaymentSnapshot {
+        immutable string meetingFeePaymentId,
+        immutable string meetingFeeId
+    }
+
+    structure Subscription <aggregate> {
+        // D11: Refine conceptual data field
+        //      In the implementation, the conceptual relationship between Subscription and Payer is
+        //      established by means of the SubscriberId concept. It received the ID of the Payer.
+        //Payer payer,
+        hide SubscriberId _subscriberId<part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide SubscriptionPeriod subscriptionperiod<part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide SubscriptionStatus subscriptionstatus<part>,
+        // D5: Add missing data field
+        hide string _countryCode,
+        // D1: Replace unspecified type in data fields with concrete type
+        //      unspecified ExpirationDate, --> date ExpirationDate,
+        hide date ExpirationDate,
+        // D6: Add missing domain operation
+        procedure renew(SubscriptionRenewalPaymentSnapshot subscriptionRenewalPayment),
+        // D6: Add missing domain operation
+        procedure expire,
+        // D6: Add missing domain operation
+        function Subscription create(SubscriptionPaymentSnapshot subscriptionPayment),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionCreated(SubscriptionCreatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionRenewed(SubscriptionRenewedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionExpired(SubscriptionExpiredDomainEvent event)
+        // D8: Remove data field
+        //      In the implementation, the renew() procedure (see above) is responsible for the
+        //      renewal of a Subscription. It assigns a new SubscriptionPeriod, which describes the
+        //      period of the renewal, to the subscriptionperiod attribute (see above).
+        //ListSubscriptionRenewalPayment subscriptionrenewalpayment,
+        // D8: Remove data field
+        //      In the implementation, the conceptual relationship between Subscription and
+        //      SubscriptionPayment is established for a certain SubscriptionPeriod.
+        //ListSubscriptionPayment subscriptionpayment
+    }
+
+    structure SubscriptionCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string payerId,
+        immutable string subscriptionPaymentId,
+        immutable string subscriptionId,
+        immutable string subscriptionPeriodCode,
+        immutable string countryCode,
+        immutable date expirationDate,
+        immutable string status
+    }
+
+    structure SubscriptionExpiredDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionId,
+        immutable string status
+    }
+
+    structure SubscriptionRenewedDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionId,
+        immutable date expirationDate,
+        immutable string payerId,
+        immutable string status,
+        immutable string subscriptionPeriodCode
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionDateExpirationCalculator<service> {
+        function date calculateForNew(SubscriptionPeriod period),
+        function date calculateForRenewal(date expirationDate, SubscriptionPeriod period)
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionId <valueObject> {
+        immutable string value
+    }
+
+    structure SubscriptionPayment <aggregate,entity> {
+        // D5: Add missing data field
+        PayerId _payerId<identifier,part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide SubscriptionPeriod subscriptionperiod<identifier,part>,
+        // D5: Add missing data field
+        string _countryCode,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        SubscriptionPaymentStatus subscriptionpaymentstatus<part>,
+        // D5: Add missing data field
+        hide MoneyValue _value<part>,
+        // D6: Add missing domain operation
+        function SubscriptionPayment buy(PayerId payerId, SubscriptionPeriod period,
+            string countryCode, MoneyValue priceOffer, PriceList priceList),
+        // D6: Add missing domain operation
+        function SubscriptionPaymentSnapshot getSnapshot,
+        // D6: Add missing domain operation
+        procedure markAsPaid,
+        // D6: Add missing domain operation
+        procedure expire,
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionPaymentPaid(SubscriptionPaymentPaidDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionPaymentCreated(SubscriptionPaymentCreatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenSubscriptionPaymentExpired(SubscriptionPaymentExpiredDomainEvent event)
+
+        // D8: Remove data field
+        //        In the implementation, the conceptual relationship between Subscription and
+        //        SubscriptionPayment is resolved by the payment being valid for a complete
+        //        SubscriptionPeriod.
+        //Subscription subscription
+    }
+
+    structure SubscriptionPaymentCreatedDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionPaymentId,
+        immutable string payerId,
+        immutable string countryCode,
+        immutable string subscriptionPeriodCode,
+        immutable string status,
+        immutable double value,
+        immutable string currency
+    }
+
+    structure SubscriptionPaymentExpiredDomainEvent <domainEvent, valueObject> {
+        immutable string status,
+        immutable string subscriptionPaymentId
+    }
+
+    structure SubscriptionPaymentPaidDomainEvent <domainEvent, valueObject> {
+        immutable string subscriptionPaymentId,
+        immutable string status
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionPaymentId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure SubscriptionPaymentSnapshot {
+        immutable PayerId PayerId,
+        immutable SubscriptionPeriod SubscriptionPeriod,
+        immutable string CountryCode,
+        immutable SubscriptionPaymentId Id
+    }
+
+    structure PriceListItem <aggregate> {
+        // D11: Refine conceptual data field
+        //      The implementation represents countries as string-based country codes
+        //Country country,
+        hide string _countryCode,
+        // D11: Refine conceptual data field
+        //        By contrast to the conceptual model, the implementation realizes the relationship
+        //        between PriceListItem and SubscriptionPeriod with multiplicity 1 on the
+        //        SubscriptionPeriod side from the perspective of the PriceListItem side
+        //        (PriceListItem -> SubscriptionPeriod[1]).
+        //ListSubscriptionPeriod subscriptionperiod,
+        hide SubscriptionPeriod _subscriptionPeriod<part>,
+        // D11: Refine conceptual data field
+        //        Add visibility modifier
+        hide PriceListItemCategory pricelistitemcategory<part>,
+        // D5: Add missing data field
+        hide MoneyValue _price<part>,
+        // D5: Add missing data field
+        hide boolean _isActive,
+        // D6: Add missing domain operation
+        function PriceListItem create(string countryCode, SubscriptionPeriod subscriptionPeriod,
+            PriceListItemCategory category, MoneyValue price),
+        // D6: Add missing domain operation
+        procedure activate,
+        // D6: Add missing domain operation
+        procedure deactivate,
+        // D6: Add missing domain operation
+        procedure changeAttributes(string countryCode, SubscriptionPeriod subscriptionPeriod,
+            PriceListItemCategory category, MoneyValue price),
+        // D6: Add missing domain operation
+        hide procedure whenPriceListItemActivated(PriceListItemActivatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenPriceListItemCreated(PriceListItemCreatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenPriceListItemDeactivated(PriceListItemDeactivatedDomainEvent event),
+        // D6: Add missing domain operation
+        hide procedure whenPriceListItemAttributesChanged(
+            PriceListItemAttributesChangedDomainEvent event
+        )
+
+        // D8: Remove data field
+        //        The conceptual relationship between PriceListItem and PriceList is bidirectional.
+        //        In the implementation it is however unidirectional
+        //        (PriceList[1] -> PriceListItem[*]).
+        //PriceList pricelist
+    }
+
+    structure PriceListItemActivatedDomainEvent <domainEvent, valueObject> {
+        immutable string priceListItemId
+    }
+
+    structure PriceListItemAttributesChangedDomainEvent <domainEvent, valueObject> {
+        immutable string priceListItemId,
+        immutable string countryCode,
+        immutable string subscriptionPeriodCode,
+        immutable string categoryCode,
+        immutable string currency,
+        immutable long price
+    }
+
+    structure PriceListItemCreatedDomainEvent <domainEvent, valueObject> {
+        immutable long price,
+        immutable string subscriptionPeriodCode,
+        immutable string currency,
+        immutable string categoryCode,
+        immutable string countryCode,
+        immutable string priceListItemId,
+        immutable boolean isActive
+    }
+
+    structure PriceListItemDeactivatedDomainEvent <domainEvent, valueObject> {
+        immutable string priceListItemId
+    }
+
+    structure PriceList <valueObject> {
+        // D11: Refine conceptual data field
+        //        Add mutability modifier
+        immutable ListPriceListItem pricelistitem,
+        // D6: Add missing domain operation
+        function PriceList createFromItems(ListPriceListItem items),
+        // D6: Add missing domain operation
+        function MoneyValue getPrice(string countryCode, SubscriptionPeriod subscriptionPeriod,
+            PriceListItemCategory category)
+    }
+
+    list ListPriceListItem {
+        PriceListItem priceListItem
+    }
+
+    // D7: Remove domain concept
+    //        The conceptual relationship between Payer and MeetingFee is bidirectional. In the
+    //        implementation it is however unidirectional (MeetingFee[1] -> Payer[1]). This approach
+    //        renders the following list type redundant.
+    /*list ListMeetingFee {
+        MeetingFee meetingFee
+    }*/
+
+    // D7: Remove domain concept
+    //        In the implementation, the conceptual relationship between Payer and Subscription
+    //        is resolved by means of the SubscriptionPayment concept, which identifies the
+    //        payment of a subscription for a certain SubscriptionPeriod and per PayerId. This
+    //        approach renders the following list type redundant.
+    /*list ListSubscription {
+        Subscription subscription
+    }*/
+
+    // D7: Remove domain concept
+    //        The conceptual relationship between MeetingFeePayment and MeetingFee is
+    //        bidirectional. In the implementation it is however unidirectional
+    //        (MeetingFeePayment[1] -> MeetingFee[1]). This approach renders the following list type
+    //        redundant.
+    /*list ListMeetingFeePayment {
+        MeetingFeePayment meetingFeePayment
+    }*/
+
+    // D8: Remove data field
+    //      In the implementation, the renew() procedure (is responsible for the renewal of a
+    //      Subscription. It assigns a new SubscriptionPeriod, which describes the period of the
+    //      renewal, to the subscriptionperiod attribute (see above). This approach renders the
+    //      following list type redundant.
+    /*list ListSubscriptionRenewalPayment {
+        SubscriptionRenewalPayment subscriptionRenewalPayment
+    }*/
+
+    // D8: Remove data field
+    //      In the implementation, the conceptual relationship between Subscription and
+    //      SubscriptionPayment is established for a certain SubscriptionPeriod. This approach
+    //      renders the following list type redundant.
+    /*list ListSubscriptionPayment {
+        SubscriptionPayment subscriptionPayment
+    }*/
+
+    // D8: Remove data field
+    //        By contrast to the conceptual model, the implementation realizes the relationship
+    //        between PriceListItem and SubscriptionPeriod with multiplicity 1 on the
+    //        SubscriptionPeriod side from the perspective of the PriceListItem side
+    //        (PriceListItem -> SubscriptionPeriod[1]). This approach renders the following list
+    //        type redundant.
+    /*list ListSubscriptionPeriod {
+        SubscriptionPeriod subscriptionPeriod
+    }*/
+
+    structure MeetingAttendeeAddedIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occuredOn,
+        string meetingId,
+        string attendeeId,
+        double feeValue,
+        string feeCurrency
+    }
+
+    structure MeetingFeePaidIntegrationEvent <domainEvent, valueObject> {
+        string id,
+        date occuredOn,
+        string payerId,
+        string meetingId
+    }
+
+    structure SubscriptionExpirationDateChangedIntegrationEvent <domainEvent, valueObject> {
+        date occuredOn,
+        string id,
+        string payerId,
+        date expirationDate
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string firstName,
+        string name,
+        string login,
+        string lastName,
+        string userId,
+        string email
+    }
+}
+
+context UserAccess {
+    // D7: Remove domain concept
+    //      The implementation does not realize a dedicated Permission class
+    /*structure Permission <valueObject> {
+        ListUserRole userrole <part>
+    }*/
+
+    structure UserId <valueObject> {
+        immutable string value
+    }
+
+    structure User <entity, aggregate> {
+        // D5: Add missing data field
+        immutable UserId userId<identifier,part>,
+        // D5: Add missing data field
+        hide string _login,
+        // D5: Add missing data field
+        hide string _password,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide boolean _isActive,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        ListUserRole userrole <part>,
+        // D9: Refine conceptual relationship
+        //        Conceptual relationship between User and UserRegistration is established by
+        //        identifying a UserRegistration as UserRegistrationId and map it to UserId
+        // UserRegistration userregistration,
+        procedure createFromUserRegistration(UserRegistrationId userRegistrationId, string login,
+            string password, string email, string firstName, string lastName, string name),
+        // D6: Add missing domain operation
+        hide procedure User(UserRegistrationId userRegistrationId, string login, string password,
+            string email, string firstName, string lastName, string name)
+    }
+
+    structure UserRegistrationId <valueObject> {
+        immutable string value
+    }
+
+    // D4: Add missing domain concept
+    structure UsersCounter {
+        function int countUsersWithLogin(string login)
+    }
+
+    structure UserRegistration <entity, aggregate> {
+        // D5: Add missing data field
+        immutable UserRegistrationId id<identifier,part>,
+        // D5: Add missing data field
+        hide string _login,
+        // D5: Add missing data field
+        hide string _password,
+        // D5: Add missing data field
+        hide string _email,
+        // D5: Add missing data field
+        hide string _firstName,
+        // D5: Add missing data field
+        hide string _lastName,
+        // D5: Add missing data field
+        hide string _name,
+        // D5: Add missing data field
+        hide date _registerDate,
+        UserRegistrationStatus userregistrationstatus <part>,
+        // D5: Add missing data field
+        hide date _confirmedDate,
+
+        // D6: Add missing domain operation
+        hide procedure UserRegistration(string login, string password, string email,
+            string firstName, string lastName, UsersCounter usersCounter, string confirmLink),
+
+        // D6: Add missing domain operation
+        procedure registerNewUser(string login, string password, string email, string firstName,
+            string lastName, UsersCounter usersCounter, string confirmLink),
+
+        // D9: Refine conceptual relationship
+        //            This function invokes User.createFromUserRegistration to establish the
+        //            conceptual relationship between User and UserRegistration
+        //User user,
+        function User createUser,
+
+        // D6: Add missing domain operation
+        procedure confirm,
+
+        // D6: Add missing domain operation
+        procedure expire
+    }
+
+    structure UserRole <valueObject> {
+        // D5: Add missing data field
+        immutable string Value,
+        // D8: Remove data field
+        //        Removed together with Permission (see above)
+        //ListPermission permission,
+        // D8: Remove data field
+        //        The conceptual relationship between User and UserRole is bidirectional. In the
+        //        implementation it is however unidirectional (User[1] -> UserRole[*]).
+        //User user,
+        function UserRole member
+    }
+
+    structure UserRegistrationStatus <valueObject> {
+        // D5: Add missing data field
+        immutable string Value,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified WaitingForConfirmation,
+        function UserRegistrationStatus waitingForConfirmation,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified Confirmed,
+        function UserRegistrationStatus confirmed,
+        // D11: Refine conceptual data field
+        //        In the implementation, the data field became a static factory method, which
+        //        returns objects of the structure
+        //immutable unspecified Expired,
+        function UserRegistrationStatus expired
+        // D8: Remove data field
+        //        The conceptual relationship between UserRegistration and UserRegistrationStatus is
+        //        bidirectional. In the implementation it is however unidirectional
+        //        (UserRegistration[1] -> UserRegistrationStatus[1]).
+        //UserRegistration userregistration
+    }
+
+    structure NewUserRegisteredDomainEvent <domainEvent, valueObject> {
+        immutable string login,
+        immutable string email,
+        immutable string firstName,
+        immutable string lastName,
+        immutable date registerDate,
+        immutable string confirmLink,
+        UserRegistrationId userregistrationid
+    }
+
+    list ListUserRole {
+        UserRole userRole
+    }
+
+    // D7: Remove domain concept
+    //      Removed together with Permission (see above)
+    /*list ListPermission {
+        Permission permission
+    }*/
+
+    structure UserRegistrationConfirmedDomainEvent <domainEvent, valueObject> {
+        UserRegistrationId userregistrationid
+    }
+
+    structure UserRegistrationExpiredDomainEvent <domainEvent, valueObject> {
+        UserRegistrationId userregistrationid
+    }
+
+    structure UserCreatedDomainEvent <domainEvent, valueObject> {
+        UserId userid
+    }
+
+    structure NewUserRegisteredIntegrationEvent <domainEvent, valueObject> {
+        string userId,
+        string login,
+        string email,
+        string firstName,
+        string lastName,
+        string name
+    }
+
+    // D4: Add missing domain concept
+    structure RegisterNewUserCommand<valueObject> {
+        string login,
+        string password,
+        string email,
+        string firstName,
+        string lastName,
+        string confirmLink
+    }
+}
